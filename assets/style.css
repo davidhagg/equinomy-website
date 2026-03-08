@@ -1,0 +1,290 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #2a5c2e;
+  --green-light: #3d7a42;
+  --green-pale: #eef5ee;
+  --brown: #7a4f2d;
+  --text: #1a1a1a;
+  --text-muted: #555;
+  --border: #dde5dd;
+  --white: #fff;
+  --radius: 12px;
+  --shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+a { color: var(--green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.nav-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.nav-links a:hover { color: var(--green); text-decoration: none; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 5rem 1.5rem 4rem;
+}
+
+.hero-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: opacity 0.15s, transform 0.15s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover { opacity: 0.9; transform: translateY(-1px); text-decoration: none; }
+
+.btn-white { background: var(--white); color: var(--green); }
+.btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.6); }
+
+/* FEATURES */
+.section { padding: 4rem 1.5rem; max-width: 960px; margin: 0 auto; }
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.section-sub {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.feature-card {
+  background: var(--green-pale);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.feature-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+.feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+.feature-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+/* DOWNLOAD */
+.download-section {
+  background: var(--green-pale);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.store-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.6rem;
+  background: var(--text);
+  color: var(--white);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: opacity 0.15s;
+}
+
+.store-btn:hover { opacity: 0.85; text-decoration: none; }
+.store-btn .store-label { font-size: 0.7rem; opacity: 0.75; display: block; font-weight: 400; }
+
+/* FOOTER */
+footer {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+footer a { color: var(--text-muted); }
+footer a:hover { color: var(--green); }
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+/* PRIVACY POLICY PAGE */
+.page-header {
+  background: var(--green);
+  color: var(--white);
+  padding: 3rem 1.5rem 2rem;
+  text-align: center;
+}
+
+.page-header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; }
+.page-header p { opacity: 0.85; font-size: 0.95rem; }
+
+.lang-switcher {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  background: var(--green-pale);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.lang-switcher a {
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--white);
+  border: 1px solid var(--border);
+  transition: background 0.15s, color 0.15s;
+}
+
+.lang-switcher a:hover { text-decoration: none; background: var(--green-pale); color: var(--green); }
+.lang-switcher a.active { background: var(--green); color: var(--white); border-color: var(--green); }
+
+.policy-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.policy-body h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+  color: var(--green);
+}
+
+.policy-body h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.policy-body p, .policy-body li { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+.policy-body ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+
+.policy-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+.policy-body th, .policy-body td {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.policy-body th { background: var(--green-pale); font-weight: 600; }
+
+.policy-body hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.back-link:hover { color: var(--green); text-decoration: none; }
+
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .hero { padding: 3.5rem 1rem 3rem; }
+}
