@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="54" viewBox="0 0 160 54" role="img" aria-label="Get it on Google Play">
+  <rect width="160" height="54" rx="10" fill="#000"/>
+  <!-- Google Play triangle logo: right-pointing triangle divided into 4 color quadrants -->
+  <!-- Overall triangle vertices: (0,0) (22,13) (0,26), center at (11,13) -->
+  <g transform="translate(12,14)">
+    <!-- Blue: top-left triangle -->
+    <polygon fill="#4285F4" points="0,0 0,13 11,13"/>
+    <!-- Yellow: top-right triangle -->
+    <polygon fill="#FBBC05" points="0,0 22,13 11,13"/>
+    <!-- Red: bottom-right triangle -->
+    <polygon fill="#EA4335" points="22,13 0,26 11,13"/>
+    <!-- Green: bottom-left triangle -->
+    <polygon fill="#34A853" points="0,26 0,13 11,13"/>
+  </g>
+  <!-- "Get it on" -->
+  <text x="44" y="22" fill="#fff" font-family="'Google Sans',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="10" letter-spacing="0.1">Get it on</text>
+  <!-- "Google Play" -->
+  <text x="44" y="41" fill="#fff" font-family="'Google Sans',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="20" font-weight="500" letter-spacing="-0.3">Google Play</text>
+</svg>
