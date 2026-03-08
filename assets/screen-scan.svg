@@ -1,0 +1,181 @@
+<svg viewBox="0 0 300 640" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gr" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="50%" stop-color="#AE2E8A"/>
+      <stop offset="100%" stop-color="#F472B6"/>
+    </linearGradient>
+    <linearGradient id="grh" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="50%" stop-color="#AE2E8A"/>
+      <stop offset="100%" stop-color="#F472B6"/>
+    </linearGradient>
+    <linearGradient id="hdr" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="50%" stop-color="#AE2E8A"/>
+      <stop offset="100%" stop-color="#F472B6"/>
+    </linearGradient>
+    <filter id="sh" x="-12%" y="-6%" width="124%" height="118%">
+      <feDropShadow dx="0" dy="8" stdDeviation="18" flood-color="#000" flood-opacity="0.32"/>
+    </filter>
+    <clipPath id="sc">
+      <rect x="8" y="8" width="284" height="624" rx="44"/>
+    </clipPath>
+  </defs>
+
+  <!-- Phone frame -->
+  <rect x="4" y="4" width="292" height="632" rx="48" fill="#1C1C1E" filter="url(#sh)"/>
+  <rect x="8" y="8" width="284" height="624" rx="44" fill="#F5F5F5"/>
+
+  <g clip-path="url(#sc)">
+    <!-- Dynamic island -->
+    <rect x="114" y="16" width="72" height="26" rx="13" fill="#1C1C1E"/>
+
+    <!-- Gradient header (nav) -->
+    <rect x="8" y="8" width="284" height="58" fill="url(#hdr)"/>
+
+    <!-- Status bar: time (white) -->
+    <text x="26" y="38" font-family="-apple-system,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="white">9:41</text>
+    <rect x="254" y="30" width="24" height="12" rx="3.5" fill="none" stroke="white" stroke-width="1.5" opacity="0.9"/>
+    <rect x="278" y="33.5" width="2.5" height="5" rx="1" fill="white" opacity="0.5"/>
+    <rect x="256.5" y="32" width="17" height="8" rx="2" fill="white" opacity="0.9"/>
+    <rect x="240" y="34" width="3" height="8" rx="1.5" fill="white"/>
+    <rect x="245.5" y="36.5" width="3" height="5.5" rx="1.5" fill="white"/>
+    <rect x="251" y="38.5" width="3" height="3.5" rx="1.5" fill="white" opacity="0.4"/>
+
+    <!-- Back arrow + title -->
+    <polyline points="24,55 18,49 24,43" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="150" y="55" font-family="-apple-system,sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">Lägg till utgift</text>
+
+    <!-- ADD EXPENSE SCREEN BACKGROUND CONTENT (visible behind modal) -->
+    <!-- Scan button with gradient border -->
+    <rect x="16" y="70" width="268" height="52" rx="14" fill="url(#grh)"/>
+    <rect x="18" y="72" width="264" height="48" rx="12" fill="white"/>
+    <!-- Sparkle icon (creation) -->
+    <path d="M46,91 L48,96 L53,96 L49.5,99.5 L51,104 L46,101 L41,104 L42.5,99.5 L39,96 L44,96 Z" fill="#AE2E8A"/>
+    <text x="60" y="95" font-family="-apple-system,sans-serif" font-size="14" font-weight="600" fill="#AE2E8A">Scanna kvitto</text>
+    <!-- "3 kvar" badge -->
+    <rect x="188" y="86" width="40" height="20" rx="10" fill="#AE2E8A18"/>
+    <text x="208" y="100" font-family="-apple-system,sans-serif" font-size="10.5" font-weight="700" fill="#AE2E8A" text-anchor="middle">3 kvar</text>
+
+    <!-- Form fields below -->
+    <!-- Belopp field -->
+    <rect x="16" y="132" width="268" height="52" rx="12" fill="white"/>
+    <text x="30" y="153" font-family="-apple-system,sans-serif" font-size="11" fill="#9E9E9E">Belopp (SEK)</text>
+    <text x="30" y="172" font-family="-apple-system,sans-serif" font-size="16" font-weight="600" fill="#212121">1 250</text>
+    <line x1="16" y1="184" x2="284" y2="184" stroke="#E0E0E0" stroke-width="0.5"/>
+
+    <!-- Kategori chips -->
+    <text x="16" y="203" font-family="-apple-system,sans-serif" font-size="12" font-weight="600" fill="#9E9E9E">KATEGORI</text>
+    <!-- Row 1 chips -->
+    <rect x="16" y="212" width="72" height="36" rx="18" fill="#F4E0A8"/>
+    <text x="52" y="234" font-family="-apple-system,sans-serif" font-size="11" font-weight="600" fill="#212121" text-anchor="middle">Foder</text>
+    <rect x="96" y="212" width="72" height="36" rx="18" fill="white" stroke="#E0E0E0" stroke-width="1.2"/>
+    <text x="132" y="234" font-family="-apple-system,sans-serif" font-size="11" fill="#9E9E9E" text-anchor="middle">Veterinär</text>
+    <rect x="176" y="212" width="80" height="36" rx="18" fill="white" stroke="#E0E0E0" stroke-width="1.2"/>
+    <text x="216" y="234" font-family="-apple-system,sans-serif" font-size="11" fill="#9E9E9E" text-anchor="middle">Hovslagare</text>
+    <!-- Row 2 chips -->
+    <rect x="16" y="256" width="72" height="36" rx="18" fill="white" stroke="#E0E0E0" stroke-width="1.2"/>
+    <text x="52" y="278" font-family="-apple-system,sans-serif" font-size="11" fill="#9E9E9E" text-anchor="middle">Träning</text>
+    <rect x="96" y="256" width="88" height="36" rx="18" fill="white" stroke="#E0E0E0" stroke-width="1.2"/>
+    <text x="140" y="278" font-family="-apple-system,sans-serif" font-size="11" fill="#9E9E9E" text-anchor="middle">Stallhyra</text>
+    <rect x="192" y="256" width="72" height="36" rx="18" fill="white" stroke="#E0E0E0" stroke-width="1.2"/>
+    <text x="228" y="278" font-family="-apple-system,sans-serif" font-size="11" fill="#9E9E9E" text-anchor="middle">Tävling</text>
+
+    <!-- DARK MODAL OVERLAY -->
+    <rect x="8" y="8" width="284" height="624" fill="black" opacity="0.45"/>
+
+    <!-- BOTTOM SHEET MODAL -->
+    <rect x="8" y="260" width="284" height="372" rx="0" fill="#FFFFFF"/>
+    <rect x="8" y="260" width="284" height="40" fill="#FFFFFF"/>
+    <!-- Top rounded corners of modal -->
+    <rect x="8" y="260" width="284" height="372" rx="0"/>
+    <!-- Rounded top using path -->
+    <path d="M8,288 L8,260 Q8,260 8,260 L292,260 Q292,260 292,260 L292,288" fill="white"/>
+    <path d="M8,260 Q8,260 36,260 Q8,288 8,288 Z" fill="white"/>
+    <path d="M292,260 Q292,260 264,260 Q292,288 292,288 Z" fill="white"/>
+    <!-- Simpler approach: just a white rect with top-rounded -->
+    <rect x="8" y="276" width="284" height="356" fill="white"/>
+    <rect x="8" y="260" width="284" height="48" rx="28" fill="white"/>
+
+    <!-- Handle bar -->
+    <rect x="132" y="272" width="36" height="5" rx="2.5" fill="#E0E0E0"/>
+
+    <!-- AI badge -->
+    <rect x="118" y="286" width="64" height="22" rx="11" fill="#AE2E8A15"/>
+    <circle cx="130" cy="297" r="4" fill="none"/>
+    <!-- Sparkle in badge -->
+    <path d="M130,291 L131.2,294.6 L134.8,294.6 L132,296.8 L133.2,300.4 L130,298.2 L126.8,300.4 L128,296.8 L125.2,294.6 L128.8,294.6 Z" fill="#AE2E8A"/>
+    <text x="160" y="301" font-family="-apple-system,sans-serif" font-size="10" font-weight="700" fill="#AE2E8A" text-anchor="middle" letter-spacing="0.5">AI-DRIVEN</text>
+
+    <!-- Modal title -->
+    <text x="150" y="330" font-family="-apple-system,sans-serif" font-size="20" font-weight="800" fill="#212121" text-anchor="middle">Scanna kvitto</text>
+    <text x="150" y="352" font-family="-apple-system,sans-serif" font-size="12.5" fill="#9E9E9E" text-anchor="middle">Ladda upp ett foto — AI fyller i</text>
+    <text x="150" y="367" font-family="-apple-system,sans-serif" font-size="12.5" fill="#9E9E9E" text-anchor="middle">utgiftsdetaljerna åt dig</text>
+
+    <!-- Two option cards side by side -->
+    <!-- Option 1: Ta foto (gradient) -->
+    <rect x="24" y="382" width="116" height="120" rx="16" fill="#F5F5F5"/>
+    <!-- Gradient camera icon bg -->
+    <rect x="63" y="396" width="40" height="40" rx="12" fill="url(#gr)"/>
+    <!-- Camera icon (white) -->
+    <rect x="69" y="404" width="28" height="20" rx="5" fill="none" stroke="white" stroke-width="1.8"/>
+    <circle cx="83" cy="414" r="5" fill="none" stroke="white" stroke-width="1.8"/>
+    <rect x="79" y="401" width="8" height="6" rx="2" fill="white"/>
+    <text x="82" y="449" font-family="-apple-system,sans-serif" font-size="13" font-weight="700" fill="#212121" text-anchor="middle">Ta foto</text>
+    <text x="82" y="464" font-family="-apple-system,sans-serif" font-size="10.5" fill="#9E9E9E" text-anchor="middle">Fotografera</text>
+    <text x="82" y="477" font-family="-apple-system,sans-serif" font-size="10.5" fill="#9E9E9E" text-anchor="middle">kvittot nu</text>
+
+    <!-- Option 2: Gallery (outline) -->
+    <rect x="160" y="382" width="116" height="120" rx="16" fill="#F5F5F5"/>
+    <!-- Outline icon bg -->
+    <rect x="199" y="396" width="40" height="40" rx="12" fill="none" stroke="#AE2E8A" stroke-width="1.5" opacity="0.4"/>
+    <rect x="203" y="404" width="13" height="13" rx="2.5" fill="none" stroke="#AE2E8A" stroke-width="1.6"/>
+    <rect x="220" y="404" width="13" height="13" rx="2.5" fill="none" stroke="#AE2E8A" stroke-width="1.6"/>
+    <rect x="203" y="421" width="13" height="13" rx="2.5" fill="none" stroke="#AE2E8A" stroke-width="1.6" opacity="0.5"/>
+    <rect x="220" y="421" width="13" height="13" rx="2.5" fill="none" stroke="#AE2E8A" stroke-width="1.6" opacity="0.5"/>
+    <text x="218" y="449" font-family="-apple-system,sans-serif" font-size="13" font-weight="700" fill="#212121" text-anchor="middle">Galleri</text>
+    <text x="218" y="464" font-family="-apple-system,sans-serif" font-size="10.5" fill="#9E9E9E" text-anchor="middle">Välj en</text>
+    <text x="218" y="477" font-family="-apple-system,sans-serif" font-size="10.5" fill="#9E9E9E" text-anchor="middle">befintlig bild</text>
+
+    <!-- Disclaimer -->
+    <text x="150" y="522" font-family="-apple-system,sans-serif" font-size="10.5" fill="#BDBDBD" text-anchor="middle">Kontrollera alltid att uppgifterna stämmer</text>
+
+    <!-- TAB BAR -->
+    <rect x="8" y="582" width="284" height="50" fill="white"/>
+    <line x1="8" y1="582" x2="292" y2="582" stroke="#E0E0E0" stroke-width="0.75"/>
+
+    <!-- Tab 1: Home -->
+    <path d="M29,608 L29,601 L37,601 L37,608" fill="none" stroke="#9E9E9E" stroke-width="1.8" stroke-linejoin="round"/>
+    <polyline points="25,604 33,596.5 41,604" fill="none" stroke="#9E9E9E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="33" y="620" font-family="-apple-system,sans-serif" font-size="8.5" fill="#9E9E9E" text-anchor="middle">Hem</text>
+
+    <!-- Tab 2: Expenses -->
+    <line x1="83" y1="597" x2="93" y2="597" stroke="#9E9E9E" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="83" y1="602" x2="93" y2="602" stroke="#9E9E9E" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="83" y1="607" x2="90" y2="607" stroke="#9E9E9E" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="88" y="620" font-family="-apple-system,sans-serif" font-size="8.5" fill="#9E9E9E" text-anchor="middle">Utgifter</text>
+
+    <!-- Tab 3: Add (active, gradient) -->
+    <circle cx="150" cy="602" r="17" fill="url(#gr)"/>
+    <line x1="150" y1="595.5" x2="150" y2="608.5" stroke="white" stroke-width="2.3" stroke-linecap="round"/>
+    <line x1="143.5" y1="602" x2="156.5" y2="602" stroke="white" stroke-width="2.3" stroke-linecap="round"/>
+    <text x="150" y="625" font-family="-apple-system,sans-serif" font-size="8.5" fill="#AE2E8A" text-anchor="middle" font-weight="600">Lägg till</text>
+
+    <!-- Tab 4: Horses -->
+    <ellipse cx="209" cy="604" rx="8" ry="5" fill="none" stroke="#9E9E9E" stroke-width="1.6"/>
+    <circle cx="219" cy="598" r="4.5" fill="none" stroke="#9E9E9E" stroke-width="1.6"/>
+    <line x1="214" y1="601" x2="216" y2="600" stroke="#9E9E9E" stroke-width="1.6"/>
+    <path d="M220,593.5 L222,591 L223,594" fill="none" stroke="#9E9E9E" stroke-width="1.2" stroke-linejoin="round"/>
+    <line x1="203" y1="609" x2="201" y2="616" stroke="#9E9E9E" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="207" y1="609" x2="206" y2="616" stroke="#9E9E9A" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="213" y1="609" x2="213" y2="616" stroke="#9E9E9E" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="212" y="626" font-family="-apple-system,sans-serif" font-size="8.5" fill="#9E9E9E" text-anchor="middle">Hästar</text>
+
+    <!-- Tab 5: Statistics -->
+    <rect x="256" y="606" width="4" height="5" rx="1" fill="#9E9E9E"/>
+    <rect x="262" y="601" width="4" height="10" rx="1" fill="#9E9E9E"/>
+    <rect x="268" y="598" width="4" height="13" rx="1" fill="#9E9E9E"/>
+    <text x="264" y="620" font-family="-apple-system,sans-serif" font-size="8.5" fill="#9E9E9E" text-anchor="middle">Statistik</text>
+  </g>
+</svg>
