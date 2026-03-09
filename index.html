@@ -6,6 +6,9 @@
   <title>Equinomy – AI-Powered Horse Expense Tracker</title>
   <meta name="description" content="Track every horse expense effortlessly. AI receipt scanning, budget overviews, and multi-horse support — all in one app." />
   <link rel="icon" href="assets/logo-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
@@ -28,7 +31,7 @@
     <div class="hero-badge">
       <span></span> AI-powered expense tracking
     </div>
-    <h1>Your horse finances,<br><span class="grad-text">finally under control.</span></h1>
+    <h1>Track what you spend.<br><span class="grad-text">Stay in the saddle.</span></h1>
     <p>Equinomy uses AI to scan receipts, categorise expenses, and give you a clear picture of what your horses actually cost.</p>
     <div class="btn-group">
       <a href="#download" class="btn-primary">Get the app</a>
@@ -38,41 +41,219 @@
 </section>
 
 <!-- FEATURES -->
-<div class="section" id="features">
-  <div class="section-label">Features</div>
-  <h2 class="section-title">Everything a horse owner needs</h2>
-  <p class="section-sub">Purpose-built for the real costs of horse ownership — from farrier visits to feed bills.</p>
+<div class="features-outer" id="features">
+  <div class="features-inner">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Everything a horse owner needs</h2>
+    <p class="section-sub">Purpose-built for the real costs of horse ownership — from farrier visits to feed bills.</p>
 
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">📷</div>
-      <h3>AI Receipt Scanning</h3>
-      <p>Point your camera at any receipt. Equinomy's AI reads the amount, date, and category automatically.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📊</div>
-      <h3>Smart Expense Overviews</h3>
-      <p>Interactive charts break down your spending by category, time period, or horse — instantly.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🐎</div>
-      <h3>Multi-Horse Support</h3>
-      <p>Manage expenses for an entire stable. Each horse gets its own profile and cost breakdown.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📋</div>
-      <h3>Budget Planning</h3>
-      <p>Set monthly budgets per category and get notified before you overspend.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">☁️</div>
-      <h3>Synced Across Devices</h3>
-      <p>Your data lives securely in the cloud and stays in sync across all your devices, always.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🔒</div>
-      <h3>Private by Design</h3>
-      <p>GDPR-compliant, EU-hosted storage. We collect only what the app needs — nothing more.</p>
+    <div class="features-bento">
+
+      <!-- AI Receipt Scanning (wide) -->
+      <div class="feature-bento-card feat-wide">
+        <div class="feat-visual feat-visual-ai">
+          <div class="receipt-mock">
+            <div class="receipt-scan-beam"></div>
+            <div class="receipt-row-top">
+              <span class="receipt-store">Equine Supply Co.</span>
+              <span class="receipt-date">8 Mar 2026</span>
+            </div>
+            <div class="receipt-lines">
+              <div class="receipt-line"><span>Horseshoes × 4</span><span>€32.00</span></div>
+              <div class="receipt-line"><span>Hoof oil</span><span>€13.00</span></div>
+            </div>
+            <div class="receipt-total-row">
+              <span>Total</span><span>€45.00</span>
+            </div>
+          </div>
+          <div class="ai-arrow">
+            <div class="ai-arrow-label">AI</div>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="ai-result">
+            <div class="ai-result-label"><span class="ai-active-dot"></span> AI extracted</div>
+            <div class="ai-result-row"><span class="ai-rk">Amount</span><span class="ai-rv">€45.00</span></div>
+            <div class="ai-result-row"><span class="ai-rk">Category</span><span class="ai-rv">Farrier</span></div>
+            <div class="ai-result-row"><span class="ai-rk">Date</span><span class="ai-rv">Mar 8, 2026</span></div>
+            <div class="ai-result-row"><span class="ai-rk">Horse</span><span class="ai-rv">Bella</span></div>
+          </div>
+        </div>
+        <div class="feat-body">
+          <div class="feat-icon">📷</div>
+          <div class="feat-text">
+            <h3>AI Receipt Scanning</h3>
+            <p>Point your camera at any receipt. Equinomy's AI reads the amount, date, and category automatically.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Multi-Horse Support -->
+      <div class="feature-bento-card">
+        <div class="feat-visual">
+          <div class="horse-list">
+            <div class="horse-row">
+              <div class="horse-av" style="--hc:#8B5CF6">B</div>
+              <div class="horse-data">
+                <span class="horse-name">Bella</span>
+                <div class="horse-track"><div class="horse-fill" style="width:72%;background:#8B5CF6"></div></div>
+              </div>
+              <span class="horse-amt">€384</span>
+            </div>
+            <div class="horse-row">
+              <div class="horse-av" style="--hc:#F472B6">S</div>
+              <div class="horse-data">
+                <span class="horse-name">Shadow</span>
+                <div class="horse-track"><div class="horse-fill" style="width:48%;background:#F472B6"></div></div>
+              </div>
+              <span class="horse-amt">€255</span>
+            </div>
+            <div class="horse-row">
+              <div class="horse-av" style="--hc:#34d399">M</div>
+              <div class="horse-data">
+                <span class="horse-name">Misty</span>
+                <div class="horse-track"><div class="horse-fill" style="width:28%;background:#34d399"></div></div>
+              </div>
+              <span class="horse-amt">€149</span>
+            </div>
+          </div>
+        </div>
+        <div class="feat-body">
+          <div class="feat-icon">🐎</div>
+          <div class="feat-text">
+            <h3>Multi-Horse Support</h3>
+            <p>Each horse gets its own profile and cost breakdown — manage an entire stable in one place.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expense Overviews -->
+      <div class="feature-bento-card">
+        <div class="feat-visual">
+          <div class="donut-chart-wrap">
+            <div class="donut-chart">
+              <div class="donut-hole">
+                <span class="donut-total">€700</span>
+                <span class="donut-sub">this month</span>
+              </div>
+            </div>
+          </div>
+          <div class="chart-legend">
+            <div class="legend-row"><span class="legend-dot" style="--dc:#8B5CF6"></span><span class="legend-cat">Feed</span><span class="legend-val">€280</span></div>
+            <div class="legend-row"><span class="legend-dot" style="--dc:#AE2E8A"></span><span class="legend-cat">Farrier</span><span class="legend-val">€175</span></div>
+            <div class="legend-row"><span class="legend-dot" style="--dc:#F472B6"></span><span class="legend-cat">Vet</span><span class="legend-val">€140</span></div>
+            <div class="legend-row"><span class="legend-dot" style="--dc:#60a5fa"></span><span class="legend-cat">Other</span><span class="legend-val">€105</span></div>
+          </div>
+        </div>
+        <div class="feat-body">
+          <div class="feat-icon">📊</div>
+          <div class="feat-text">
+            <h3>Smart Expense Overviews</h3>
+            <p>Interactive charts break down your spending by category, time period, or horse — instantly.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Budget Planning -->
+      <div class="feature-bento-card">
+        <div class="feat-visual">
+          <div class="budget-rows">
+            <div class="budget-item">
+              <div class="budget-meta"><span class="budget-cat">Feed</span><span class="budget-pct">68%</span></div>
+              <div class="budget-track"><div class="budget-fill" style="width:68%"></div></div>
+            </div>
+            <div class="budget-item">
+              <div class="budget-meta"><span class="budget-cat">Farrier</span><span class="budget-pct budget-warn">92%</span></div>
+              <div class="budget-track"><div class="budget-fill budget-fill-warn" style="width:92%"></div></div>
+            </div>
+            <div class="budget-item">
+              <div class="budget-meta"><span class="budget-cat">Vet</span><span class="budget-pct">35%</span></div>
+              <div class="budget-track"><div class="budget-fill" style="width:35%"></div></div>
+            </div>
+            <div class="budget-item">
+              <div class="budget-meta"><span class="budget-cat">Supplies</span><span class="budget-pct">54%</span></div>
+              <div class="budget-track"><div class="budget-fill" style="width:54%"></div></div>
+            </div>
+          </div>
+          <div class="budget-alert">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 6v3.5M8 11v.5" stroke="#f59e0b" stroke-width="1.6" stroke-linecap="round"/><path d="M6.8 2.6 1.3 12A1.6 1.6 0 0 0 2.7 14.4h10.6a1.6 1.6 0 0 0 1.4-2.4L9.2 2.6a1.6 1.6 0 0 0-2.4 0Z" stroke="#f59e0b" stroke-width="1.2"/></svg>
+            Farrier budget nearly reached
+          </div>
+        </div>
+        <div class="feat-body">
+          <div class="feat-icon">📋</div>
+          <div class="feat-text">
+            <h3>Budget Planning</h3>
+            <p>Set monthly budgets per category and get notified before you overspend.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Synced Across Devices -->
+      <div class="feature-bento-card">
+        <div class="feat-visual feat-visual-sync">
+          <div class="sync-devices">
+            <div class="sync-device-mock sync-phone-mock">
+              <div class="sdm-bar sdm-full"></div>
+              <div class="sdm-bar sdm-three-q"></div>
+              <div class="sdm-bar sdm-half"></div>
+              <div class="sdm-bar sdm-three-q"></div>
+            </div>
+            <div class="sync-arrows-col">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M1 4v6h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M23 20v-6h-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="sync-device-mock sync-tablet-mock">
+              <div class="sdm-bar sdm-full"></div>
+              <div class="sdm-bar sdm-half"></div>
+              <div class="sdm-bar sdm-three-q"></div>
+            </div>
+          </div>
+          <div class="sync-status-badge">
+            <span class="sync-dot"></span>
+            Always up to date
+          </div>
+        </div>
+        <div class="feat-body">
+          <div class="feat-icon">☁️</div>
+          <div class="feat-text">
+            <h3>Synced Across Devices</h3>
+            <p>Your data lives securely in the cloud and stays in sync across all your devices, always.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Private by Design (full width) -->
+      <div class="feature-bento-card feat-full feat-privacy-card">
+        <div class="feat-privacy-layout">
+          <div class="feat-privacy-left">
+            <div class="feat-icon feat-icon-lg">🔒</div>
+            <div class="feat-text">
+              <h3>Private by Design</h3>
+              <p>GDPR-compliant, EU-hosted storage. We collect only what the app needs — nothing more.</p>
+            </div>
+          </div>
+          <div class="feat-trust-badges">
+            <div class="trust-badge">
+              <svg class="trust-check" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              GDPR Compliant
+            </div>
+            <div class="trust-badge">
+              <svg class="trust-check" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              EU-Hosted Data
+            </div>
+            <div class="trust-badge">
+              <svg class="trust-check" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Minimal Collection
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -109,7 +290,7 @@
   <div class="ai-strip-inner">
     <div>
       <div class="section-label">AI-powered</div>
-      <h2 class="section-title">Less manual work.<br>More riding time.</h2>
+      <h2 class="section-title">Track what you spend.<br>Stay in the saddle.</h2>
       <p class="section-sub">Equinomy's AI engine handles the tedious parts — reading receipts, assigning categories, spotting patterns in your spending.</p>
     </div>
     <div class="ai-pill-list">
