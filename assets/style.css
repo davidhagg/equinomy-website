@@ -1102,4 +1102,192 @@ footer p {
     padding: 1.75rem 1.5rem;
   }
   .feat-privacy-card { flex-direction: column; }
+  .feat-visual-health { flex-direction: column; align-items: stretch; }
+  .health-notif-card { width: 100%; }
+}
+
+/* ── HEALTH LOG CARD ─────────────────────────────────────── */
+.feat-visual-health {
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 2rem 2rem 1.5rem;
+  gap: 1.5rem;
+}
+
+.health-schedule-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.health-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+.health-icon-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.health-dot-overdue { background: #f87171; box-shadow: 0 0 6px rgba(248,113,113,0.6); }
+.health-dot-soon    { background: #fbbf24; box-shadow: 0 0 6px rgba(251,191,36,0.6); }
+.health-dot-ok      { background: #34d399; box-shadow: 0 0 6px rgba(52,211,153,0.6); }
+
+.health-data {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.health-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.health-due {
+  font-size: 0.69rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.health-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.health-overdue { background: rgba(239,68,68,0.12); color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
+.health-soon    { background: rgba(245,158,11,0.12); color: #fbbf24; border: 1px solid rgba(245,158,11,0.25); }
+.health-ok      { background: rgba(52,211,153,0.12); color: #34d399; border: 1px solid rgba(52,211,153,0.25); }
+
+.health-notif-card {
+  flex: 0 0 auto;
+  width: 210px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-self: center;
+}
+
+.health-notif-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.health-notif-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}
+
+.health-notif-app {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text);
+  flex: 1;
+}
+
+.health-notif-time {
+  font-size: 0.65rem;
+  color: var(--text-faint);
+}
+
+.health-notif-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.health-notif-body {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* ── ANALYTICS CARD ──────────────────────────────────────── */
+.analytics-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.analytics-kpis {
+  display: flex;
+  gap: 8px;
+}
+
+.analytics-kpi {
+  flex: 1;
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 9px 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.analytics-kpi-label {
+  font-size: 0.63rem;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.analytics-kpi-val {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.analytics-up { color: #34d399; }
+
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 4px;
+}
+
+.hm-cell {
+  height: 26px;
+  border-radius: 5px;
+}
+
+.hm-low  { background: rgba(139,92,246,0.15); }
+.hm-mid  { background: rgba(139,92,246,0.45); }
+.hm-high { background: rgba(139,92,246,0.85); }
+
+.heatmap-labels {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 4px;
+}
+
+.heatmap-labels span {
+  font-size: 0.55rem;
+  color: var(--text-faint);
+  text-align: center;
 }
