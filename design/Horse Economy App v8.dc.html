@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<style>
+body{margin:0;background:#f3ecea;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#e0165f;text-decoration:none}a:hover{color:#c8104c}
+input{font-family:inherit}
+input::placeholder{color:rgba(42,20,32,.4)}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes sheetUp{from{transform:translateY(101%)}to{transform:translateY(0)}}
+@keyframes dim{from{opacity:0}to{opacity:1}}
+@keyframes pop{0%{opacity:0;transform:scale(.9)}62%{transform:scale(1.02)}100%{opacity:1;transform:scale(1)}}
+@keyframes toastIn{0%{opacity:0;transform:translateY(16px) scale(.95)}14%{opacity:1;transform:none}86%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-6px) scale(.98)}}
+@keyframes breathe{0%,100%{opacity:.55}50%{opacity:.85}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;gap:60px;align-items:flex-start;justify-content:center;padding:52px 44px 90px;background:radial-gradient(900px 520px at 74% -6%, rgba(224,22,95,.12), rgba(243,236,234,0) 62%)">
+
+  <aside style="width:290px;flex:none;padding-top:10px">
+    <div style="font:590 12px/1 -apple-system,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:rgba(42,20,32,.46)">v8 · in &amp; ut</div>
+    <h2 style="font:700 28px/1.08 -apple-system,system-ui,sans-serif;letter-spacing:-.026em;color:#2a1420;margin:12px 0 14px">Ljust, varmt<br>och mättat.</h2>
+    <p style="font:400 15px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.58);margin:0 0 26px;text-wrap:pretty">Samma system som det mörka, vänt. Benvitt papper med en rosa ljusgård, vita kort med varma skuggor, plommonbläck istället för svart — och en enda självsäker accent.</p>
+
+    <div style="display:flex;flex-direction:column;gap:15px;margin-bottom:26px">
+      <div style="font:400 13.5px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)"><b style="font-weight:590;color:#2a1420">Plommon, inte svart.</b> Texten är #2A1420. Rent svart på benvitt är hårt och billigt; en mörk plommonton är varmare och läser mjukare.</div>
+      <div style="font:400 13.5px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)"><b style="font-weight:590;color:#2a1420">Liquid Glass i kromen.</b> Flikraden och kompositören är flytande vita kapslar med oskärpa och mättnad — det är iOS 26:s signatur.</div>
+      <div style="font:400 13.5px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)"><b style="font-weight:590;color:#2a1420">Siffran lever.</b> 68 px, tätt spårad, och ljusgården bakom byter färg till periodens största kategori. Grön i mars när veterinären dominerar, lila när det är träning.</div>
+      <div style="font:400 13.5px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)"><b style="font-weight:590;color:#2a1420">Korn över allt.</b> En film av brus på 3 %, multiplicerad. Det är skillnaden mellan en platt CSS-yta och något som ser tryckt ut.</div>
+      <div style="font:400 13.5px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)"><b style="font-weight:590;color:#2a1420">Hästarna får identitet.</b> Egen färg, gradientring, och kortet badar i sin egen ton.</div>
+      <div style="font:400 13.5px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)"><b style="font-weight:590;color:#2a1420">Intäkt eller utgift.</b> Ett vägval högst upp i arket. Intäkt byter accent till grönt, ger egna kategorier och plustecken — allt annat står stilla.</div>
+    </div>
+
+    <div style="height:1px;background:rgba(42,20,32,.08);margin-bottom:18px"></div>
+    <div style="font:400 13.5px/1.62 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.46)">Log, periodväljaren och överlägget är kvar precis som du ville. Skriv «sålt täcke 800» i Beskriv-läget så växlar den själv till intäkt. Det mörka finns kvar i v6 om du vill jämföra.</div>
+  </aside>
+
+  <div style="flex:none">
+  <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="{{ dw }}" height="{{ dh }}" dark="{{ true }}" hint-size="402px,874px">
+  <div style="height:100%;background:#fbf7f6;position:relative;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',system-ui,sans-serif;color:#2a1420">
+
+    <!-- ljusgård som följer periodens dominanta kategori -->
+    <div style="position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:640px;height:520px;border-radius:999px;background:radial-gradient(circle at 50% 50%, {{ glow }} 0%, rgba(251,247,246,0) 66%);pointer-events:none;transition:background 600ms ease;animation:breathe 9s ease-in-out infinite"></div>
+    <!-- filmkorn -->
+    <div style="position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.032;mix-blend-mode:multiply;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></div>
+
+    <div style="position:absolute;inset:0;z-index:3;transform:{{ backXform }};transition:transform 380ms cubic-bezier(.32,.72,0,1);display:flex;flex-direction:column">
+
+      <!-- ═══════ HEM ═══════ -->
+      <sc-if value="{{ isHem }}" hint-placeholder-val="{{ true }}">
+      <div data-screen-label="Hem" style="flex:1;overflow:auto;padding:52px 0 178px">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px 0">
+          <div>
+            <div style="font:590 11px/1 -apple-system,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:rgba(42,20,32,.46)">Stjärnhälla</div>
+            <div style="font:590 15px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.015em;margin-top:6px;color:rgba(42,20,32,.62)">God kväll, Daniel</div>
+          </div>
+          <div onClick="{{ goHast }}" style="width:38px;height:38px;border-radius:999px;background:linear-gradient(145deg,#f0407a,#b30f4a);display:flex;align-items:center;justify-content:center;font:590 13px/1 -apple-system,system-ui,sans-serif;cursor:pointer;box-shadow:0 6px 18px -6px rgba(224,22,95,.7)">DH</div>
+        </div>
+
+        <!-- periodstegare i glas -->
+        <div style="display:flex;align-items:center;gap:8px;padding:20px 20px 0">
+          <div onClick="{{ stepBack }}" style="width:38px;height:38px;border-radius:999px;background:#ffffff;border:1px solid rgba(42,20,32,.05);box-shadow:0 4px 14px -8px rgba(90,30,55,.35);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none" style-hover="background:#fdf9f9">
+            <svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:#2a1420;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"><path d="M15 5l-7 7 7 7"/></svg>
+          </div>
+          <div onClick="{{ openPeriod }}" style="flex:1;height:38px;border-radius:999px;background:#ffffff;border:1px solid rgba(42,20,32,.05);box-shadow:0 4px 14px -8px rgba(90,30,55,.35);display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer" style-hover="background:#fdf9f9">
+            <span style="font:590 14px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.01em">{{ periodLabel }}</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.34);stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round"><path d="M5 9l7 7 7-7"/></svg>
+          </div>
+          <div onClick="{{ stepFwd }}" style="width:38px;height:38px;border-radius:999px;background:#ffffff;border:1px solid rgba(42,20,32,.05);box-shadow:0 4px 14px -8px rgba(90,30,55,.35);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none" style-hover="background:#fdf9f9">
+            <svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:#2a1420;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"><path d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <!-- hjältesiffran -->
+        <div style="padding:26px 20px 0;text-align:center">
+          <div style="font:400 13px/1 -apple-system,system-ui,sans-serif;letter-spacing:.02em;color:rgba(42,20,32,.46)">Utgifter · {{ periodSpan }}</div>
+          <div style="display:flex;align-items:flex-start;justify-content:center;gap:5px;margin-top:10px">
+            <div style="font:700 46px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.03em;font-variant-numeric:tabular-nums">{{ heroNum }}</div>
+            <div style="font:500 16px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5);padding-top:5px">kr</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:9px;margin-top:12px">
+            <div style="display:flex;align-items:center;gap:5px;background:{{ delta.bg }};border:1px solid {{ delta.border }};border-radius:999px;padding:5px 11px 5px 9px">
+              <svg width="10" height="10" viewBox="0 0 24 24" style="fill:{{ delta.ink }}"><path d="{{ delta.tri }}"/></svg>
+              <span style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;color:{{ delta.ink }};font-variant-numeric:tabular-nums">{{ delta.text }}</span>
+            </div>
+            <div style="font:400 13px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">{{ heroSub }}</div>
+          </div>
+        </div>
+
+        <!-- diagram -->
+        <div style="padding:30px 20px 0;position:relative">
+          <sc-if value="{{ callout.show }}">
+            <div style="position:absolute;top:4px;left:{{ callout.left }};transform:translateX(-50%);background:#2a1420;color:#ffffff;border-radius:8px;padding:4px 9px;font:590 12px/1 -apple-system,system-ui,sans-serif;white-space:nowrap;font-variant-numeric:tabular-nums;box-shadow:0 8px 20px -6px rgba(42,20,32,.35)">{{ callout.text }}</div>
+          </sc-if>
+          <div style="display:flex;align-items:flex-end;gap:{{ barGap }};height:96px;margin-top:28px">
+            <sc-for list="{{ bars }}" as="b" hint-placeholder-count="12">
+              <div onClick="{{ b.pick }}" style="flex:1;height:100%;display:flex;align-items:flex-end;justify-content:center;cursor:{{ b.cursor }};min-width:0">
+                <div style="width:{{ b.w }};height:{{ b.h }};min-height:4px;border-radius:999px;background:{{ b.fill }};box-shadow:{{ b.glow }};transition:height 300ms cubic-bezier(.32,.72,0,1),background 180ms,box-shadow 180ms"></div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:{{ barGap }};margin-top:11px">
+            <sc-for list="{{ bars }}" as="b" hint-placeholder-count="12">
+              <div style="flex:1;text-align:center;font:500 10.5px/1 -apple-system,system-ui,sans-serif;color:{{ b.ink }};white-space:nowrap;min-width:0;overflow:hidden">{{ b.abbr }}</div>
+            </sc-for>
+          </div>
+        </div>
+
+        <!-- hästar -->
+        <div style="padding:34px 0 0">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;padding:0 20px 13px">
+            <div style="font:590 17px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.018em">Hästar</div>
+            <div onClick="{{ goHast }}" style="font:500 14px/1 -apple-system,system-ui,sans-serif;color:#e0165f;cursor:pointer">Alla</div>
+          </div>
+          <div style="display:flex;gap:11px;overflow:auto;padding:2px 20px 8px">
+            <sc-for list="{{ horseCards }}" as="h" hint-placeholder-count="3">
+              <div onClick="{{ h.open }}" style="flex:none;width:150px;border-radius:24px;padding:15px 15px 14px;cursor:pointer;position:relative;overflow:hidden;background:{{ h.card }};border:1px solid rgba(42,20,32,.06);box-shadow:inset 0 1px 0 rgba(42,20,32,.05)">
+                <div style="width:40px;height:40px;border-radius:999px;background:{{ h.ring }};padding:2px;box-shadow:0 8px 22px -8px {{ h.shadow }}">
+                  <div style="width:100%;height:100%;border-radius:999px;background:#ffffff;display:flex;align-items:center;justify-content:center;font:700 16px/1 -apple-system,system-ui,sans-serif;color:{{ h.color }}">{{ h.initial }}</div>
+                </div>
+                <div style="font:590 15px/1.2 -apple-system,system-ui,sans-serif;letter-spacing:-.018em;margin-top:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ h.name }}</div>
+                <div style="font:700 19px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.026em;font-variant-numeric:tabular-nums;margin-top:7px">{{ h.amt }}<span style="font-size:13px;font-weight:500;color:rgba(42,20,32,.46)"> kr</span></div>
+                <div style="height:4px;border-radius:999px;background:rgba(42,20,32,.08);margin-top:13px;overflow:hidden">
+                  <div style="height:100%;border-radius:999px;background:{{ h.ring }};width:{{ h.w }};transition:width 340ms cubic-bezier(.32,.72,0,1)"></div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <!-- kategorier -->
+        <div style="padding:28px 0 0">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;padding:0 20px 13px">
+            <div style="font:590 17px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.018em">Kategorier</div>
+            <div onClick="{{ goStat }}" style="font:500 14px/1 -apple-system,system-ui,sans-serif;color:#e0165f;cursor:pointer">Statistik</div>
+          </div>
+          <div style="margin:0 16px;border-radius:24px;overflow:hidden;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.34)">
+            <sc-for list="{{ catRows }}" as="c" hint-placeholder-count="5">
+              <div style="display:flex;align-items:center;padding:0 16px;cursor:pointer" style-hover="background:rgba(42,20,32,.022)">
+                <div style="width:36px;height:36px;border-radius:11px;background:{{ c.tint }};border:1px solid {{ c.edge }};display:flex;align-items:center;justify-content:center;flex:none">
+                  <svg width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:{{ c.color }};stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="{{ c.icon }}"/></svg>
+                </div>
+                <div style="flex:1;min-width:0;margin-left:13px;padding:14px 0;border-bottom:1px solid {{ c.sep }}">
+                  <div style="display:flex;align-items:baseline;gap:10px">
+                    <div style="flex:1;min-width:0;font:500 15.5px/1.2 -apple-system,system-ui,sans-serif;letter-spacing:-.012em">{{ c.name }}</div>
+                    <div style="font:400 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.44)">{{ c.pct }}</div>
+                    <div style="font:590 15.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums">{{ c.amt }}</div>
+                  </div>
+                  <div style="height:3px;border-radius:999px;background:rgba(42,20,32,.08);margin-top:10px;overflow:hidden">
+                    <div style="height:100%;border-radius:999px;background:{{ c.color }};width:{{ c.w }};box-shadow:0 0 12px -2px {{ c.color }}"></div>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+            <sc-if value="{{ periodEmpty }}">
+              <div style="padding:34px 22px;text-align:center;font:400 15px/1.4 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.44)">Inga poster i perioden.</div>
+            </sc-if>
+          </div>
+        </div>
+
+        <!-- senaste -->
+        <div style="padding:28px 0 0">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;padding:0 20px 13px">
+            <div style="font:590 17px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.018em">Senaste</div>
+            <div onClick="{{ goBok }}" style="font:500 14px/1 -apple-system,system-ui,sans-serif;color:#e0165f;cursor:pointer">Hela loggen</div>
+          </div>
+          <div style="margin:0 16px;border-radius:24px;overflow:hidden;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.34)">
+            <sc-for list="{{ recent }}" as="e" hint-placeholder-count="4">
+              <div style="display:flex;align-items:center;padding:0 16px;animation:rise 340ms cubic-bezier(.32,.72,0,1) both">
+                <div style="width:36px;height:36px;border-radius:11px;background:{{ e.tint }};border:1px solid {{ e.edge }};display:flex;align-items:center;justify-content:center;flex:none">
+                  <svg width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:{{ e.color }};stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="{{ e.icon }}"/></svg>
+                </div>
+                <div style="flex:1;min-width:0;margin-left:13px;padding:13px 0;border-bottom:1px solid {{ e.sep }};display:flex;align-items:center;gap:10px">
+                  <div style="flex:1;min-width:0">
+                    <div style="font:500 15.5px/1.2 -apple-system,system-ui,sans-serif;letter-spacing:-.012em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ e.note }}</div>
+                    <div style="font:400 12.5px/1.2 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.46);margin-top:3px">{{ e.meta }}</div>
+                  </div>
+                  <div style="font:590 15.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums;color:{{ e.amtInk }};flex:none">{{ e.amt }}</div>
+                </div>
+              </div>
+            </sc-for>
+            <sc-if value="{{ periodEmpty }}">
+              <div style="padding:30px 22px;text-align:center;font:400 15px/1.4 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.44)">Tomt här.</div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ═══════ LOG ═══════ -->
+      <sc-if value="{{ isBok }}">
+      <div data-screen-label="Log" style="flex:1;overflow:auto;padding:52px 0 178px">
+        <div style="padding:16px 20px 0">
+          <div style="font:700 28px/1.08 -apple-system,system-ui,sans-serif;letter-spacing:-.028em">Log</div>
+          <div style="font:400 15px/1.35 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.46);margin-top:6px">{{ bokCount }} · {{ bokTotal }}</div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:8px;padding:18px 20px 0">
+          <div onClick="{{ stepBack }}" style="width:38px;height:38px;border-radius:999px;background:#ffffff;border:1px solid rgba(42,20,32,.05);box-shadow:0 4px 14px -8px rgba(90,30,55,.35);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none">
+            <svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:#2a1420;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"><path d="M15 5l-7 7 7 7"/></svg>
+          </div>
+          <div onClick="{{ openPeriod }}" style="flex:1;height:38px;border-radius:999px;background:#ffffff;border:1px solid rgba(42,20,32,.05);box-shadow:0 4px 14px -8px rgba(90,30,55,.35);display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer">
+            <span style="font:590 14px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.01em">{{ periodLabel }}</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.34);stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round"><path d="M5 9l7 7 7-7"/></svg>
+          </div>
+          <div onClick="{{ stepFwd }}" style="width:38px;height:38px;border-radius:999px;background:#ffffff;border:1px solid rgba(42,20,32,.05);box-shadow:0 4px 14px -8px rgba(90,30,55,.35);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none">
+            <svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:#2a1420;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"><path d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div style="padding:14px 20px 12px">
+          <div style="display:flex;align-items:center;gap:8px;background:#ffffff;border:1px solid rgba(42,20,32,.06);border-radius:14px;box-shadow:0 4px 14px -10px rgba(90,30,55,.3);padding:10px 13px">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.38);stroke-width:2.3;stroke-linecap:round;flex:none"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+            <input value="{{ query }}" onChange="{{ setQuery }}" placeholder="Sök" style="border:none;outline:none;background:transparent;flex:1;font:400 16px/1 -apple-system,system-ui,sans-serif;color:#2a1420"></input>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:7px;overflow:auto;padding:0 20px 20px">
+          <sc-for list="{{ filters }}" as="f" hint-placeholder-count="6">
+            <div onClick="{{ f.pick }}" style="flex:none;padding:7px 14px;border-radius:999px;cursor:pointer;font:500 13.5px/1.3 -apple-system,system-ui,sans-serif;letter-spacing:-.008em;background:{{ f.bg }};border:1px solid {{ f.border }};color:{{ f.ink }}">{{ f.name }}</div>
+          </sc-for>
+        </div>
+
+        <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+          <div style="padding:0 0 20px">
+            <div style="display:flex;justify-content:space-between;padding:0 24px 9px;font:500 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.46)">
+              <span>{{ g.dayName }}</span><span style="font-variant-numeric:tabular-nums">{{ g.total }}</span>
+            </div>
+            <div style="margin:0 16px;border-radius:24px;overflow:hidden;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.34)">
+              <sc-for list="{{ g.items }}" as="e" hint-placeholder-count="2">
+                <div style="display:flex;align-items:center;padding:0 16px">
+                  <div style="width:36px;height:36px;border-radius:11px;background:{{ e.tint }};border:1px solid {{ e.edge }};display:flex;align-items:center;justify-content:center;flex:none">
+                    <svg width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:{{ e.color }};stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="{{ e.icon }}"/></svg>
+                  </div>
+                  <div style="flex:1;min-width:0;margin-left:13px;padding:13px 0;border-bottom:1px solid {{ e.sep }};display:flex;align-items:center;gap:10px">
+                    <div style="flex:1;min-width:0">
+                      <div style="font:500 15.5px/1.2 -apple-system,system-ui,sans-serif;letter-spacing:-.012em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ e.note }}</div>
+                      <div style="font:400 12.5px/1.2 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.46);margin-top:3px">{{ e.meta }}</div>
+                    </div>
+                    <div style="font:590 15.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums;color:{{ e.amtInk }};flex:none">{{ e.amt }}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+        <sc-if value="{{ bokEmpty }}">
+          <div style="padding:60px 40px;text-align:center">
+            <div style="font:590 17px/1.3 -apple-system,system-ui,sans-serif">Inget att visa</div>
+            <div style="font:400 15px/1.45 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.44);margin-top:6px">Prova en annan period, ett annat sökord eller en annan kategori.</div>
+          </div>
+        </sc-if>
+      </div>
+      </sc-if>
+
+      <!-- ═══════ HÄSTAR ═══════ -->
+      <sc-if value="{{ isHast }}">
+      <div data-screen-label="Hästar" style="flex:1;overflow:auto;padding:52px 0 178px">
+        <div style="padding:16px 20px 18px">
+          <div style="font:700 28px/1.08 -apple-system,system-ui,sans-serif;letter-spacing:-.028em">Hästar</div>
+          <div style="font:400 15px/1.35 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.46);margin-top:6px">Stjärnhälla · {{ periodSpan }}</div>
+        </div>
+        <div style="padding:0 16px;display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ horseCards }}" as="h" hint-placeholder-count="3">
+            <div onClick="{{ h.open }}" style="border-radius:26px;padding:18px;cursor:pointer;background:{{ h.card }};border:1px solid rgba(42,20,32,.06);box-shadow:inset 0 1px 0 rgba(42,20,32,.05)">
+              <div style="display:flex;align-items:center;gap:14px">
+                <div style="width:52px;height:52px;border-radius:999px;background:{{ h.ring }};padding:2px;flex:none;box-shadow:0 10px 26px -10px {{ h.shadow }}">
+                  <div style="width:100%;height:100%;border-radius:999px;background:#ffffff;display:flex;align-items:center;justify-content:center;font:700 20px/1 -apple-system,system-ui,sans-serif;color:{{ h.color }}">{{ h.initial }}</div>
+                </div>
+                <div style="flex:1;min-width:0">
+                  <div style="font:590 17px/1.2 -apple-system,system-ui,sans-serif;letter-spacing:-.02em">{{ h.name }}</div>
+                  <div style="font:400 13px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5);margin-top:3px">{{ h.breed }}</div>
+                </div>
+                <div style="text-align:right;flex:none">
+                  <div style="font:590 17px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.022em;font-variant-numeric:tabular-nums">{{ h.amt }} kr</div>
+                  <div style="font:400 12px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.44);margin-top:6px">{{ h.pct }} av perioden</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:3px;height:6px;margin-top:17px">
+                <sc-for list="{{ h.segs }}" as="s" hint-placeholder-count="3">
+                  <div style="width:{{ s.w }};background:{{ s.color }};border-radius:999px;flex:none"></div>
+                </sc-for>
+                <sc-if value="{{ h.none }}"><div style="flex:1;background:rgba(42,20,32,.08);border-radius:999px"></div></sc-if>
+              </div>
+            </div>
+          </sc-for>
+          <div style="border-radius:26px;height:62px;display:flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;background:rgba(224,22,95,.1);border:1px solid rgba(224,22,95,.24);font:590 16px/1 -apple-system,system-ui,sans-serif;color:#c8104c" style-hover="background:rgba(224,22,95,.16)">
+            <svg width="17" height="17" viewBox="0 0 24 24" style="fill:none;stroke:#c8104c;stroke-width:2.6;stroke-linecap:round"><path d="M12 5v14M5 12h14"/></svg>
+            Lägg till häst
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ═══════ HÄSTPROFIL ═══════ -->
+      <sc-if value="{{ isProfil }}">
+      <div data-screen-label="Hästprofil" style="flex:1;overflow:auto;padding:52px 0 178px">
+        <div style="padding:12px 16px 0">
+          <div onClick="{{ goHast }}" style="display:flex;align-items:center;gap:4px;cursor:pointer;width:fit-content;padding:6px 10px 6px 4px;border-radius:999px;background:rgba(42,20,32,.045);border:1px solid rgba(42,20,32,.05)">
+            <svg width="13" height="13" viewBox="0 0 24 24" style="fill:none;stroke:#2a1420;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round"><path d="M15 5l-7 7 7 7"/></svg>
+            <span style="font:500 13.5px/1 -apple-system,system-ui,sans-serif">Hästar</span>
+          </div>
+        </div>
+
+        <div style="padding:26px 20px 0;display:flex;flex-direction:column;align-items:center;text-align:center">
+          <div style="width:70px;height:70px;border-radius:999px;background:{{ prof.ring }};padding:3px;box-shadow:0 16px 40px -12px {{ prof.shadow }}">
+            <div style="width:100%;height:100%;border-radius:999px;background:#ffffff;display:flex;align-items:center;justify-content:center;font:700 26px/1 -apple-system,system-ui,sans-serif;color:{{ prof.color }}">{{ prof.initial }}</div>
+          </div>
+          <div style="font:700 25px/1.1 -apple-system,system-ui,sans-serif;letter-spacing:-.026em;margin-top:14px">{{ prof.name }}</div>
+          <div style="font:400 14px/1.35 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5);margin-top:6px">{{ prof.breed }} · f. {{ prof.born }}</div>
+        </div>
+
+        <div style="display:flex;gap:10px;padding:26px 16px 0">
+          <sc-for list="{{ profStats }}" as="s" hint-placeholder-count="3">
+            <div style="flex:1;border-radius:20px;padding:15px 14px;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.3)">
+              <div style="font:400 12px/1.25 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">{{ s.label }}</div>
+              <div style="font:700 18px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.024em;font-variant-numeric:tabular-nums;margin-top:8px">{{ s.value }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="padding:28px 0 0">
+          <div style="font:590 17px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.018em;padding:0 20px 13px">Fördelning</div>
+          <div style="margin:0 16px;border-radius:24px;overflow:hidden;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.34)">
+            <sc-for list="{{ profCats }}" as="c" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;padding:0 16px">
+                <div style="width:36px;height:36px;border-radius:11px;background:{{ c.tint }};border:1px solid {{ c.edge }};display:flex;align-items:center;justify-content:center;flex:none">
+                  <svg width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:{{ c.color }};stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="{{ c.icon }}"/></svg>
+                </div>
+                <div style="flex:1;min-width:0;margin-left:13px;padding:14px 0;border-bottom:1px solid {{ c.sep }}">
+                  <div style="display:flex;align-items:baseline;gap:10px">
+                    <div style="flex:1;font:500 15.5px/1.2 -apple-system,system-ui,sans-serif;letter-spacing:-.012em">{{ c.name }}</div>
+                    <div style="font:400 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.44)">{{ c.pct }}</div>
+                    <div style="font:590 15.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums">{{ c.amt }}</div>
+                  </div>
+                  <div style="height:3px;border-radius:999px;background:rgba(42,20,32,.08);margin-top:10px;overflow:hidden">
+                    <div style="height:100%;border-radius:999px;background:{{ c.color }};width:{{ c.w }};box-shadow:0 0 12px -2px {{ c.color }}"></div>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+            <sc-if value="{{ profEmpty }}">
+              <div style="padding:34px 22px;text-align:center;font:400 15px/1.45 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.44)">Inga poster på {{ prof.name }} i perioden.</div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ═══════ STATISTIK ═══════ -->
+      <sc-if value="{{ isStat }}">
+      <div data-screen-label="Statistik" style="flex:1;overflow:auto;padding:52px 0 178px">
+        <div style="padding:16px 20px 0">
+          <div style="font:700 28px/1.08 -apple-system,system-ui,sans-serif;letter-spacing:-.028em">Statistik</div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:8px;padding:18px 20px 0">
+          <div onClick="{{ stepBack }}" style="width:38px;height:38px;border-radius:999px;background:#ffffff;border:1px solid rgba(42,20,32,.05);box-shadow:0 4px 14px -8px rgba(90,30,55,.35);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none">
+            <svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:#2a1420;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"><path d="M15 5l-7 7 7 7"/></svg>
+          </div>
+          <div onClick="{{ openPeriod }}" style="flex:1;height:38px;border-radius:999px;background:#ffffff;border:1px solid rgba(42,20,32,.05);box-shadow:0 4px 14px -8px rgba(90,30,55,.35);display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer">
+            <span style="font:590 14px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.01em">{{ periodLabel }}</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.34);stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round"><path d="M5 9l7 7 7-7"/></svg>
+          </div>
+          <div onClick="{{ stepFwd }}" style="width:38px;height:38px;border-radius:999px;background:#ffffff;border:1px solid rgba(42,20,32,.05);box-shadow:0 4px 14px -8px rgba(90,30,55,.35);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none">
+            <svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:#2a1420;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"><path d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div style="padding:24px 20px 0;text-align:center">
+          <div style="font:400 13px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.46)">{{ periodSpan }}</div>
+          <div style="display:flex;align-items:flex-start;justify-content:center;gap:5px;margin-top:10px">
+            <div style="font:700 40px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.03em;font-variant-numeric:tabular-nums">{{ heroNum }}</div>
+            <div style="font:500 15px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5);padding-top:5px">kr</div>
+          </div>
+        </div>
+
+        <!-- jämförelse -->
+        <div style="margin:26px 16px 0;border-radius:22px;padding:16px 18px 17px;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.3)">
+          <div style="font:590 15px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.015em">Jämförelse</div>
+          <div style="font:400 12.5px/1.35 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.44);margin-top:4px">{{ yoy.sub }}</div>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:16px">
+            <div>
+              <div style="font:400 12px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.44)">{{ yoy.prevYear }}</div>
+              <div style="font:590 18px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.022em;font-variant-numeric:tabular-nums;color:rgba(42,20,32,.5);margin-top:6px">{{ yoy.prevVal }}</div>
+            </div>
+            <div style="text-align:center;padding-bottom:1px">
+              <div style="display:inline-flex;align-items:center;gap:5px;background:{{ yoy.bg }};border:1px solid {{ yoy.border }};border-radius:999px;padding:4px 10px 4px 8px">
+                <svg width="10" height="10" viewBox="0 0 24 24" style="fill:{{ yoy.ink }}"><path d="{{ yoy.tri }}"/></svg>
+                <span style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;color:{{ yoy.ink }};font-variant-numeric:tabular-nums">{{ yoy.diff }}</span>
+              </div>
+              <div style="font:400 11.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.4);margin-top:6px">{{ yoy.pct }}</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font:400 12px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.44)">{{ yoy.curYear }}</div>
+              <div style="font:700 18px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.022em;font-variant-numeric:tabular-nums;margin-top:6px">{{ yoy.curVal }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- periodens nyckeltal -->
+        <div style="display:flex;gap:10px;padding:12px 16px 0">
+          <div style="flex:1;border-radius:20px;padding:15px;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.3)">
+            <div style="font:400 12px/1.25 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">Snitt per {{ avgUnit }}</div>
+            <div style="font:700 19px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.024em;font-variant-numeric:tabular-nums;margin-top:8px">{{ avgVal }}</div>
+            <div style="font:400 11.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.4);margin-top:5px">kr/{{ avgUnit }}</div>
+          </div>
+          <div style="flex:1;border-radius:20px;padding:15px;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.3)">
+            <div style="font:400 12px/1.25 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">Mot förra perioden</div>
+            <div style="font:700 19px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.024em;margin-top:8px;color:{{ delta.ink }}">{{ delta.signed }}</div>
+            <div style="font:400 11.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.4);margin-top:5px">{{ prevPeriodLabel }}</div>
+          </div>
+        </div>
+
+        <!-- utgifter över tid -->
+        <div style="margin:12px 16px 0;border-radius:22px;padding:16px 16px 13px;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.3)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <div style="font:590 15px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.015em">Utgifter över tid</div>
+            <sc-if value="{{ canCmp }}">
+              <div onClick="{{ toggleCmp }}" style="padding:6px 12px;border-radius:999px;cursor:pointer;font:500 12.5px/1 -apple-system,system-ui,sans-serif;background:{{ cmpBg }};border:1px solid {{ cmpBorder }};color:{{ cmpInk }};white-space:nowrap">Jämför 2025</div>
+            </sc-if>
+          </div>
+          <svg width="100%" height="136" viewBox="0 0 322 136" style="display:block;margin-top:12px;overflow:visible">
+            <defs>
+              <linearGradient id="lineFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#e0165f" stop-opacity=".22"></stop>
+                <stop offset="100%" stop-color="#e0165f" stop-opacity="0"></stop>
+              </linearGradient>
+            </defs>
+            <sc-for list="{{ lineGrid }}" as="g" hint-placeholder-count="4">
+              <line x1="32" x2="318" y1="{{ g.y }}" y2="{{ g.y }}" style="stroke:rgba(42,20,32,.09);stroke-width:1;stroke-dasharray:3 4"></line>
+            </sc-for>
+            <sc-for list="{{ lineGrid }}" as="g" hint-placeholder-count="4">
+              <text x="0" y="{{ g.ty }}" style="fill:rgba(42,20,32,.34);font:400 9.5px -apple-system,system-ui,sans-serif">{{ g.label }}</text>
+            </sc-for>
+            <path d="{{ lineArea }}" style="fill:url(#lineFill)"></path>
+            <sc-if value="{{ cmpOn }}">
+              <polyline points="{{ prevPts }}" style="fill:none;stroke:rgba(42,20,32,.28);stroke-width:1.8;stroke-dasharray:4 4;stroke-linejoin:round;stroke-linecap:round"></polyline>
+            </sc-if>
+            <polyline points="{{ linePts }}" style="fill:none;stroke:#e0165f;stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round"></polyline>
+            <sc-for list="{{ lineDots }}" as="p" hint-placeholder-count="12">
+              <circle cx="{{ p.x }}" cy="{{ p.y }}" r="3" style="fill:#ffffff;stroke:#e0165f;stroke-width:2"></circle>
+            </sc-for>
+          </svg>
+          <div style="display:flex;padding:8px 4px 0 32px">
+            <sc-for list="{{ lineLabels }}" as="l" hint-placeholder-count="12">
+              <div style="flex:1;text-align:center;min-width:0;overflow:hidden;font:400 10px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.36);white-space:nowrap">{{ l.t }}</div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="padding:28px 0 0">
+          <div style="font:590 17px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.018em;padding:0 20px 13px">Kategorier</div>
+          <div style="margin:0 16px;border-radius:24px;overflow:hidden;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.34)">
+            <sc-for list="{{ statCats }}" as="c" hint-placeholder-count="6">
+              <div style="display:flex;align-items:center;padding:0 16px">
+                <div style="width:36px;height:36px;border-radius:11px;background:{{ c.tint }};border:1px solid {{ c.edge }};display:flex;align-items:center;justify-content:center;flex:none">
+                  <svg width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:{{ c.color }};stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="{{ c.icon }}"/></svg>
+                </div>
+                <div style="flex:1;min-width:0;margin-left:13px;padding:14px 0;border-bottom:1px solid {{ c.sep }}">
+                  <div style="display:flex;align-items:baseline;gap:10px">
+                    <div style="flex:1;font:500 15.5px/1.2 -apple-system,system-ui,sans-serif;letter-spacing:-.012em">{{ c.name }}</div>
+                    <div style="font:400 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.44)">{{ c.pct }}</div>
+                    <div style="font:590 15.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums">{{ c.amt }}</div>
+                  </div>
+                  <div style="height:3px;border-radius:999px;background:rgba(42,20,32,.08);margin-top:10px;overflow:hidden">
+                    <div style="height:100%;border-radius:999px;background:{{ c.color }};width:{{ c.w }};box-shadow:0 0 12px -2px {{ c.color }}"></div>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+            <sc-if value="{{ periodEmpty }}">
+              <div style="padding:34px 22px;text-align:center;font:400 15px/1.45 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.44)">Inga poster i perioden.</div>
+            </sc-if>
+          </div>
+        </div>
+
+        <!-- ── härifrån och ner: alltid hela året, oavsett period ── -->
+        <div style="display:flex;align-items:center;gap:11px;padding:34px 20px 4px">
+          <div style="font:590 11px/1 -apple-system,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:rgba(42,20,32,.42);white-space:nowrap">Året 2026</div>
+          <div style="flex:1;height:1px;background:rgba(42,20,32,.09)"></div>
+        </div>
+
+        <!-- helårsprognos -->
+        <div style="display:flex;gap:10px;padding:12px 16px 0">
+          <div style="flex:1;border-radius:20px;padding:15px;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.3)">
+            <div style="font:400 12px/1.25 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">Månadssnitt</div>
+            <div style="font:700 19px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.024em;font-variant-numeric:tabular-nums;margin-top:8px">{{ monthAvg }}</div>
+            <div style="font:400 11.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.4);margin-top:5px">kr/mån</div>
+          </div>
+          <div style="flex:1;border-radius:20px;padding:15px;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.3)">
+            <div style="font:400 12px/1.25 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">Helårsprognos</div>
+            <div style="font:700 19px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.024em;font-variant-numeric:tabular-nums;margin-top:8px">{{ forecast }}</div>
+            <div style="font:400 11.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.4);margin-top:5px">kr/år</div>
+          </div>
+        </div>
+
+        <!-- säsongsmönster -->
+        <div style="margin:12px 16px 0;border-radius:22px;padding:16px 16px 14px;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.3)">
+          <div style="font:590 15px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.015em">Säsongsmönster</div>
+          <div style="font:400 12.5px/1.35 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.44);margin-top:5px">Kostnad per månad, {{ yoy.curYear }}</div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:14px">
+            <sc-for list="{{ season }}" as="m" hint-placeholder-count="12">
+              <div onClick="{{ m.pick }}" style="border-radius:13px;padding:9px 4px 10px;text-align:center;cursor:pointer;background:{{ m.bg }};border:1px solid {{ m.border }}">
+                <div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;color:{{ m.ink }}">{{ m.abbr }}</div>
+                <div style="font:400 11.5px/1 -apple-system,system-ui,sans-serif;color:{{ m.sub }};margin-top:5px;font-variant-numeric:tabular-nums">{{ m.val }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <!-- budget -->
+        <div style="margin:12px 16px 0;border-radius:22px;padding:16px 16px 6px;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.3)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <div style="font:590 15px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.015em">Budget</div>
+            <div style="display:flex;align-items:center;gap:5px;padding:6px 12px 6px 10px;border-radius:999px;background:rgba(224,22,95,.07);border:1px solid rgba(224,22,95,.24);cursor:pointer;font:500 12.5px/1 -apple-system,system-ui,sans-serif;color:#e0165f;white-space:nowrap">
+              <svg width="12" height="12" viewBox="0 0 24 24" style="fill:none;stroke:#e0165f;stroke-width:3;stroke-linecap:round"><path d="M12 5v14M5 12h14"/></svg>
+              Lägg till
+            </div>
+          </div>
+          <div style="display:flex;border-radius:14px;background:rgba(42,20,32,.035);margin-top:14px">
+            <div style="flex:1;padding:12px 14px">
+              <div style="font:400 10.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:rgba(42,20,32,.42)">Planerat</div>
+              <div style="font:700 17px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.022em;font-variant-numeric:tabular-nums;margin-top:7px">{{ budget.planned }}</div>
+            </div>
+            <div style="width:1px;background:rgba(42,20,32,.08);margin:12px 0"></div>
+            <div style="flex:1;padding:12px 14px;text-align:right">
+              <div style="font:400 10.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:rgba(42,20,32,.42)">Faktiskt</div>
+              <div style="font:700 17px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.022em;font-variant-numeric:tabular-nums;margin-top:7px">{{ budget.actual }}</div>
+            </div>
+          </div>
+          <div style="padding:16px 2px 4px;display:flex;flex-direction:column;gap:14px">
+            <sc-for list="{{ budget.cats }}" as="c" hint-placeholder-count="3">
+              <div>
+                <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+                  <div style="display:flex;align-items:center;gap:8px;min-width:0">
+                    <span style="width:8px;height:8px;border-radius:999px;background:{{ c.color }};flex:none"></span>
+                    <span style="font:590 14.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.012em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ c.name }}</span>
+                  </div>
+                  <span style="font:400 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.46);font-variant-numeric:tabular-nums;flex:none">{{ c.pair }}</span>
+                </div>
+                <div style="height:5px;border-radius:999px;background:rgba(42,20,32,.08);margin-top:9px;overflow:hidden">
+                  <div style="height:100%;border-radius:999px;background:{{ c.bar }};width:{{ c.w }}"></div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="font:400 10.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:rgba(42,20,32,.42);padding:18px 2px 4px;border-top:1px solid rgba(42,20,32,.07);margin-top:14px">Budgetposter</div>
+          <sc-for list="{{ budget.items }}" as="b" hint-placeholder-count="4">
+            <div style="display:flex;align-items:center;gap:11px;padding:11px 2px;border-bottom:1px solid {{ b.sep }};cursor:pointer">
+              <span style="width:8px;height:8px;border-radius:999px;background:{{ b.color }};flex:none"></span>
+              <div style="flex:1;min-width:0">
+                <div style="font:590 14.5px/1.2 -apple-system,system-ui,sans-serif;letter-spacing:-.012em">{{ b.name }}</div>
+                <div style="font:400 12.5px/1.2 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.44);margin-top:2px">{{ b.note }}</div>
+              </div>
+              <div style="text-align:right;flex:none">
+                <div style="font:590 14.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums">{{ b.amt }}</div>
+                <div style="font:400 11px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.4);margin-top:4px">/mån</div>
+              </div>
+              <svg width="7" height="12" viewBox="0 0 8 13" style="fill:none;stroke:rgba(42,20,32,.28);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none"><path d="M1.5 1.5L6 6.5l-4.5 5"/></svg>
+            </div>
+          </sc-for>
+        </div>
+
+        <!-- intäkter -->
+        <div style="margin:12px 16px 0;border-radius:22px;padding:16px 16px 17px;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.3)">
+          <div style="font:590 15px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.015em">Intäkter</div>
+          <div style="display:flex;border-radius:14px;background:rgba(42,20,32,.035);margin-top:14px">
+            <div style="flex:1;padding:12px 14px">
+              <div style="font:400 10.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:rgba(42,20,32,.42)">Intäkter</div>
+              <div style="font:700 17px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.022em;font-variant-numeric:tabular-nums;margin-top:7px;color:#17a05f">{{ income.rev }}</div>
+            </div>
+            <div style="width:1px;background:rgba(42,20,32,.08);margin:12px 0"></div>
+            <div style="flex:1;padding:12px 14px;text-align:right">
+              <div style="font:400 10.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:rgba(42,20,32,.42)">Nettoresultat</div>
+              <div style="font:700 17px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.022em;font-variant-numeric:tabular-nums;margin-top:7px;color:{{ income.netInk }}">{{ income.net }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ═══════ KOMPOSITÖR + FLIKAR I GLAS ═══════ -->
+      <div style="position:absolute;left:0;right:0;bottom:0;z-index:60;padding:0 14px 22px;background:linear-gradient(180deg,rgba(251,247,246,0),rgba(251,247,246,.94) 44%)">
+        <div onClick="{{ openSheet }}" style="display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.74);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);border:1px solid rgba(42,20,32,.06);border-radius:999px;padding:8px 9px 8px 16px;cursor:pointer;box-shadow:0 14px 38px -14px rgba(90,30,55,.42);margin-bottom:11px">
+          <svg width="18" height="18" viewBox="0 0 24 24" style="fill:#e0165f;flex:none"><path d="M12 2.8l1.55 4.25L17.8 8.6l-4.25 1.55L12 14.4l-1.55-4.25L6.2 8.6l4.25-1.55z"/><path d="M18.6 15.2l.72 1.98L21.3 17.9l-1.98.72-.72 1.98-.72-1.98L15.9 17.9l1.98-.72z"/></svg>
+          <div style="flex:1;font:400 16px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">Lägg till utgift eller intäkt…</div>
+          <div onClick="{{ scan }}" style="width:34px;height:34px;border-radius:999px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;background:rgba(42,20,32,.06)" style-hover="background:rgba(42,20,32,.13)">
+            <svg width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:#2a1420;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round"><path d="M3.5 8.5V6a2.5 2.5 0 012.5-2.5h2.5M20.5 8.5V6A2.5 2.5 0 0018 3.5h-2.5M3.5 15.5V18A2.5 2.5 0 006 20.5h2.5M20.5 15.5V18a2.5 2.5 0 01-2.5 2.5h-2.5M7 12h10"/></svg>
+          </div>
+          <div style="width:34px;height:34px;border-radius:999px;background:linear-gradient(150deg,#f0407a,#cf0a4f);display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 6px 16px -5px rgba(224,22,95,.8)">
+            <svg width="17" height="17" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><rect x="9.5" y="3" width="5" height="10.5" rx="2.5"/><path d="M5.5 11a6.5 6.5 0 0013 0M12 17.5V21"/></svg>
+          </div>
+        </div>
+        <div style="display:flex;background:rgba(255,255,255,.7);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);border:1px solid rgba(42,20,32,.055);border-radius:999px;padding:5px;box-shadow:0 12px 34px -16px rgba(90,30,55,.38)">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+            <div onClick="{{ t.go }}" style="flex:1;min-height:46px;border-radius:999px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;color:{{ t.color }};background:{{ t.bg }};transition:background 180ms,color 180ms">
+              <svg width="22" height="22" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:{{ t.sw }};stroke-linecap:round;stroke-linejoin:round"><path d="{{ t.icon }}"/></svg>
+              <div style="font:590 9.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.01em">{{ t.name }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ TOAST ═══════ -->
+    <sc-if value="{{ hasToast }}">
+      <div style="position:absolute;left:20px;right:20px;bottom:190px;z-index:90;background:rgba(42,20,32,.94);backdrop-filter:blur(28px) saturate(180%);border:1px solid rgba(42,20,32,.07);border-radius:18px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 20px 50px -16px rgba(42,20,32,.5);animation:toastIn 2700ms cubic-bezier(.32,.72,0,1) both">
+        <div style="width:22px;height:22px;border-radius:999px;background:#17a05f;display:flex;align-items:center;justify-content:center;flex:none">
+          <svg width="12" height="12" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:3.6;stroke-linecap:round;stroke-linejoin:round"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <div style="flex:1;font:500 14.5px/1.35 -apple-system,system-ui,sans-serif">{{ toast }}</div>
+      </div>
+    </sc-if>
+
+    <!-- ═══════ KVITTOSKANNING ═══════ -->
+    <sc-if value="{{ scanning }}">
+      <div style="position:absolute;inset:0;z-index:95;background:rgba(42,20,32,.84);backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;justify-content:center;animation:dim 200ms both">
+        <div style="width:134px;height:174px;background:#fff;border-radius:12px;padding:16px 14px;display:flex;flex-direction:column;gap:8px;animation:pop 360ms cubic-bezier(.32,.72,0,1) both;box-shadow:0 30px 70px -22px rgba(42,20,32,.55)">
+          <div style="height:7px;border-radius:3px;background:rgba(42,20,32,.5);width:64%"></div>
+          <div style="height:5px;border-radius:3px;background:rgba(42,20,32,.14);width:100%"></div>
+          <div style="height:5px;border-radius:3px;background:rgba(42,20,32,.14);width:86%"></div>
+          <div style="height:5px;border-radius:3px;background:rgba(42,20,32,.14);width:93%"></div>
+          <div style="flex:1"></div>
+          <div style="height:9px;border-radius:3px;background:#e08a00;width:54%"></div>
+        </div>
+        <div style="font:500 15px/1 -apple-system,system-ui,sans-serif;color:rgba(255,255,255,.7);margin-top:26px">Läser kvittot…</div>
+      </div>
+    </sc-if>
+
+    <!-- ═══════ ARK: VÄLJ PERIOD ═══════ -->
+    <sc-if value="{{ periodSheet }}">
+      <div onClick="{{ closeSheet }}" style="position:absolute;inset:0;z-index:70;background:rgba(42,20,32,.38);animation:dim 300ms both"></div>
+      <div data-screen-label="Ark: välj period" style="position:absolute;left:0;right:0;bottom:0;top:72px;z-index:75;background:#f6f0ef;border-radius:26px 26px 0 0;border-top:1px solid rgba(42,20,32,.05);display:flex;flex-direction:column;overflow:hidden;animation:sheetUp 400ms cubic-bezier(.32,.72,0,1) both">
+        <div style="display:flex;justify-content:center;padding:9px 0 2px;flex:none">
+          <div style="width:38px;height:5px;border-radius:999px;background:rgba(42,20,32,.2)"></div>
+        </div>
+        <div style="display:flex;align-items:center;padding:10px 14px 14px;flex:none">
+          <div onClick="{{ closeSheet }}" style="width:34px;height:34px;border-radius:999px;background:rgba(42,20,32,.05);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:#2a1420;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"><path d="M11 5l-7 7 7 7M4 12h16"/></svg>
+          </div>
+          <div style="flex:1;text-align:center;font:590 17px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.015em;margin-left:-34px">Välj period</div>
+        </div>
+        <div style="flex:1;overflow:auto;padding:4px 16px 30px;display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ periodOpts }}" as="p" hint-placeholder-count="6">
+            <div onClick="{{ p.pick }}" style="display:flex;align-items:center;gap:14px;border-radius:22px;padding:15px 16px;cursor:pointer;background:{{ p.bg }};border:1px solid {{ p.border }}" style-hover="background:#fdf9f9">
+              <div style="width:42px;height:42px;border-radius:13px;background:{{ p.tint }};border:1px solid {{ p.edge }};display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="21" height="21" viewBox="0 0 24 24" style="fill:none;stroke:{{ p.glyph }};stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="{{ p.icon }}"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font:500 15.5px/1.2 -apple-system,system-ui,sans-serif;letter-spacing:-.012em">{{ p.name }}</div>
+                <div style="font:400 13px/1.35 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5);margin-top:3px">{{ p.sub }}</div>
+              </div>
+              <sc-if value="{{ p.on }}">
+                <div style="width:25px;height:25px;border-radius:999px;background:#e0165f;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 0 18px -3px rgba(224,22,95,.9)">
+                  <svg width="13" height="13" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round"><path d="M5 13l4 4L19 7"/></svg>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- ═══════ ARK: LÄGG TILL ═══════ -->
+    <sc-if value="{{ addSheet }}">
+      <div onClick="{{ closeSheet }}" style="position:absolute;inset:0;z-index:70;background:rgba(42,20,32,.38);animation:dim 300ms both"></div>
+      <div data-screen-label="Ark: lägg till" style="position:absolute;left:0;right:0;bottom:0;top:72px;z-index:75;background:#f6f0ef;border-radius:26px 26px 0 0;border-top:1px solid rgba(42,20,32,.05);display:flex;flex-direction:column;overflow:hidden;animation:sheetUp 400ms cubic-bezier(.32,.72,0,1) both">
+        <div style="display:flex;justify-content:center;padding:9px 0 2px;flex:none">
+          <div style="width:38px;height:5px;border-radius:999px;background:rgba(42,20,32,.2)"></div>
+        </div>
+
+        <div style="display:flex;gap:3px;background:rgba(42,20,32,.06);border-radius:14px;padding:3px;margin:8px 16px 0;flex:none">
+          <sc-for list="{{ kinds }}" as="k" hint-placeholder-count="2">
+            <div onClick="{{ k.pick }}" style="flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:11px 0;border-radius:11px;cursor:pointer;background:{{ k.bg }};box-shadow:{{ k.shadow }};transition:background 160ms">
+              <svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:{{ k.glyph }};stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round"><path d="{{ k.icon }}"/></svg>
+              <div style="font:590 14.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.015em;color:{{ k.ink }}">{{ k.name }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:11px;padding:10px 16px 14px;flex:none">
+          <div style="flex:1;display:flex;gap:3px;background:rgba(42,20,32,.06);border-radius:12px;padding:3px">
+            <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+              <div onClick="{{ m.pick }}" style="flex:1;text-align:center;padding:8px 0;border-radius:9px;cursor:pointer;font:590 13.5px/1 -apple-system,system-ui,sans-serif;background:{{ m.bg }};color:{{ m.ink }};transition:background 160ms">{{ m.name }}</div>
+            </sc-for>
+          </div>
+          <div onClick="{{ closeSheet }}" style="width:32px;height:32px;border-radius:999px;background:rgba(42,20,32,.05);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none">
+            <svg width="13" height="13" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.5);stroke-width:3;stroke-linecap:round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </div>
+        </div>
+
+        <sc-if value="{{ isChatMode }}">
+        <div style="flex:1;overflow:auto;padding:4px 16px 8px;display:flex;flex-direction:column;gap:9px">
+          <sc-for list="{{ chat }}" as="m" hint-placeholder-count="2">
+            <div style="display:flex;justify-content:{{ m.align }};animation:rise 300ms cubic-bezier(.32,.72,0,1) both">
+              <div style="max-width:80%;padding:11px 16px;border-radius:{{ m.radius }};background:{{ m.bg }};color:{{ m.color }};border:1px solid {{ m.border }};font:400 16.5px/1.4 -apple-system,system-ui,sans-serif;letter-spacing:-.015em;box-shadow:{{ m.shadow }}">{{ m.text }}</div>
+            </div>
+          </sc-for>
+          <sc-if value="{{ showChips }}">
+            <div style="display:flex;flex-wrap:wrap;gap:7px;padding-top:3px">
+              <sc-for list="{{ chips }}" as="c" hint-placeholder-count="4">
+                <div onClick="{{ c.pick }}" style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:{{ c.tint }};border:1px solid {{ c.edge }};cursor:pointer;font:500 14.5px/1.3 -apple-system,system-ui,sans-serif;letter-spacing:-.012em;color:#2a1420">
+                  <span style="width:9px;height:9px;border-radius:3px;background:{{ c.color }};flex:none;box-shadow:0 0 8px -1px {{ c.color }}"></span>{{ c.name }}
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ isNumMode }}">
+        <div style="flex:1;overflow:auto;padding:0 16px 8px">
+          <div style="display:flex;align-items:flex-start;justify-content:center;gap:6px;padding:12px 0 18px">
+            <div style="font:700 46px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.032em;font-variant-numeric:tabular-nums;color:{{ kpColor }}">{{ kpSign }}{{ kpShown }}</div>
+            <div style="font:500 17px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.38);padding-top:5px">kr</div>
+          </div>
+          <div style="border-radius:22px;padding:2px 16px;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.3)">
+            <div style="padding:13px 0;border-bottom:1px solid rgba(42,20,32,.07)">
+              <div style="font:400 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5);margin-bottom:10px">Häst</div>
+              <div style="display:flex;gap:7px;flex-wrap:wrap">
+                <sc-for list="{{ kpHorses }}" as="h" hint-placeholder-count="4">
+                  <div onClick="{{ h.pick }}" style="padding:8px 14px;border-radius:999px;cursor:pointer;font:500 14.5px/1.2 -apple-system,system-ui,sans-serif;letter-spacing:-.012em;background:{{ h.bg }};border:1px solid {{ h.border }};color:{{ h.ink }}">{{ h.name }}</div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="padding:13px 0 15px">
+              <div style="font:400 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5);margin-bottom:10px">Kategori</div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px">
+                <sc-for list="{{ kpCats }}" as="c" hint-placeholder-count="9">
+                  <div onClick="{{ c.pick }}" style="display:flex;flex-direction:column;align-items:center;gap:7px;padding:11px 4px;border-radius:14px;cursor:pointer;background:{{ c.bg }};border:1px solid {{ c.border }}">
+                    <svg width="20" height="20" viewBox="0 0 24 24" style="fill:none;stroke:{{ c.glyph }};stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="{{ c.icon }}"/></svg>
+                    <div style="font:500 11.5px/1.15 -apple-system,system-ui,sans-serif;text-align:center;color:{{ c.ink }}">{{ c.name }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:16px 0 0">
+            <sc-for list="{{ keys }}" as="k" hint-placeholder-count="12">
+              <div onClick="{{ k.press }}" style="height:52px;border-radius:16px;background:#ffffff;border:1px solid rgba(42,20,32,.06);box-shadow:0 3px 10px -8px rgba(90,30,55,.3);display:flex;align-items:center;justify-content:center;font:500 22px/1 -apple-system,system-ui,sans-serif;cursor:pointer;user-select:none" style-active="background:rgba(42,20,32,.08)">{{ k.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ hasDraft }}">
+        <div style="flex:none;padding:8px 16px 0">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px;padding:0 4px">
+            <div style="font:500 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">{{ draftLabel }}</div>
+            <div style="font:590 16px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.018em;font-variant-numeric:tabular-nums;color:{{ draftInk }}">{{ draftTotal }} kr</div>
+          </div>
+          <div style="border-radius:20px;overflow:hidden;background:#ffffff;border:1px solid rgba(42,20,32,.055);box-shadow:0 12px 34px -20px rgba(90,30,55,.3)">
+            <sc-for list="{{ draft }}" as="d" hint-placeholder-count="2">
+              <div style="display:flex;align-items:center;padding:0 14px;animation:rise 300ms cubic-bezier(.32,.72,0,1) both">
+                <div style="width:32px;height:32px;border-radius:10px;background:{{ d.tint }};border:1px solid {{ d.edge }};display:flex;align-items:center;justify-content:center;flex:none">
+                  <svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:{{ d.color }};stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round"><path d="{{ d.icon }}"/></svg>
+                </div>
+                <div style="flex:1;min-width:0;margin-left:12px;padding:11px 0;border-bottom:1px solid {{ d.sep }};display:flex;align-items:center;gap:9px">
+                  <div style="flex:1;min-width:0">
+                    <div style="font:500 15.5px/1.2 -apple-system,system-ui,sans-serif;letter-spacing:-.015em">{{ d.note }}</div>
+                    <div style="font:400 12.5px/1.2 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.46);margin-top:2px">{{ d.meta }}</div>
+                  </div>
+                  <div style="font:590 15.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums;flex:none;color:{{ d.amtInk }}">{{ d.amt }}</div>
+                  <div onClick="{{ d.remove }}" style="width:26px;height:26px;border-radius:999px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;background:rgba(42,20,32,.05)" style-hover="background:rgba(42,20,32,.12)">
+                    <svg width="11" height="11" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.42);stroke-width:3;stroke-linecap:round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <div style="flex:none;padding:12px 16px 26px">
+          <sc-if value="{{ isChatMode }}">
+          <div style="display:flex;align-items:center;gap:8px;background:#ffffff;border:1px solid rgba(42,20,32,.07);border-radius:999px;padding:7px 8px 7px 17px;box-shadow:0 4px 14px -10px rgba(90,30,55,.3);margin-bottom:11px">
+            <input value="{{ input }}" onChange="{{ setInput }}" onKeyDown="{{ onKey }}" placeholder="{{ inputHint }}" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:400 16.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.015em;color:#2a1420"></input>
+            <div onClick="{{ send }}" style="width:36px;height:36px;border-radius:999px;background:{{ sendBg }};display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;transition:background 160ms;box-shadow:{{ sendGlow }}">
+              <svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:{{ sendInk }};stroke-width:2.7;stroke-linecap:round;stroke-linejoin:round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+            </div>
+          </div>
+          </sc-if>
+          <div onClick="{{ commit }}" style="height:54px;border-radius:18px;background:{{ ctaBg }};color:{{ ctaInk }};display:flex;align-items:center;justify-content:center;font:590 16.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.015em;cursor:pointer;transition:background 160ms;box-shadow:{{ ctaGlow }}">{{ ctaLabel }}</div>
+        </div>
+      </div>
+    </sc-if>
+
+  </div>
+  </x-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1000,&quot;height&quot;:1000}}">
+const I = {
+  traning:'M4 15l4-6 4 4 4-8 4 6',
+  foder:'M12 21V8M12 8c0-3 2-5 5-5 0 3-2 5-5 5M12 8c0-3-2-5-5-5 0 3 2 5 5 5M12 14c0-3 2-5 5-5 0 3-2 5-5 5M12 14c0-3-2-5-5-5 0 3 2 5 5 5',
+  hovslagare:'M7 3v7a5 5 0 0010 0V3M6.5 17.5h1.5M16 17.5h1.5M8 20.5h1.5M14.5 20.5H16',
+  veterinar:'M12 6v12M6 12h12',
+  transport:'M3 16V7h11v9M14 10h4l3 3.5V16M3 16h18M7.5 16a1.6 1.6 0 103.2 0 1.6 1.6 0 10-3.2 0M15.5 16a1.6 1.6 0 103.2 0 1.6 1.6 0 10-3.2 0',
+  utrustning:'M4 20l8-14 8 14zM8.5 20v-4h7v4',
+  tavling:'M7 4h10v4a5 5 0 01-10 0zM4.5 5.5h2.5M17 5.5h2.5M12 13v4M9 20h6',
+  uppstallning:'M3.5 10.5L12 4l8.5 6.5M6 9.5V20h12V9.5M10 20v-5h4v5',
+  ovrigt:'M6 12h.01M12 12h.01M18 12h.01',
+  intakt:'M12 19V5M6 11l6-6 6 6',
+  forsakring:'M12 3.5l7 2.8v5.2c0 4.2-2.9 7.4-7 9-4.1-1.6-7-4.8-7-9V6.3z',
+};
+const CAL = 'M4 6.5h16v13.5H4zM8 3.5v4M16 3.5v4M4 11h16';
+const PICONS = {
+  ar:    CAL + 'M9 14h6v3.5H9z',
+  manad: CAL + 'M8 14h.01M12 14h.01M16 14h.01M8 17.5h.01M12 17.5h.01M16 17.5h.01',
+  d7:    CAL + 'M7.5 14.5h9',
+  d30:   CAL + 'M8 14h.01M12 14h.01M16 14h.01M8 17.5h.01M12 17.5h.01',
+  d90:   CAL + 'M7.5 14.5h9M7.5 17.5h5',
+  exakt: CAL + 'M13.5 18l4-4 1.5 1.5-4 4h-1.5z',
+};
+const rgba = (hex,a) => {
+  const n = parseInt(hex.slice(1),16);
+  return 'rgba('+(n>>16)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+};
+const CATS = {
+  traning:      {name:'Träning',      color:'#6a4fe0', icon:I.traning},
+  foder:        {name:'Foder',        color:'#d98200', icon:I.foder},
+  hovslagare:   {name:'Hovslagare',   color:'#0e8fa0', icon:I.hovslagare},
+  veterinar:    {name:'Veterinär',    color:'#17a05f', icon:I.veterinar},
+  transport:    {name:'Transport',    color:'#e2551f', icon:I.transport},
+  utrustning:   {name:'Utrustning',   color:'#c1349a', icon:I.utrustning},
+  tavling:      {name:'Tävling',      color:'#e0165f', icon:I.tavling},
+  uppstallning: {name:'Stallplats',   color:'#5f6878', icon:I.uppstallning},
+  forsakring:   {name:'Försäkring',   color:'#c8104c', icon:I.forsakring},
+  ovrigt:       {name:'Övrigt',       color:'#8a8f9c', icon:I.ovrigt},
+};
+Object.keys(CATS).forEach(k=>{
+  CATS[k].tint = rgba(CATS[k].color,.11);
+  CATS[k].edge = rgba(CATS[k].color,.2);
+});
+const REVC = '#17a05f';
+const OUTKEYS = Object.keys(CATS);
+const RCATS = {
+  r_uthyrning:   {name:'Uthyrning',   color:'#17a05f', icon:I.uppstallning},
+  r_forsaljning: {name:'Försäljning', color:'#0e8fa0', icon:I.utrustning},
+  r_pris:        {name:'Prispengar',  color:'#d98200', icon:I.tavling},
+  r_ersattning:  {name:'Ersättning',  color:'#6a4fe0', icon:I.forsakring},
+  r_ovrigt:      {name:'Övrigt',      color:'#8a8f9c', icon:I.ovrigt},
+};
+Object.keys(RCATS).forEach(k=>{
+  RCATS[k].tint = rgba(RCATS[k].color,.11);
+  RCATS[k].edge = rgba(RCATS[k].color,.2);
+  CATS[k] = RCATS[k];
+});
+const INKEYS = Object.keys(RCATS);
+const RKW = [
+  ['r_uthyrning',   ['uthyrd','uthyrning','hyrt ut','hyrde ut','fodervärd','delridning','boxhyra in']],
+  ['r_forsaljning', ['sålt','sålde','sälja','såld','försäljning','blocket']],
+  ['r_pris',        ['prispengar','prischeck','vann','vinst','placering']],
+  ['r_ersattning',  ['ersättning','försäkringsersättning','återbetalning','återbetalt','bidrag','utbetalning','agria betalade']],
+];
+const RTRIG = ['intäkt','inkomst','fick betalt','betalt av','in på kontot'].concat(RKW.reduce((a,x)=>a.concat(x[1]),[]));
+const HORSES = [
+  {id:'ztina',  name:'Ztina',  breed:'Svenskt Varmblod', born:'2019', color:'#6a4fe0', c2:'#4527c4'},
+  {id:'siggan', name:'Siggan', breed:'Svenskt Varmblod', born:'2017', color:'#0e8fa0', c2:'#046b82'},
+  {id:'vghhj',  name:'Vghhj',  breed:'Ponny',            born:'2021', color:'#d98200', c2:'#b05e00'},
+];
+const MON  = ['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
+const MSH  = ['jan','feb','mars','apr','maj','juni','juli','aug','sep','okt','nov','dec'];
+const ABBREV = [true,true,false,true,false,false,false,true,true,true,true,true];
+const MI1  = ['J','F','M','A','M','J','J','A','S','O','N','D'];
+const DIM  = [31,28,31,30,31,30,31,31,30,31,30,31];
+const OFF  = (() => { const o=[0]; for(let i=0;i<12;i++) o.push(o[i]+DIM[i]); return o; })();
+const doy  = (m,d) => OFF[m]+d;
+const fromDoy = n => { for(let m=11;m>=0;m--) if(n>OFF[m]) return {m, d:n-OFF[m]}; return {m:0,d:1}; };
+const TODAY = doy(8,4);
+const PATTERNS = {
+  a: [['traning',.45],['foder',.30],['hovslagare',.10],['veterinar',.05],['transport',.10]],
+  b: [['veterinar',.72],['traning',.12],['foder',.10],['transport',.06]],
+  c: [['tavling',.38],['traning',.25],['transport',.18],['foder',.19]],
+};
+const HIST = [
+  {t:1200,p:'a'},{t:900,p:'a'},{t:10380,p:'b'},{t:300,p:'a'},{t:700,p:'a'},{t:1100,p:'c'},
+  {t:1900,p:'c'},{t:1500,p:'c'},{t:0,p:null},{t:0,p:null},{t:0,p:null},{t:0,p:null},
+];
+const NOTES = {
+  traning:['Ridlektion','Tränarhelg','Longering','Clinic'],
+  foder:['Hösilage','Kraftfoder','Müsli & betfor','Spån'],
+  hovslagare:['Skoning','Verkning','Skoning fram'],
+  veterinar:['Vaccination','Röntgen','Tandvård','Klinikbesök'],
+  transport:['Diesel','Transportörhyra','Resa till klinik'],
+  utrustning:['Täcke','Grimma','Benlindor','Träns'],
+  tavling:['Startavgift','Anmälningsavgift','Boxhyra tävling'],
+  uppstallning:['Stallhyra'],
+  forsakring:['Försäkringspremie'],
+  ovrigt:['Övrigt'],
+};
+const SEED = (() => {
+  let s = 987654321;
+  const rnd = () => ((s = (s*1103515245 + 12345) & 0x7fffffff) / 0x7fffffff);
+  const out = []; let id = 100;
+  for(let m=0;m<12;m++){
+    const t = HIST[m].t; if(!t) continue;
+    const pat = PATTERNS[HIST[m].p];
+    let left = t;
+    pat.forEach(([cat,f],k)=>{
+      const amt = k===pat.length-1 ? left : Math.round(t*f/10)*10;
+      left -= amt;
+      if(amt<=0) return;
+      const notes = NOTES[cat];
+      out.push({
+        id:id++, m, d: 2 + Math.floor(rnd()*(DIM[m]-3)), cat, amt,
+        note: notes[Math.floor(rnd()*notes.length)],
+        horse: rnd()<0.82 ? HORSES[Math.floor(rnd()*3)].id : null,
+      });
+    });
+  }
+  return out;
+})();
+const KW = [
+  ['foder',['foder','hö','hösilage','kraftfoder','müsli','betfor','morötter','halm','spån']],
+  ['hovslagare',['hovslagare','sko','skoning','verkning','verka','hov']],
+  ['veterinar',['veterinär','vet','vacc','vaccin','tandläkare','tand','massage','röntgen']],
+  ['traning',['träning','tränare','lektion','ridlektion','ridning','clinic','kurs','longering']],
+  ['transport',['transport','diesel','bensin','släp','transportör','resa']],
+  ['utrustning',['utrustning','täcke','grimma','sadel','träns','benlindor','lindor','hjälm','stövlar','skydd']],
+  ['tavling',['tävling','start','startavgift','anmälning','anmälan','hoppning','dressyr']],
+  ['uppstallning',['uppstallning','box','stallhyra','hyra','stallplats','stall']],
+  ['forsakring',['försäkring','forsakring','agria','folksam','sveland','premie']],
+];
+const SEP = 'rgba(42,20,32,.07)';
+const BUDGET_ITEMS = [
+  {cat:'uppstallning', name:'Stallplats',  note:'Stallhyra Jorslars', perMonth:3500},
+  {cat:'hovslagare',   name:'Hovslagare',  note:'Hovslagare',         perMonth:850},
+  {cat:'forsakring',   name:'Försäkring',  note:'Ztina',              perMonth:1000},
+  {cat:'forsakring',   name:'Försäkring',  note:'Siggan',             perMonth:1000},
+];
+const PREV_YEAR = [300,250,700,180,320,420,650,540,380,290,150,127];
+const PERIODS = [
+  {k:'ar',    name:'Årsvis',             sub:'Visar år för år'},
+  {k:'manad', name:'Månadsvis',          sub:'Visar månad för månad'},
+  {k:'d7',    name:'Senaste 7 dagarna',  sub:'Visar senaste 7 dagarna rullande'},
+  {k:'d30',   name:'Senaste 30 dagarna', sub:'Visar senaste 30 dagarna rullande'},
+  {k:'d90',   name:'Senaste 90 dagarna', sub:'Visar senaste 90 dagarna rullande'},
+  {k:'exakt', name:'Välj exakta datum',  sub:'Välj startdatum och slutdatum själv'},
+];
+
+class Component extends DCLogic {
+  state = {
+    tab:'hem', horse:'ztina',
+    pmode:'manad', mi:8, yi:2026, anchor:TODAY, rs:doy(7,1), re:TODAY,
+    sheet:null, mode:'chat', kind:'ut', input:'', query:'', filter:'alla',
+    toast:null, scanning:false, pending:null, heroAnim:null, cmpOn:false,
+    kp:{amt:'', cat:'foder', rcat:'r_uthyrning', horse:'ztina'},
+    chat:[{who:'ai', text:'Skriv en utgift eller intäkt som du skulle sagt den. Belopp, vad det var, vilken häst — i vilken ordning som helst.'}],
+    draft:[],
+    entries: SEED.concat([
+      {id:1, m:8, d:4, cat:'traning',      note:'Ridlektion',          horse:'ztina',  amt:2250},
+      {id:2, m:8, d:4, cat:'foder',        note:'Hösilage, 6 balar',   horse:'siggan', amt:450},
+      {id:3, m:8, d:4, cat:'hovslagare',   note:'Skoning fram',        horse:'ztina',  amt:200},
+      {id:4, m:8, d:4, cat:'utrustning',   note:'Benlindor',           horse:'siggan', amt:100},
+      {id:5, m:8, d:3, cat:'foder',        note:'Kraftfoder',          horse:'vghhj',  amt:400},
+      {id:6, m:8, d:2, cat:'transport',    note:'Diesel till tävling', horse:null,     amt:100},
+      {id:7, m:8, d:4, cat:'uppstallning', note:'Uthyrd box, oktober', horse:null,     amt:2400, rev:true},
+      {id:9,  m:0, d:2,  cat:'uppstallning', note:'Stallhyra Jorslars',  horse:null,     amt:3155},
+      {id:10, m:0, d:12, cat:'forsakring',   note:'Försäkring Ztina',    horse:'ztina',  amt:1000},
+      {id:11, m:2, d:3,  cat:'forsakring',   note:'Försäkring Siggan',   horse:'siggan', amt:500},
+      {id:12, m:8, d:1,  cat:'ovrigt',        note:'Sålt gammalt täcke',  horse:null,     amt:188, rev:true},
+    ]),
+    nextId:20,
+  };
+
+  fmt(n){ const v=Math.round(Math.abs(n)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' '); return (n<0?'−':'')+v; }
+  dateStr(n){ const {m,d}=fromDoy(n); return d + ' ' + MSH[m] + (ABBREV[m]?'.':''); }
+
+  window(st){
+    st = st || this.state;
+    switch(st.pmode){
+      case 'ar':    return {a:1, b:365, yr:st.yi};
+      case 'manad': return {a:OFF[st.mi]+1, b:OFF[st.mi]+DIM[st.mi], yr:2026};
+      case 'd7':    return {a:st.anchor-6,  b:st.anchor, yr:2026};
+      case 'd30':   return {a:st.anchor-29, b:st.anchor, yr:2026};
+      case 'd90':   return {a:st.anchor-89, b:st.anchor, yr:2026};
+      default:      return {a:st.rs, b:st.re, yr:2026};
+    }
+  }
+  prevWindow(){
+    const w=this.window(), span=w.b-w.a+1, st=this.state;
+    if(st.pmode==='ar') return {a:1,b:365,yr:st.yi-1};
+    if(st.pmode==='manad'){
+      const m=st.mi-1;
+      return m<0 ? {a:0,b:-1,yr:2025} : {a:OFF[m]+1,b:OFF[m]+DIM[m],yr:2026};
+    }
+    return {a:w.a-span, b:w.a-1, yr:2026};
+  }
+  inWin(e,w){ const n=doy(e.m,e.d); return w.yr===2026 && n>=w.a && n<=w.b; }
+  recs(w){ return this.state.entries.filter(e=>this.inWin(e,w)); }
+  outSum(w){ return this.recs(w).filter(e=>!e.rev).reduce((a,e)=>a+e.amt,0); }
+
+  periodLabel(){
+    const st=this.state, w=this.window();
+    if(st.pmode==='ar') return String(st.yi);
+    if(st.pmode==='manad') return MON[st.mi] + ' 2026';
+    return this.dateStr(w.a) + ' – ' + this.dateStr(w.b);
+  }
+  periodSpan(){
+    const st=this.state;
+    if(st.pmode==='ar') return 'hela ' + st.yi;
+    if(st.pmode==='manad') return MON[st.mi].toLowerCase();
+    const w=this.window();
+    return (w.b-w.a+1) + ' dagar';
+  }
+  step(dir){
+    const st=this.state;
+    if(st.pmode==='ar')    return this.commitPeriod({yi: Math.min(2026, Math.max(2022, st.yi+dir))});
+    if(st.pmode==='manad') return this.commitPeriod({mi: Math.min(11, Math.max(0, st.mi+dir))});
+    if(st.pmode==='exakt'){
+      const span=st.re-st.rs+1;
+      return this.commitPeriod({rs:st.rs+dir*span, re:st.re+dir*span});
+    }
+    const n = st.pmode==='d7'?7:st.pmode==='d30'?30:90;
+    this.commitPeriod({anchor: st.anchor + dir*n});
+  }
+  commitPeriod(patch){
+    const from = this.outSum(this.window());
+    const next = Object.assign({}, this.state, patch);
+    this.setState(patch);
+    this.animateHero(from, this.outSum(this.window(next)));
+  }
+
+  animateHero(from, to){
+    cancelAnimationFrame(this._raf);
+    clearTimeout(this._safety);
+    if(from === to){ this.setState({heroAnim:null}); return; }
+    const t0=performance.now(), dur=460;
+    this.setState({heroAnim: from});
+    const step = now => {
+      const p=Math.min(1,(now-t0)/dur);
+      if(p>=1){ this.setState({heroAnim:null}); return; }
+      this.setState({heroAnim: from+(to-from)*(1-Math.pow(1-p,3))});
+      this._raf=requestAnimationFrame(step);
+    };
+    this._raf=requestAnimationFrame(step);
+    this._safety=setTimeout(()=>this.setState({heroAnim:null}), dur+140);
+  }
+  componentWillUnmount(){ cancelAnimationFrame(this._raf); clearTimeout(this._t); clearTimeout(this._safety); }
+  toast(t){ this.setState({toast:t}); clearTimeout(this._t); this._t=setTimeout(()=>this.setState({toast:null}),2700); }
+
+  when(m,d){ const n=doy(m,d); return n===TODAY?'idag':n===TODAY-1?'igår':n===TODAY-2?'i förrgår':d+' '+MSH[m]; }
+  meta(e){
+    const h=HORSES.find(x=>x.id===e.horse);
+    return [CATS[e.cat].name].concat(h?[h.name]:[]).concat([this.when(e.m,e.d)]).join(' · ');
+  }
+
+  parse(raw){
+    const s=raw.toLowerCase();
+    const num=s.match(/(\d[\d\s]*)(?:\s*(?:kr|:-))?/);
+    const amt=num?parseInt(num[1].replace(/\s/g,''),10):null;
+    const rev = this.state.kind==='in' || RTRIG.some(x=>s.includes(x));
+    let cat=null;
+    for(const [k,w] of (rev?RKW:KW)){ if(w.some(x=>s.includes(x))){ cat=k; break; } }
+    let horse=null; for(const h of HORSES){ if(s.includes(h.name.toLowerCase())){ horse=h.id; break; } }
+    let d=4;
+    if(/igår|i går/.test(s)) d=3;
+    if(/förrgår/.test(s)) d=2;
+    return {amt, cat, horse, m:8, d, rev, note: cat?CATS[cat].name:raw.trim()};
+  }
+  forWhom(p){
+    const h=HORSES.find(x=>x.id===p.horse);
+    return (h?' för '+h.name:'') + ' ' + this.when(p.m,p.d);
+  }
+
+  send = () => {
+    const raw=this.state.input.trim(); if(!raw) return;
+    const chat=this.state.chat.concat([{who:'me',text:raw}]);
+    const p=this.parse(raw);
+    const kind = p.rev ? 'in' : this.state.kind;
+    const sign = v => (p.rev?'+':'')+this.fmt(v);
+    if(this.state.pending && p.cat){
+      const d=Object.assign({},this.state.pending,{cat:p.cat,note:CATS[p.cat].name});
+      chat.push({who:'ai',text:'Klart. '+(d.rev?'+':'')+this.fmt(d.amt)+' kr '+CATS[p.cat].name.toLowerCase()+this.forWhom(d)+'.'});
+      return this.setState({chat,input:'',pending:null,kind,draft:this.state.draft.concat([d])});
+    }
+    if(this.state.pending){
+      chat.push({who:'ai',text:'Den kategorin känner jag inte igen. Välj en nedan.'});
+      return this.setState({chat,input:''});
+    }
+    if(p.amt===null){
+      chat.push({who:'ai',text:'Jag hittar inget belopp där. Skriv t.ex. «450 foder ztina».'});
+      return this.setState({chat,input:''});
+    }
+    if(p.cat===null){
+      chat.push({who:'ai',text:'Vad var '+sign(p.amt)+' kr'+this.forWhom(p)+'?'});
+      return this.setState({chat,input:'',kind,pending:p});
+    }
+    chat.push({who:'ai',text:'Klart. '+sign(p.amt)+' kr '+CATS[p.cat].name.toLowerCase()+this.forWhom(p)+(p.rev?' — bokförs som intäkt.':'.')});
+    this.setState({chat,input:'',kind,draft:this.state.draft.concat([p])});
+  };
+
+  commit = () => {
+    const st=this.state;
+    const back = {pmode:'manad', mi:8, sheet:null, tab:'hem'};
+    const sepWin = {a:OFF[8]+1, b:OFF[8]+DIM[8], yr:2026};
+    const sepFrom = this.outSum(sepWin);
+    if(st.mode==='num'){
+      const amt=parseInt(st.kp.amt||'0',10); if(!amt) return;
+      const rev=st.kind==='in', cat=rev?st.kp.rcat:st.kp.cat;
+      this.setState(Object.assign({}, back, {
+        entries:st.entries.concat([{id:st.nextId, m:8, d:4, cat, note:CATS[cat].name, horse:st.kp.horse, amt, rev:rev||undefined}]),
+        nextId:st.nextId+1, kp:Object.assign({},st.kp,{amt:''}),
+      }));
+      if(!rev) this.animateHero(sepFrom, sepFrom+amt);
+      return this.toast((rev?'+':'')+this.fmt(amt)+' kr är bokfört'+(rev?' som intäkt.':'.'));
+    }
+    if(!st.draft.length) return;
+    let id=st.nextId;
+    const added=st.draft.map(d=>({id:id++, m:d.m, d:d.d, cat:d.cat, note:d.note, horse:d.horse, amt:d.amt, rev:d.rev||undefined}));
+    const sum=added.filter(e=>!e.rev).reduce((a,e)=>a+e.amt,0), n=added.length;
+    this.setState(Object.assign({}, back, {
+      entries:st.entries.concat(added), nextId:id, draft:[],
+      chat:st.chat.concat([{who:'ai',text:n+(n===1?' post sparad.':' poster sparade.')}]),
+    }));
+    this.animateHero(sepFrom, sepFrom+sum);
+    this.toast(n===1?'Posten är bokförd.':n+' poster är bokförda.');
+  };
+
+  scan = e => {
+    if(e && e.stopPropagation) e.stopPropagation();
+    this.setState({scanning:true});
+    setTimeout(()=>{
+      this.setState({
+        scanning:false, sheet:'add', mode:'chat',
+        chat:this.state.chat.concat([
+          {who:'me', text:'Kvitto · Granngården'},
+          {who:'ai', text:'Granngården, 4 sep, 1 180 kr. Jag läser det som foder till Ztina — ändra om jag har fel.'},
+        ]),
+        draft:this.state.draft.concat([{amt:1180, cat:'foder', horse:'ztina', m:8, d:4, note:'Granngården'}]),
+      });
+    }, 1500);
+  };
+
+  buildBars(){
+    const st=this.state, w=this.window();
+    const sumRange=(a,b)=>this.state.entries.filter(e=>{const n=doy(e.m,e.d); return !e.rev && n>=a && n<=b;}).reduce((a2,e)=>a2+e.amt,0);
+    let raw=[];
+    if(st.pmode==='ar'){
+      const YEARS=[2022,2023,2024,2025,2026], VALS={2022:1100,2023:2800,2024:3950,2025:4307};
+      raw = YEARS.map(y=>({label:String(y).slice(2), v: y===2026?sumRange(1,365):VALS[y], sel:y===st.yi, a:1, b:365, tap:()=>this.commitPeriod({yi:y})}));
+    } else if(st.pmode==='manad'){
+      raw = MI1.map((l,i)=>({label:l, v:sumRange(OFF[i]+1,OFF[i]+DIM[i]), sel:i===st.mi, a:OFF[i]+1, b:OFF[i]+DIM[i], tap:()=>this.commitPeriod({mi:i})}));
+    } else {
+      const span=w.b-w.a+1;
+      if(span<=10){
+        for(let n=w.a;n<=w.b;n++){ const {d}=fromDoy(n); raw.push({label:String(d), v:sumRange(n,n), sel:n===w.b, a:n, b:n, tap:null}); }
+      } else if(span<=35){
+        for(let n=w.a;n<=w.b;n++){ const {d}=fromDoy(n); raw.push({label: d%5===0?String(d):'', v:sumRange(n,n), sel:n===w.b, a:n, b:n, tap:null}); }
+      } else {
+        const weeks=Math.ceil(span/7);
+        for(let k=0;k<weeks;k++){
+          const a=w.a+k*7, b=Math.min(w.b,a+6), {m}=fromDoy(b);
+          raw.push({label: k%3===0?MSH[m]:'', v:sumRange(a,b), sel:k===weeks-1, a:a, b:b, tap:null});
+        }
+      }
+    }
+    const max=Math.max(1,...raw.map(b=>b.v));
+    const thin=raw.length>20;
+    const selIdx=raw.findIndex(b=>b.sel), sel=raw[selIdx];
+    return {
+      series: raw.map(b=>({v:b.v, a:b.a, b:b.b, label:b.label})),
+      gap: thin?'2px':raw.length>12?'4px':'6px',
+      callout: sel && sel.v ? {show:true, text:this.fmt(sel.v)+' kr', left:((selIdx+0.5)/raw.length*100).toFixed(2)+'%'} : {show:false,text:'',left:'0%'},
+      bars: raw.map(b=>({
+        abbr:b.label,
+        w: thin?'100%':'7px',
+        h: b.v ? Math.max(5, b.v/max*100).toFixed(1)+'%' : '5px',
+        fill: b.sel ? 'linear-gradient(180deg,#f0407a,#cf0a4f)' : (b.v ? 'rgba(42,20,32,.13)' : 'rgba(42,20,32,.06)'),
+        glow: b.sel ? '0 0 22px -4px rgba(224,22,95,.9)' : 'none',
+        ink: b.sel ? '#e0165f' : 'rgba(42,20,32,.38)',
+        cursor: b.tap?'pointer':'default',
+        pick: b.tap || (()=>{}),
+      })),
+    };
+  }
+
+  renderVals(){
+    const st=this.state, w=this.window();
+    const recs=this.recs(w), out=this.outSum(w);
+    const rev=recs.filter(e=>e.rev).reduce((a,e)=>a+e.amt,0);
+    const prevOut=this.outSum(this.prevWindow());
+    const {gap, bars, callout, series:barSeries}=this.buildBars();
+
+    const up=out>=prevOut;
+    const pct=prevOut?Math.round(Math.abs(out-prevOut)/prevOut*100):(out?100:0);
+    const delta={
+      ink: up?'#d92d2d':'#17a05f',
+      bg: up?'rgba(217,45,45,.1)':'rgba(23,160,95,.1)',
+      border: up?'rgba(217,45,45,.2)':'rgba(23,160,95,.2)',
+      tri: up?'M12 5l7 12H5z':'M12 19L5 7h14z',
+      text: pct+' %', signed:(up?'+':'−')+pct+' %',
+    };
+
+    const outRecs=recs.filter(e=>!e.rev);
+    const by={}; outRecs.forEach(e=>{ by[e.cat]=(by[e.cat]||0)+e.amt; });
+    const ck=Object.keys(by).sort((a,b)=>by[b]-by[a]);
+    const cmax=Math.max(1,...ck.map(k=>by[k]));
+    const mkCat=(k,i,arr)=>Object.assign({}, CATS[k], {
+      amt:this.fmt(by[k]), pct:Math.round(by[k]/(out||1)*100)+' %',
+      w:(by[k]/cmax*100).toFixed(1)+'%', sep: i===arr.length-1?'transparent':SEP,
+    });
+    const catRows=ck.map(mkCat), statCats=ck.map(mkCat);
+    const glow = ck.length ? rgba(CATS[ck[0]].color,.22) : 'rgba(224,22,95,.16)';
+
+    const hmax=Math.max(1,...HORSES.map(h=>outRecs.filter(e=>e.horse===h.id).reduce((a,e)=>a+e.amt,0)));
+    const horseCards=HORSES.map(h=>{
+      const es=outRecs.filter(e=>e.horse===h.id), sum=es.reduce((a,e)=>a+e.amt,0);
+      const hb={}; es.forEach(e=>{ hb[e.cat]=(hb[e.cat]||0)+e.amt; });
+      const keys=Object.keys(hb).sort((a,b)=>hb[b]-hb[a]);
+      return {
+        name:h.name, breed:h.breed, initial:h.name[0], color:h.color,
+        ring: 'linear-gradient(145deg,'+h.color+','+h.c2+')',
+        shadow: rgba(h.color,.6),
+        card: 'linear-gradient(160deg,'+rgba(h.color,.14)+' 0%, #ffffff 52%, #ffffff 100%)',
+        amt:this.fmt(sum), w:(sum/hmax*100).toFixed(1)+'%', none:keys.length===0,
+        pct: out?Math.round(sum/out*100)+' %':'0 %',
+        segs: keys.map(k=>({w:(hb[k]/(sum||1)*100).toFixed(1)+'%', color:CATS[k].color})),
+        open: () => this.setState({tab:'profil', horse:h.id}),
+      };
+    });
+
+    const dec=(e,last)=>Object.assign({}, CATS[e.cat], {
+      note:e.note, meta:this.meta(e), sep: last?'transparent':SEP,
+      amt:(e.rev?'+':'')+this.fmt(e.amt), amtInk: e.rev?REVC:'#2a1420',
+      color: e.rev?REVC:CATS[e.cat].color,
+      tint: e.rev?rgba(REVC,.15):CATS[e.cat].tint,
+      edge: e.rev?rgba(REVC,.26):CATS[e.cat].edge,
+      icon: e.rev?I.intakt:CATS[e.cat].icon,
+    });
+    const sorted=recs.slice().sort((a,b)=> doy(b.m,b.d)-doy(a.m,a.d) || b.id-a.id);
+    const recent=sorted.slice(0,4).map((e,i,arr)=>dec(e,i===arr.length-1));
+
+    const q=st.query.trim().toLowerCase();
+    const list=sorted.filter(e=>{
+      if(st.filter!=='alla' && e.cat!==st.filter) return false;
+      if(!q) return true;
+      const h=HORSES.find(x=>x.id===e.horse);
+      return (e.note+' '+CATS[e.cat].name+' '+(h?h.name:'')+' '+e.amt).toLowerCase().includes(q);
+    });
+    const byDay=[]; list.forEach(e=>{
+      const n=doy(e.m,e.d);
+      let g=byDay.find(x=>x.n===n);
+      if(!g){ g={n, items:[], sum:0}; byDay.push(g); }
+      g.items.push(e); if(!e.rev) g.sum+=e.amt;
+    });
+    const groups=byDay.map(g=>{
+      const {m,d}=fromDoy(g.n);
+      return {
+        dayName: g.n===TODAY?'Idag':g.n===TODAY-1?'Igår':d+' '+MON[m].toLowerCase(),
+        total:this.fmt(g.sum)+' kr',
+        items:g.items.map((e,i,arr)=>dec(e,i===arr.length-1)),
+      };
+    });
+    const used=[]; recs.forEach(e=>{ if(!used.includes(e.cat)) used.push(e.cat); });
+    const filters=[{k:'alla',name:'Alla'}].concat(used.map(k=>({k,name:CATS[k].name}))).map(f=>({
+      name:f.name,
+      bg: st.filter===f.k?'#2a1420':'#ffffff',
+      border: st.filter===f.k?'#2a1420':'rgba(42,20,32,.07)',
+      ink: st.filter===f.k?'#ffffff':'rgba(42,20,32,.72)',
+      pick: () => this.setState({filter:f.k}),
+    }));
+
+    const hz=HORSES.find(h=>h.id===st.horse)||HORSES[0];
+    const pes=outRecs.filter(e=>e.horse===hz.id), psum=pes.reduce((a,e)=>a+e.amt,0);
+    const pb={}; pes.forEach(e=>{ pb[e.cat]=(pb[e.cat]||0)+e.amt; });
+    const pk=Object.keys(pb).sort((a,b)=>pb[b]-pb[a]);
+    const pmax=Math.max(1,...pk.map(k=>pb[k]));
+    const yearForHorse=st.entries.filter(e=>!e.rev&&e.horse===hz.id).reduce((a,e)=>a+e.amt,0);
+    const profCats=pk.map((k,i)=>Object.assign({}, CATS[k], {
+      amt:this.fmt(pb[k]), pct:Math.round(pb[k]/(psum||1)*100)+' %',
+      w:(pb[k]/pmax*100).toFixed(1)+'%', sep: i===pk.length-1?'transparent':SEP,
+    }));
+
+    const spanDays=w.b-w.a+1;
+    const avgUnit = st.pmode==='ar'?'månad':'dag';
+    const avgVal = st.pmode==='ar' ? this.fmt(out/12) : this.fmt(out/Math.max(1,Math.min(spanDays, TODAY-w.a+1)));
+
+    const ACC = st.kind==='in'
+      ? {c:REVC, grad:'linear-gradient(150deg,#3fbf80,#0e8a4e)', glow:'0 6px 18px -6px rgba(23,160,95,.75)', soft:'rgba(23,160,95,.12)'}
+      : {c:'#e0165f', grad:'linear-gradient(150deg,#f0407a,#cf0a4f)', glow:'0 6px 18px -6px rgba(224,22,95,.8)', soft:'rgba(224,22,95,.1)'};
+    const chat=st.chat.map(m=>m.who==='me'
+      ? {align:'flex-end', bg:ACC.grad, color:'#fff', border:'transparent', radius:'21px 21px 6px 21px', shadow:'0 8px 22px -8px '+ACC.soft, text:m.text}
+      : {align:'flex-start', bg:'#ffffff', color:'#2a1420', border:'rgba(42,20,32,.06)', radius:'21px 21px 21px 6px', shadow:'none', text:m.text});
+    const chipRev = st.pending ? !!st.pending.rev : st.kind==='in';
+    const chips=(chipRev?INKEYS:OUTKEYS).map(k=>Object.assign({}, CATS[k], {
+      pick: () => {
+        const d=Object.assign({}, st.pending, {cat:k, note:CATS[k].name});
+        this.setState({pending:null, draft:st.draft.concat([d]), chat:st.chat.concat([
+          {who:'me',text:CATS[k].name},
+          {who:'ai',text:'Klart. '+this.fmt(d.amt)+' kr '+CATS[k].name.toLowerCase()+this.forWhom(d)+'.'},
+        ])});
+      },
+    }));
+    const draft=st.draft.map((d,i,arr)=>Object.assign({}, CATS[d.cat], {
+      note:d.note, meta:this.meta({cat:d.cat, horse:d.horse, m:d.m, d:d.d}),
+      amt:(d.rev?'+':'')+this.fmt(d.amt), amtInk: d.rev?REVC:'#2a1420',
+      color: d.rev?REVC:CATS[d.cat].color,
+      tint: d.rev?rgba(REVC,.15):CATS[d.cat].tint,
+      edge: d.rev?rgba(REVC,.26):CATS[d.cat].edge,
+      icon: d.rev?I.intakt:CATS[d.cat].icon,
+      sep: i===arr.length-1?'transparent':SEP,
+      remove: () => this.setState({draft: st.draft.filter((_,j)=>j!==i)}),
+    }));
+    const dIn = st.draft.filter(d=>d.rev).reduce((a,d)=>a+d.amt,0);
+    const dOut = st.draft.filter(d=>!d.rev).reduce((a,d)=>a+d.amt,0);
+
+    const kp=st.kp, kpAmt=parseInt(kp.amt||'0',10);
+    const keys=['1','2','3','4','5','6','7','8','9','00','0','←'].map(l=>({
+      label:l,
+      press: () => {
+        let v=kp.amt;
+        if(l==='←') v=v.slice(0,-1);
+        else if(v.length<7) v=(v===''&&l==='00')?'':v+l;
+        this.setState({kp:Object.assign({},kp,{amt:v})});
+      },
+    }));
+    const kpHorses=HORSES.concat([{id:null,name:'Ingen'}]).map(h=>({
+      name:h.name,
+      bg: kp.horse===h.id?'#2a1420':'#ffffff',
+      border: kp.horse===h.id?'#2a1420':'rgba(42,20,32,.07)',
+      ink: kp.horse===h.id?'#ffffff':'rgba(42,20,32,.7)',
+      pick: () => this.setState({kp:Object.assign({},kp,{horse:h.id})}),
+    }));
+    const kpKey = st.kind==='in' ? kp.rcat : kp.cat;
+    const kpCats=(st.kind==='in'?INKEYS:OUTKEYS).map(k=>Object.assign({}, CATS[k], {
+      bg: kpKey===k?CATS[k].tint:'#ffffff',
+      border: kpKey===k?CATS[k].edge:'rgba(42,20,32,.06)',
+      glyph: kpKey===k?CATS[k].color:'rgba(42,20,32,.4)',
+      ink: kpKey===k?'#2a1420':'rgba(42,20,32,.5)',
+      pick: () => this.setState({kp:Object.assign({},kp, st.kind==='in'?{rcat:k}:{cat:k})}),
+    }));
+    const kinds=[['ut','Utgift','M12 5v13M6 12l6 6 6-6','#e0165f'],['in','Intäkt','M12 19V6M6 12l6-6 6 6',REVC]].map(([k,n,ic,c])=>({
+      name:n, icon:ic,
+      bg: st.kind===k?(k==='in'?rgba(REVC,.13):'rgba(224,22,95,.1)'):'transparent',
+      shadow:'none',
+      ink: st.kind===k?c:'rgba(42,20,32,.46)',
+      glyph: st.kind===k?c:'rgba(42,20,32,.34)',
+      pick: () => this.setState({kind:k, pending:null}),
+    }));
+
+    const tabDefs=[
+      ['hem','Hem','M3 10.6L12 3.5l9 7.1M5.5 9.6V20.5h13V9.6M9.8 20.5v-5.7h4.4v5.7'],
+      ['bok','Log','M5 3h14v18l-3-2-2 2-2-2-2 2-3-2V3M9 8h6M9 12h6'],
+      ['hast','Hästar','M7 3v7a5 5 0 0010 0V3M6.5 17.5h1.5M16 17.5h1.5M8 20.5h1.5M14.5 20.5H16'],
+      ['stat','Statistik','M5 20V11M12 20V4M19 20v-6'],
+    ];
+    const active=st.tab==='profil'?'hast':st.tab;
+    const tabs=tabDefs.map(([k,n,d])=>({
+      name:n, icon:d, sw: active===k?2.2:1.7,
+      color: active===k?'#2a1420':'rgba(42,20,32,.42)',
+      bg: active===k?'rgba(42,20,32,.07)':'transparent',
+      go: () => this.setState({tab:k}),
+    }));
+    const modes=[['chat','Beskriv'],['num','Siffror']].map(([k,n])=>({
+      name:n,
+      bg: st.mode===k?'#ffffff':'transparent',
+      ink: st.mode===k?'#2a1420':'rgba(42,20,32,.5)',
+      pick: () => this.setState({mode:k}),
+    }));
+    const periodOpts=PERIODS.map(p=>({
+      name:p.name, sub:p.sub, icon:PICONS[p.k], on: st.pmode===p.k,
+      bg: st.pmode===p.k?'rgba(224,22,95,.07)':'#ffffff',
+      border: st.pmode===p.k?'rgba(224,22,95,.34)':'rgba(42,20,32,.06)',
+      tint: st.pmode===p.k?'rgba(224,22,95,.12)':'rgba(42,20,32,.05)',
+      edge: st.pmode===p.k?'rgba(224,22,95,.26)':'rgba(42,20,32,.06)',
+      glyph: st.pmode===p.k?'#e0165f':'rgba(42,20,32,.42)',
+      pick: () => {
+        const patch={pmode:p.k, sheet:null};
+        if(p.k==='exakt'){ patch.rs=doy(7,1); patch.re=TODAY; }
+        if(p.k==='ar') patch.yi=2026;
+        if(p.k==='manad') patch.mi=8;
+        if(p.k[0]==='d') patch.anchor=TODAY;
+        this.commitPeriod(patch);
+      },
+    }));
+
+    // ── årsvyn på Statistik ──────────────────────────────
+    const monthTot = i => this.outSum({a:OFF[i]+1, b:OFF[i]+DIM[i], yr:2026});
+    const monthly = []; for(let i=0;i<12;i++) monthly.push(monthTot(i));
+    const yearTot = monthly.reduce((a,v)=>a+v,0);
+    const elapsed = 9;
+    const prevYearTot = PREV_YEAR.reduce((a,v)=>a+v,0);
+    const yUp = true;
+    const yoy = {
+      prevYear:'2025', curYear:'2026',
+      prevVal:'', curVal:'', diff:'', pct:'', sub:'',
+      ink: yUp?'#d92d2d':'#17a05f',
+      bg: yUp?'rgba(217,45,45,.1)':'rgba(23,160,95,.1)',
+      border: yUp?'rgba(217,45,45,.2)':'rgba(23,160,95,.2)',
+      tri: yUp?'M12 5l7 12H5z':'M12 19L5 7h14z',
+    };
+
+    const kfmt = v => v>=1000 ? (Math.round(v/100)/10)+'k' : String(Math.round(v));
+
+    // 2025 utslaget per dag, så vilken period som helst kan jämföras
+    const prevForRange = (a,b) => {
+      let t=0;
+      for(let n=Math.max(1,a); n<=Math.min(365,b); n++){ const {m}=fromDoy(n); t += PREV_YEAR[m]/DIM[m]; }
+      return t;
+    };
+    const isYear = st.pmode==='ar';
+    const prevPeriod = isYear ? prevYearTot : prevForRange(w.a, w.b);
+
+    // linjediagrammet läser periodens egna hinkar
+    const series = barSeries.map(b=>b.v);
+    const prevSeries = isYear ? [] : barSeries.map(b=>prevForRange(b.a, b.b));
+    const N = Math.max(2, series.length);
+    const lmax = Math.max(1, ...series, ...((st.cmpOn && !isYear)?prevSeries:[0]));
+    const X = i => 32 + i*(286/(N-1));
+    const Y = v => 116 - (v/lmax)*100;
+    const pts = a => a.map((v,i)=>X(i).toFixed(1)+','+Y(v).toFixed(1)).join(' ');
+    const lineGrid = [1,.75,.5,.25].map(f=>({
+      y: Y(lmax*f).toFixed(1), ty:(Y(lmax*f)+3.4).toFixed(1), label:kfmt(lmax*f),
+    }));
+
+    // jämförelse: alltid samma period ett år tidigare
+    const jUp = out >= prevPeriod;
+    yoy.prevVal = this.fmt(prevPeriod)+' kr';
+    yoy.curVal  = this.fmt(out)+' kr';
+    yoy.diff    = (jUp?'+':'−')+this.fmt(Math.abs(out-prevPeriod))+' kr';
+    yoy.pct     = '('+(jUp?'+':'−')+Math.round(Math.abs(out-prevPeriod)/(prevPeriod||1)*100)+' %)';
+    yoy.sub     = isYear ? 'Hela året mot 2025' : this.periodLabel() + ' mot samma period 2025';
+    yoy.ink     = jUp?'#d92d2d':'#17a05f';
+    yoy.bg      = jUp?'rgba(217,45,45,.1)':'rgba(23,160,95,.1)';
+    yoy.border  = jUp?'rgba(217,45,45,.2)':'rgba(23,160,95,.2)';
+    yoy.tri     = jUp?'M12 5l7 12H5z':'M12 19L5 7h14z';
+
+    // säsongsmönster
+    const smax = Math.max(1, ...monthly);
+    const season = monthly.map((v,i)=>{
+      const r = v/smax, sel = st.pmode==='manad' && i===st.mi;
+      return {
+        abbr: MON[i].slice(0,3), val: v?kfmt(v):'0',
+        // taket på .30 håller tonen ljus nog för plommonbläck hela vägen
+        bg: v ? 'rgba(224,22,95,'+(0.05+0.25*r).toFixed(3)+')' : 'rgba(42,20,32,.03)',
+        border: sel ? 'rgba(224,22,95,.55)' : 'transparent',
+        ink: '#2a1420',
+        sub: v ? 'rgba(42,20,32,.62)' : 'rgba(42,20,32,.34)',
+        pick: () => this.commitPeriod({pmode:'manad', mi:i}),
+      };
+    });
+
+    // budget mot faktiskt, per år
+    const yearRecs = this.state.entries.filter(e=>!e.rev);
+    const actualFor = c => yearRecs.filter(e=>e.cat===c).reduce((a,e)=>a+e.amt,0);
+    const bcatKeys = [];
+    BUDGET_ITEMS.forEach(b=>{ if(!bcatKeys.includes(b.cat)) bcatKeys.push(b.cat); });
+    const budget = {
+      planned: this.fmt(BUDGET_ITEMS.reduce((a,b)=>a+b.perMonth,0)*12)+' kr',
+      actual: this.fmt(yearTot)+' kr',
+      cats: bcatKeys.map(c=>{
+        const plan = BUDGET_ITEMS.filter(b=>b.cat===c).reduce((a,b)=>a+b.perMonth,0)*12;
+        const act = actualFor(c);
+        const over = act > plan;
+        return {
+          name: CATS[c].name, color: CATS[c].color,
+          pair: this.fmt(act)+' kr / '+this.fmt(plan)+' kr',
+          w: Math.min(100, act/plan*100).toFixed(1)+'%',
+          bar: over ? '#d92d2d' : CATS[c].color,
+        };
+      }),
+      items: BUDGET_ITEMS.map((b,i,arr)=>({
+        name:b.name, note:b.note, color:CATS[b.cat].color,
+        amt:this.fmt(b.perMonth)+' kr',
+        sep: i===arr.length-1 ? 'transparent' : 'rgba(42,20,32,.07)',
+      })),
+    };
+
+    const yearRev = this.state.entries.filter(e=>e.rev).reduce((a,e)=>a+e.amt,0);
+    const net = yearRev - yearTot;
+    const income = {
+      rev:'+'+this.fmt(yearRev)+' kr',
+      net:(net>=0?'+':'−')+this.fmt(Math.abs(net))+' kr',
+      netInk: net>=0 ? '#17a05f' : '#d92d2d',
+    };
+
+    const canCommit = st.mode==='num' ? kpAmt>0 : st.draft.length>0;
+
+    return {
+      dw:402, dh:874, true:true, glow,
+      isHem: st.tab==='hem', isBok: st.tab==='bok', isHast: st.tab==='hast',
+      isProfil: st.tab==='profil', isStat: st.tab==='stat',
+      periodLabel:this.periodLabel(), periodSpan:this.periodSpan(),
+      stepBack: () => this.step(-1), stepFwd: () => this.step(1),
+      openPeriod: () => this.setState({sheet:'period'}),
+      periodSheet: st.sheet==='period', addSheet: st.sheet==='add', periodOpts,
+      heroNum:this.fmt(st.heroAnim != null ? st.heroAnim : out),
+      heroSub: rev
+        ? this.fmt(rev)+' kr in · netto '+(rev-out>=0?'+':'−')+this.fmt(Math.abs(rev-out))+' kr'
+        : 'inga intäkter',
+      delta, bars, barGap:gap, callout, catRows, statCats, horseCards, recent,
+      periodEmpty: recs.length===0,
+      bokCount: list.length+(list.length===1?' post':' poster'),
+      bokTotal: this.fmt(list.filter(e=>!e.rev).reduce((a,e)=>a+e.amt,0))+' kr',
+      groups, bokEmpty: groups.length===0, filters,
+      query:st.query, setQuery: e=>this.setState({query:e.target.value}),
+      prof:{
+        name:hz.name, breed:hz.breed, born:hz.born, initial:hz.name[0], color:hz.color,
+        ring:'linear-gradient(145deg,'+hz.color+','+hz.c2+')', shadow:rgba(hz.color,.7),
+      },
+      profCats, profEmpty: profCats.length===0,
+      profStats:[
+        {label:'I perioden', value:this.fmt(psum)},
+        {label:'Året 2026', value:this.fmt(yearForHorse)},
+        {label:'Poster', value:String(pes.length)},
+      ],
+      avgUnit, avgVal,
+      yoy, monthAvg:this.fmt(yearTot/12), forecast:this.fmt(yearTot/elapsed*12),
+      prevPeriodLabel: isYear ? String(st.yi-1) : 'mot ' + this.fmt(prevOut) + ' kr',
+      lineGrid, linePts:pts(series), prevPts: prevSeries.length?pts(prevSeries):'',
+      lineArea:'M'+pts(series).split(' ').join(' L')+' L318,116 L32,116 Z',
+      lineDots: series.length<=14 ? series.map((v,i)=>({x:X(i).toFixed(1), y:Y(v).toFixed(1)})) : [],
+      lineLabels: barSeries.map(b=>({t:b.label})),
+      canCmp: !isYear,
+      cmpOn: st.cmpOn && !isYear, toggleCmp: () => this.setState({cmpOn:!st.cmpOn}),
+      cmpBg: st.cmpOn?'rgba(224,22,95,.09)':'rgba(42,20,32,.045)',
+      cmpBorder: st.cmpOn?'rgba(224,22,95,.28)':'rgba(42,20,32,.07)',
+      cmpInk: st.cmpOn?'#e0165f':'rgba(42,20,32,.5)',
+      season, budget, income,
+      tabs, modes,
+      isChatMode: st.mode==='chat', isNumMode: st.mode==='num',
+      backXform: st.sheet ? 'scale(.955) translateY(-10px)' : 'none',
+      openSheet: () => this.setState({sheet:'add'}),
+      closeSheet: () => this.setState({sheet:null}),
+      chat, chips, showChips: !!st.pending, kinds, isRev: st.kind==='in',
+      draft, hasDraft: st.draft.length>0,
+      draftTotal: (dIn&&dOut) ? (dIn-dOut>=0?'+':'−')+this.fmt(Math.abs(dIn-dOut)) : dIn ? '+'+this.fmt(dIn) : this.fmt(dOut),
+      draftInk: (dIn&&!dOut) ? REVC : '#2a1420',
+      draftLabel: st.draft.length+(st.draft.length===1?' post att spara':' poster att spara')+((dIn&&dOut)?' · netto':''),
+      input:st.input, setInput: e=>this.setState({input:e.target.value}),
+      inputHint: st.kind==='in' ? '2 400 uthyrd box september' : '380 hovslagare siggan igår',
+      onKey: e=>{ if(e.key==='Enter') this.send(); },
+      send:this.send,
+      sendBg: st.input.trim()?ACC.grad:'rgba(42,20,32,.08)',
+      sendInk: st.input.trim()?'#fff':'rgba(42,20,32,.3)',
+      sendGlow: st.input.trim()?ACC.glow:'none',
+      keys, kpHorses, kpCats,
+      kpSign: st.kind==='in' ? '+' : '',
+      kpShown: kp.amt===''?'0':this.fmt(kpAmt),
+      kpColor: kp.amt===''?'rgba(42,20,32,.16)':(st.kind==='in'?REVC:'#2a1420'),
+      commit:this.commit,
+      ctaLabel: st.mode==='num'
+        ? (st.kind==='in' ? 'Spara intäkten' : 'Spara posten')
+        : (st.draft.length>1 ? 'Spara '+st.draft.length+' poster' : (dIn&&!dOut ? 'Spara intäkten' : 'Spara posten')),
+      ctaBg: canCommit?ACC.grad:'rgba(42,20,32,.07)',
+      ctaInk: canCommit?'#fff':'rgba(42,20,32,.28)',
+      ctaGlow: canCommit?('0 12px 30px -10px '+(st.kind==='in'?'rgba(23,160,95,.8)':'rgba(224,22,95,.8)')):'none',
+      scan:this.scan, scanning:st.scanning,
+      toast:st.toast, hasToast: !!st.toast,
+      goHast: ()=>this.setState({tab:'hast'}), goBok: ()=>this.setState({tab:'bok'}),
+      goStat: ()=>this.setState({tab:'stat'}),
+    };
+  }
+}
+</script>
+</body>
+</html>

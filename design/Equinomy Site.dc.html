@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#fbf7f6;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#2a1420}
+*{box-sizing:border-box}
+a{color:#e0165f;text-decoration:none}a:hover{color:#c8104c}
+@keyframes bloom{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+
+<div style="background:#fbf7f6;overflow:hidden">
+
+  <!-- nav -->
+  <div style="position:sticky;top:0;z-index:40;backdrop-filter:blur(22px) saturate(1.5);-webkit-backdrop-filter:blur(22px) saturate(1.5);background:rgba(251,247,246,.72);border-bottom:1px solid rgba(42,20,32,.06)">
+    <div style="max-width:1140px;margin:0 auto;padding:13px 22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="https://equinomyapp.com/assets/logo-icon.png" alt="Equinomy logo" style="width:32px;height:32px;border-radius:9px;object-fit:contain;display:block">
+        <div style="font:700 18px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.028em">Equinomy</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:4px">
+        <a href="#features" style="font:500 14.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.012em;color:rgba(42,20,32,.6);padding:9px 13px;border-radius:10px" style-hover="background:rgba(42,20,32,.05);color:#2a1420">Features</a>
+        <a href="#download" style="font:500 14.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.012em;color:rgba(42,20,32,.6);padding:9px 13px;border-radius:10px" style-hover="background:rgba(42,20,32,.05);color:#2a1420">Download</a>
+        <a href="https://equinomyapp.com/privacy-policy-en.html" style="font:500 14.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.012em;color:rgba(42,20,32,.6);padding:9px 13px;border-radius:10px" style-hover="background:rgba(42,20,32,.05);color:#2a1420">Privacy</a>
+        <a href="#download" style="font:590 14.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.012em;color:#fff;background:linear-gradient(150deg,#f0407a,#cf0a4f);padding:11px 17px;border-radius:12px;margin-left:6px;box-shadow:0 8px 20px -10px rgba(224,22,95,.9)" style-hover="color:#fff">Get the app</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- hero -->
+  <div style="position:relative">
+    <div style="position:absolute;top:-260px;left:50%;transform:translateX(-42%);width:1100px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(224,22,95,.16),rgba(224,22,95,0) 62%);pointer-events:none"></div>
+    <div style="position:absolute;top:60px;right:-180px;width:700px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(217,130,0,.14),rgba(217,130,0,0) 64%);pointer-events:none"></div>
+    <div style="position:relative;max-width:1140px;margin:0 auto;padding:56px 22px 20px;display:flex;flex-wrap:wrap;gap:40px;align-items:center">
+      <div style="flex:1 1 380px;min-width:0;animation:bloom 620ms cubic-bezier(.2,.8,.2,1) both">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(224,22,95,.09);border:1px solid rgba(224,22,95,.18);border-radius:999px;padding:8px 14px 8px 11px">
+          <svg width="14" height="14" viewBox="0 0 24 24" style="fill:none;stroke:#cf0a4f;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"><path d="M12 3.2l2.3 5.3 5.5.5-4.2 3.7 1.3 5.4-4.9-3-4.9 3 1.3-5.4L4.2 9l5.5-.5z"/></svg>
+          <div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.01em;color:#cf0a4f">AI-powered expense tracking</div>
+        </div>
+        <h1 style="font:700 clamp(42px,6.2vw,72px)/1.02 -apple-system,system-ui,sans-serif;letter-spacing:-.038em;margin:22px 0 0;text-wrap:balance">Track what you spend.<br><span style="color:rgba(42,20,32,.42)">Stay in the saddle.</span></h1>
+        <p style="font:400 clamp(16px,1.6vw,19px)/1.55 -apple-system,system-ui,sans-serif;letter-spacing:-.011em;color:rgba(42,20,32,.6);max-width:460px;margin:20px 0 0;text-wrap:pretty">Equinomy uses AI to scan receipts, categorise expenses, and give you a clear picture of what your horses actually cost.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:11px;margin-top:30px">
+          <a href="#download" style="font:590 16px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.015em;color:#fff;background:linear-gradient(150deg,#f0407a,#cf0a4f);padding:16px 26px;border-radius:15px;box-shadow:0 16px 34px -14px rgba(224,22,95,.95)" style-hover="color:#fff">Get the app</a>
+          <a href="#features" style="font:590 16px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.015em;color:#2a1420;background:#fff;border:1px solid rgba(42,20,32,.09);padding:16px 26px;border-radius:15px" style-hover="color:#2a1420;background:#fff8f7">See features</a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:34px">
+          <div style="display:flex;align-items:center;gap:7px;background:#fff;border:1px solid rgba(42,20,32,.07);border-radius:999px;padding:8px 14px"><div style="width:6px;height:6px;border-radius:3px;background:#17a05f"></div><div style="font:500 13px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.62)">Free core features</div></div>
+          <div style="display:flex;align-items:center;gap:7px;background:#fff;border:1px solid rgba(42,20,32,.07);border-radius:999px;padding:8px 14px"><div style="width:6px;height:6px;border-radius:3px;background:#0e8fa0"></div><div style="font:500 13px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.62)">iOS &amp; Android</div></div>
+          <div style="display:flex;align-items:center;gap:7px;background:#fff;border:1px solid rgba(42,20,32,.07);border-radius:999px;padding:8px 14px"><div style="width:6px;height:6px;border-radius:3px;background:#6a4fe0"></div><div style="font:500 13px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.62)">EU-hosted data</div></div>
+        </div>
+      </div>
+
+      <!-- hero phone -->
+      <div style="flex:1 1 300px;min-width:0;display:flex;justify-content:center;animation:bloom 760ms 90ms cubic-bezier(.2,.8,.2,1) both">
+        <div style="width:100%;max-width:314px;border-radius:44px;background:#1a0c14;padding:9px;box-shadow:0 44px 90px -40px rgba(60,15,35,.55),0 8px 24px -12px rgba(60,15,35,.3)">
+          <div style="border-radius:36px;background:#fbf7f6;overflow:hidden;position:relative;aspect-ratio:314/650">
+            <div style="position:absolute;top:-90px;left:50%;transform:translateX(-50%);width:340px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(217,130,0,.3),rgba(217,130,0,0) 66%)"></div>
+            <div style="position:relative;padding:14px 18px 0;display:flex;align-items:center;justify-content:space-between">
+              <div style="font:590 12px/1 -apple-system,system-ui,sans-serif">9:41</div>
+              <div style="display:flex;gap:4px;align-items:center"><div style="width:15px;height:8px;border:1.4px solid rgba(42,20,32,.5);border-radius:2.5px"></div></div>
+            </div>
+            <div style="position:relative;padding:16px 18px 0;text-align:center">
+              <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.8);border:1px solid rgba(42,20,32,.07);border-radius:999px;padding:6px 12px">
+                <div style="font:590 11.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.02em;color:rgba(42,20,32,.6)">SEPTEMBER 2026</div>
+              </div>
+              <div style="display:flex;align-items:flex-start;justify-content:center;gap:4px;margin-top:16px">
+                <div style="font:700 46px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.034em;font-variant-numeric:tabular-nums">700</div>
+                <div style="font:590 17px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.4);margin-top:7px">€</div>
+              </div>
+              <div style="font:400 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5);margin-top:9px">Feed is your biggest cost this month</div>
+            </div>
+            <div style="position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:6px;padding:22px 20px 0;height:96px">
+              <div style="flex:1;height:38%;border-radius:6px 6px 3px 3px;background:rgba(42,20,32,.09)"></div>
+              <div style="flex:1;height:56%;border-radius:6px 6px 3px 3px;background:rgba(42,20,32,.09)"></div>
+              <div style="flex:1;height:44%;border-radius:6px 6px 3px 3px;background:rgba(42,20,32,.09)"></div>
+              <div style="flex:1;height:72%;border-radius:6px 6px 3px 3px;background:rgba(42,20,32,.09)"></div>
+              <div style="flex:1;height:60%;border-radius:6px 6px 3px 3px;background:rgba(42,20,32,.09)"></div>
+              <div style="flex:1;height:88%;border-radius:6px 6px 3px 3px;background:linear-gradient(180deg,#e8a13a,#d98200)"></div>
+            </div>
+            <div style="position:relative;display:flex;justify-content:space-between;gap:6px;padding:8px 20px 0;font:500 10px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.35);text-align:center"><div style="flex:1">APR</div><div style="flex:1">MAY</div><div style="flex:1">JUN</div><div style="flex:1">JUL</div><div style="flex:1">AUG</div><div style="flex:1;color:#d98200;font-weight:700">SEP</div></div>
+            <div style="position:relative;margin:16px 14px 0;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:20px;padding:6px 14px;box-shadow:0 12px 26px -20px rgba(60,15,35,.5)">
+              <div style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(42,20,32,.06)">
+                <div style="width:31px;height:31px;border-radius:10px;background:rgba(217,130,0,.11);display:flex;align-items:center;justify-content:center;flex:none"><svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:#d98200;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M4 19V9l8-5 8 5v10zM9 19v-6h6v6"/></svg></div>
+                <div style="min-width:0;flex:1"><div style="font:590 13.5px/1.25 -apple-system,system-ui,sans-serif">Feed</div><div style="font:400 11.5px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.45)">Bella · 4 Sep</div></div>
+                <div style="font:590 13.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums">280 €</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(42,20,32,.06)">
+                <div style="width:31px;height:31px;border-radius:10px;background:rgba(14,143,160,.11);display:flex;align-items:center;justify-content:center;flex:none"><svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:#0e8fa0;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M7 4h10v4a5 5 0 01-10 0zM12 13v4M9 20h6"/></svg></div>
+                <div style="min-width:0;flex:1"><div style="font:590 13.5px/1.25 -apple-system,system-ui,sans-serif">Farrier</div><div style="font:400 11.5px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.45)">Shadow · 2 Sep</div></div>
+                <div style="font:590 13.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums">175 €</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:11px;padding:11px 0">
+                <div style="width:31px;height:31px;border-radius:10px;background:rgba(23,160,95,.13);display:flex;align-items:center;justify-content:center;flex:none"><svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:#17a05f;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></div>
+                <div style="min-width:0;flex:1"><div style="font:590 13.5px/1.25 -apple-system,system-ui,sans-serif">Box rented out</div><div style="font:400 11.5px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.45)">Income · 1 Sep</div></div>
+                <div style="font:590 13.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums;color:#17a05f">+240 €</div>
+              </div>
+            </div>
+            <div style="position:absolute;left:14px;right:14px;bottom:14px;display:flex;align-items:center;gap:8px">
+              <div style="flex:1;display:flex;align-items:center;justify-content:space-around;background:rgba(255,255,255,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(42,20,32,.06);border-radius:22px;padding:11px 8px;box-shadow:0 14px 30px -18px rgba(60,15,35,.5)">
+                <svg width="19" height="19" viewBox="0 0 24 24" style="fill:none;stroke:#e0165f;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round"><path d="M4 19V9l8-5 8 5v10zM9 19v-6h6v6"/></svg>
+                <svg width="19" height="19" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.3);stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round"><path d="M5 5h14v15H5zM8.5 9.5h7M8.5 14h4"/></svg>
+                <svg width="19" height="19" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.3);stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round"><path d="M5 19V11M12 19V5M19 19v-6"/></svg>
+                <svg width="19" height="19" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.3);stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM5 20a7 7 0 0114 0"/></svg>
+              </div>
+              <div style="width:46px;height:46px;border-radius:16px;background:linear-gradient(150deg,#f0407a,#cf0a4f);display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 12px 26px -12px rgba(224,22,95,.95)"><svg width="20" height="20" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round"><path d="M12 5v14M5 12h14"/></svg></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- features -->
+  <div id="features" style="max-width:1140px;margin:0 auto;padding:76px 22px 0">
+    <div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#cf0a4f">Features</div>
+    <h2 style="font:700 clamp(32px,4.2vw,50px)/1.05 -apple-system,system-ui,sans-serif;letter-spacing:-.032em;margin:14px 0 0;max-width:720px;text-wrap:balance">Everything a horse owner needs</h2>
+    <p style="font:400 clamp(15px,1.5vw,18px)/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55);max-width:560px;margin:16px 0 0;text-wrap:pretty">Purpose-built for the real costs of horse ownership — from farrier visits to feed bills.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:38px">
+
+      <!-- AI receipt scanning : wide -->
+      <div style="grid-column:1/-1;min-width:0;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:28px;padding:30px;display:flex;flex-wrap:wrap;gap:26px;align-items:center;box-shadow:0 30px 60px -50px rgba(60,15,35,.7)">
+        <div style="flex:1 1 280px;min-width:0">
+          <h3 style="font:700 24px/1.15 -apple-system,system-ui,sans-serif;letter-spacing:-.026em;margin:0">AI Receipt Scanning</h3>
+          <p style="font:400 15.5px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55);margin:11px 0 0;text-wrap:pretty">Point your camera at any receipt. Equinomy's AI reads the amount, date, and category automatically.</p>
+        </div>
+        <div style="flex:1 1 280px;min-width:0;display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start">
+          <div style="flex:1 1 130px;min-width:0;background:#fbf7f6;border:1px solid rgba(42,20,32,.06);border-radius:16px;padding:14px">
+            <div style="font:590 11.5px/1.3 -apple-system,system-ui,sans-serif">Equine Supply Co.</div>
+            <div style="font:400 10.5px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.45);margin-top:3px">8 Mar 2026</div>
+            <div style="height:1px;background:rgba(42,20,32,.08);margin:11px 0"></div>
+            <div style="display:flex;justify-content:space-between;gap:8px;font:400 11.5px/1.5 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.6)"><div>Horseshoes × 4</div><div>€32.00</div></div>
+            <div style="display:flex;justify-content:space-between;gap:8px;font:400 11.5px/1.5 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.6)"><div>Hoof oil</div><div>€13.00</div></div>
+            <div style="height:1px;background:rgba(42,20,32,.08);margin:9px 0"></div>
+            <div style="display:flex;justify-content:space-between;gap:8px;font:590 12px/1.4 -apple-system,system-ui,sans-serif"><div>Total</div><div>€45.00</div></div>
+          </div>
+          <div style="flex:1 1 130px;min-width:0;background:linear-gradient(160deg,rgba(224,22,95,.09),rgba(224,22,95,.03));border:1px solid rgba(224,22,95,.16);border-radius:16px;padding:14px">
+            <div style="display:flex;align-items:center;gap:6px"><div style="font:700 10px/1 -apple-system,system-ui,sans-serif;letter-spacing:.06em;color:#cf0a4f">AI EXTRACTED</div></div>
+            <div style="display:flex;justify-content:space-between;gap:8px;font:400 11.5px/1.6 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5);margin-top:10px"><div>Amount</div><div style="font-weight:590;color:#2a1420">€45.00</div></div>
+            <div style="display:flex;justify-content:space-between;gap:8px;font:400 11.5px/1.6 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)"><div>Category</div><div style="font-weight:590;color:#2a1420">Farrier</div></div>
+            <div style="display:flex;justify-content:space-between;gap:8px;font:400 11.5px/1.6 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)"><div>Date</div><div style="font-weight:590;color:#2a1420">Mar 8, 2026</div></div>
+            <div style="display:flex;justify-content:space-between;gap:8px;font:400 11.5px/1.6 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)"><div>Horse</div><div style="font-weight:590;color:#2a1420">Bella</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- multi horse -->
+      <div style="min-width:0;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:28px;padding:30px;box-shadow:0 30px 60px -50px rgba(60,15,35,.7)">
+        <h3 style="font:700 22px/1.15 -apple-system,system-ui,sans-serif;letter-spacing:-.024em;margin:0">Multi-Horse Support</h3>
+        <p style="font:400 15px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55);margin:10px 0 0;text-wrap:pretty">Each horse gets its own profile and cost breakdown — manage an entire stable in one place.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:20px">
+          <div style="display:flex;align-items:center;gap:11px;background:#fbf7f6;border-radius:14px;padding:11px 13px">
+            <div style="width:30px;height:30px;border-radius:15px;background:linear-gradient(150deg,#8f72ff,#5a3ed0);display:flex;align-items:center;justify-content:center;font:700 12.5px/1 -apple-system,system-ui,sans-serif;color:#fff;flex:none">B</div>
+            <div style="flex:1;font:590 14px/1 -apple-system,system-ui,sans-serif">Bella</div>
+            <div style="font:590 14px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums">€384</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:11px;background:#fbf7f6;border-radius:14px;padding:11px 13px">
+            <div style="width:30px;height:30px;border-radius:15px;background:linear-gradient(150deg,#37b4c4,#0a7f8e);display:flex;align-items:center;justify-content:center;font:700 12.5px/1 -apple-system,system-ui,sans-serif;color:#fff;flex:none">S</div>
+            <div style="flex:1;font:590 14px/1 -apple-system,system-ui,sans-serif">Shadow</div>
+            <div style="font:590 14px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums">€255</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:11px;background:#fbf7f6;border-radius:14px;padding:11px 13px">
+            <div style="width:30px;height:30px;border-radius:15px;background:linear-gradient(150deg,#f0407a,#cf0a4f);display:flex;align-items:center;justify-content:center;font:700 12.5px/1 -apple-system,system-ui,sans-serif;color:#fff;flex:none">M</div>
+            <div style="flex:1;font:590 14px/1 -apple-system,system-ui,sans-serif">Misty</div>
+            <div style="font:590 14px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums">€149</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- overviews -->
+      <div style="min-width:0;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:28px;padding:30px;box-shadow:0 30px 60px -50px rgba(60,15,35,.7)">
+        <h3 style="font:700 22px/1.15 -apple-system,system-ui,sans-serif;letter-spacing:-.024em;margin:0">Smart Expense Overviews</h3>
+        <p style="font:400 15px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55);margin:10px 0 0;text-wrap:pretty">Interactive charts break down your spending by category, time period, or horse — instantly.</p>
+        <div style="background:#fbf7f6;border-radius:18px;padding:16px;margin-top:20px">
+          <div style="font:590 13px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">€700 this month</div>
+          <div style="display:flex;gap:3px;margin-top:13px;height:10px;border-radius:5px;overflow:hidden">
+            <div style="flex:280;background:#d98200"></div>
+            <div style="flex:175;background:#0e8fa0"></div>
+            <div style="flex:140;background:#17a05f"></div>
+            <div style="flex:105;background:#8a8f9c"></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px 14px;margin-top:14px">
+            <div style="display:flex;align-items:center;gap:7px"><div style="width:7px;height:7px;border-radius:4px;background:#d98200"></div><div style="flex:1;font:400 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.6)">Feed</div><div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif">€280</div></div>
+            <div style="display:flex;align-items:center;gap:7px"><div style="width:7px;height:7px;border-radius:4px;background:#0e8fa0"></div><div style="flex:1;font:400 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.6)">Farrier</div><div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif">€175</div></div>
+            <div style="display:flex;align-items:center;gap:7px"><div style="width:7px;height:7px;border-radius:4px;background:#17a05f"></div><div style="flex:1;font:400 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.6)">Vet</div><div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif">€140</div></div>
+            <div style="display:flex;align-items:center;gap:7px"><div style="width:7px;height:7px;border-radius:4px;background:#8a8f9c"></div><div style="flex:1;font:400 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.6)">Other</div><div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif">€105</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- budget -->
+      <div style="min-width:0;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:28px;padding:30px;box-shadow:0 30px 60px -50px rgba(60,15,35,.7)">
+        <h3 style="font:700 22px/1.15 -apple-system,system-ui,sans-serif;letter-spacing:-.024em;margin:0">Budget Planning</h3>
+        <p style="font:400 15px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55);margin:10px 0 0;text-wrap:pretty">Set monthly budgets per category and get notified before you overspend.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:20px">
+          <div><div style="display:flex;justify-content:space-between;font:500 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.6);margin-bottom:6px"><div>Feed</div><div style="font-weight:590;color:#2a1420">68%</div></div><div style="height:7px;border-radius:4px;background:rgba(42,20,32,.07);overflow:hidden"><div style="width:68%;height:100%;border-radius:4px;background:#d98200"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font:500 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.6);margin-bottom:6px"><div>Farrier</div><div style="font-weight:590;color:#c8104c">92%</div></div><div style="height:7px;border-radius:4px;background:rgba(42,20,32,.07);overflow:hidden"><div style="width:92%;height:100%;border-radius:4px;background:#c8104c"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font:500 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.6);margin-bottom:6px"><div>Vet</div><div style="font-weight:590;color:#2a1420">35%</div></div><div style="height:7px;border-radius:4px;background:rgba(42,20,32,.07);overflow:hidden"><div style="width:35%;height:100%;border-radius:4px;background:#17a05f"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font:500 12.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.6);margin-bottom:6px"><div>Supplies</div><div style="font-weight:590;color:#2a1420">54%</div></div><div style="height:7px;border-radius:4px;background:rgba(42,20,32,.07);overflow:hidden"><div style="width:54%;height:100%;border-radius:4px;background:#c1349a"></div></div></div>
+          <div style="display:flex;align-items:center;gap:8px;background:rgba(200,16,76,.07);border-radius:12px;padding:10px 12px">
+            <svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:#c8104c;stroke-width:2.2;stroke-linecap:round;flex:none"><path d="M12 8v5M12 16.5h.01M12 3.5l9 16H3z"/></svg>
+            <div style="font:590 12.5px/1.3 -apple-system,system-ui,sans-serif;color:#c8104c">Farrier budget nearly reached</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- health log : wide -->
+      <div style="grid-column:1/-1;min-width:0;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:28px;padding:30px;display:flex;flex-wrap:wrap;gap:26px;align-items:center;box-shadow:0 30px 60px -50px rgba(60,15,35,.7)">
+        <div style="flex:1 1 300px;min-width:0">
+          <h3 style="font:700 24px/1.15 -apple-system,system-ui,sans-serif;letter-spacing:-.026em;margin:0">Health Log &amp; Reminders</h3>
+          <p style="font:400 15.5px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55);margin:11px 0 0;text-wrap:pretty">Set recurring care schedules for farrier visits, vaccinations, deworming, and more. Get push notifications before anything is due.</p>
+          <div style="display:flex;align-items:center;gap:11px;background:rgba(42,20,32,.045);border-radius:16px;padding:12px 14px;margin-top:20px">
+            <div style="width:30px;height:30px;border-radius:9px;background:linear-gradient(150deg,#f0407a,#cf0a4f);display:flex;align-items:center;justify-content:center;flex:none"><svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><path d="M7 4h10v4a5 5 0 01-10 0zM12 13v4M9 20h6"/></svg></div>
+            <div style="min-width:0">
+              <div style="display:flex;gap:7px;align-items:baseline"><div style="font:590 12.5px/1.3 -apple-system,system-ui,sans-serif">Equinomy</div><div style="font:400 11px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.4)">now</div></div>
+              <div style="font:590 13px/1.35 -apple-system,system-ui,sans-serif;margin-top:2px">Farrier visit due in 5 days</div>
+              <div style="font:400 12px/1.35 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">Bella · Schedule your appointment soon.</div>
+            </div>
+          </div>
+        </div>
+        <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;align-items:center;gap:12px;background:#fbf7f6;border-left:3px solid #c8104c;border-radius:6px 14px 14px 6px;padding:12px 14px">
+            <div style="min-width:0;flex:1"><div style="font:590 14px/1.25 -apple-system,system-ui,sans-serif">Deworming</div><div style="font:400 12px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">Bella · 3 days overdue</div></div>
+            <div style="font:590 11px/1 -apple-system,system-ui,sans-serif;color:#c8104c;background:rgba(200,16,76,.1);padding:6px 10px;border-radius:999px;flex:none">Overdue</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:#fbf7f6;border-left:3px solid #d98200;border-radius:6px 14px 14px 6px;padding:12px 14px">
+            <div style="min-width:0;flex:1"><div style="font:590 14px/1.25 -apple-system,system-ui,sans-serif">Farrier visit</div><div style="font:400 12px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">Bella · Due in 5 days</div></div>
+            <div style="font:590 11px/1 -apple-system,system-ui,sans-serif;color:#a36200;background:rgba(217,130,0,.13);padding:6px 10px;border-radius:999px;flex:none">Due soon</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:#fbf7f6;border-left:3px solid #17a05f;border-radius:6px 14px 14px 6px;padding:12px 14px">
+            <div style="min-width:0;flex:1"><div style="font:590 14px/1.25 -apple-system,system-ui,sans-serif">Vaccination</div><div style="font:400 12px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">Shadow · Due in 22 days</div></div>
+            <div style="font:590 11px/1 -apple-system,system-ui,sans-serif;color:#0f7345;background:rgba(23,160,95,.12);padding:6px 10px;border-radius:999px;flex:none">On track</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:#fbf7f6;border-left:3px solid #17a05f;border-radius:6px 14px 14px 6px;padding:12px 14px">
+            <div style="min-width:0;flex:1"><div style="font:590 14px/1.25 -apple-system,system-ui,sans-serif">Dental checkup</div><div style="font:400 12px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">Misty · Due in 41 days</div></div>
+            <div style="font:590 11px/1 -apple-system,system-ui,sans-serif;color:#0f7345;background:rgba(23,160,95,.12);padding:6px 10px;border-radius:999px;flex:none">On track</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- analytics -->
+      <div style="min-width:0;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:28px;padding:30px;box-shadow:0 30px 60px -50px rgba(60,15,35,.7)">
+        <h3 style="font:700 22px/1.15 -apple-system,system-ui,sans-serif;letter-spacing:-.024em;margin:0">Spending Analytics</h3>
+        <p style="font:400 15px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55);margin:10px 0 0;text-wrap:pretty">Compare periods, spot seasonal patterns with a 12-month heatmap, and forecast your annual costs from real data.</p>
+        <div style="display:flex;gap:9px;margin-top:20px">
+          <div style="flex:1;background:#fbf7f6;border-radius:14px;padding:13px"><div style="font:400 11.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">vs last month</div><div style="font:700 20px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.02em;color:#c8104c;margin-top:8px">+12%</div></div>
+          <div style="flex:1;background:#fbf7f6;border-radius:14px;padding:13px"><div style="font:400 11.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">Annual forecast</div><div style="font:700 20px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.02em;margin-top:8px">€9,840</div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin-top:12px">
+          <div style="aspect-ratio:1;border-radius:4px;background:rgba(193,52,154,.14)"></div>
+          <div style="aspect-ratio:1;border-radius:4px;background:rgba(193,52,154,.26)"></div>
+          <div style="aspect-ratio:1;border-radius:4px;background:rgba(193,52,154,.18)"></div>
+          <div style="aspect-ratio:1;border-radius:4px;background:rgba(193,52,154,.4)"></div>
+          <div style="aspect-ratio:1;border-radius:4px;background:rgba(193,52,154,.55)"></div>
+          <div style="aspect-ratio:1;border-radius:4px;background:rgba(193,52,154,.3)"></div>
+          <div style="aspect-ratio:1;border-radius:4px;background:rgba(193,52,154,.22)"></div>
+          <div style="aspect-ratio:1;border-radius:4px;background:rgba(193,52,154,.34)"></div>
+          <div style="aspect-ratio:1;border-radius:4px;background:rgba(193,52,154,.72)"></div>
+          <div style="aspect-ratio:1;border-radius:4px;background:rgba(193,52,154,.46)"></div>
+          <div style="aspect-ratio:1;border-radius:4px;background:rgba(193,52,154,.2)"></div>
+          <div style="aspect-ratio:1;border-radius:4px;background:rgba(193,52,154,.12)"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin-top:7px;font:500 9.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.35);text-align:center"><div>J</div><div>F</div><div>M</div><div>A</div><div>M</div><div>J</div><div>J</div><div>A</div><div>S</div><div>O</div><div>N</div><div>D</div></div>
+      </div>
+
+      <!-- income (new) -->
+      <sc-if value="{{ showIncome }}" hint-placeholder-val="{{ true }}">
+      <div style="min-width:0;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:28px;padding:30px;box-shadow:0 30px 60px -50px rgba(60,15,35,.7)">
+        <h3 style="font:700 22px/1.15 -apple-system,system-ui,sans-serif;letter-spacing:-.024em;margin:0">Income Too, Not Just Costs</h3>
+        <p style="font:400 15px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55);margin:10px 0 0;text-wrap:pretty">Log box rentals, sales, prize money, and insurance payouts the same way you log an expense. Equinomy nets it out for you.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:20px">
+          <div style="display:flex;align-items:center;gap:11px;background:#fbf7f6;border-radius:14px;padding:11px 13px">
+            <div style="width:28px;height:28px;border-radius:9px;background:rgba(23,160,95,.13);display:flex;align-items:center;justify-content:center;flex:none"><svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:#17a05f;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M3.5 10.5L12 4l8.5 6.5M6 9.5V20h12V9.5"/></svg></div>
+            <div style="flex:1;font:590 13.5px/1 -apple-system,system-ui,sans-serif">Box rented out</div>
+            <div style="font:590 13.5px/1 -apple-system,system-ui,sans-serif;color:#17a05f;font-variant-numeric:tabular-nums">+€240</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:11px;background:#fbf7f6;border-radius:14px;padding:11px 13px">
+            <div style="width:28px;height:28px;border-radius:9px;background:rgba(217,130,0,.12);display:flex;align-items:center;justify-content:center;flex:none"><svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:#d98200;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M7 4h10v4a5 5 0 01-10 0zM12 13v4M9 20h6"/></svg></div>
+            <div style="flex:1;font:590 13.5px/1 -apple-system,system-ui,sans-serif">Prize money</div>
+            <div style="font:590 13.5px/1 -apple-system,system-ui,sans-serif;color:#17a05f;font-variant-numeric:tabular-nums">+€150</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:11px;border-top:1px solid rgba(42,20,32,.07);padding:12px 13px 0">
+            <div style="font:400 13px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5)">Net this month</div>
+            <div style="font:700 15px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums">€310</div>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- sync -->
+      <div style="min-width:0;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:28px;padding:30px;box-shadow:0 30px 60px -50px rgba(60,15,35,.7)">
+        <h3 style="font:700 22px/1.15 -apple-system,system-ui,sans-serif;letter-spacing:-.024em;margin:0">Synced Across Devices</h3>
+        <p style="font:400 15px/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55);margin:10px 0 0;text-wrap:pretty">Your data lives securely in the cloud and stays in sync across all your devices, always.</p>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:20px">
+          <div style="flex:1;background:#fbf7f6;border-radius:14px;padding:14px 13px;text-align:center"><div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif">iPhone</div><div style="font:400 11px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.45);margin-top:6px">Synced now</div></div>
+          <div style="flex:1;background:#fbf7f6;border-radius:14px;padding:14px 13px;text-align:center"><div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif">iPad</div><div style="font:400 11px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.45);margin-top:6px">Synced now</div></div>
+          <div style="flex:1;background:#fbf7f6;border-radius:14px;padding:14px 13px;text-align:center"><div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif">Web</div><div style="font:400 11px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.45);margin-top:6px">Synced now</div></div>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(23,160,95,.09);border-radius:999px;padding:9px 14px;margin-top:12px">
+          <div style="width:7px;height:7px;border-radius:4px;background:#17a05f"></div>
+          <div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;color:#0f7345">Always up to date</div>
+        </div>
+      </div>
+
+      <!-- privacy -->
+      <div style="min-width:0;background:#2a1420;border-radius:28px;padding:30px;box-shadow:0 30px 60px -46px rgba(60,15,35,.9)">
+        <h3 style="font:700 22px/1.15 -apple-system,system-ui,sans-serif;letter-spacing:-.024em;margin:0;color:#fff">Private by Design</h3>
+        <p style="font:400 15px/1.55 -apple-system,system-ui,sans-serif;color:rgba(255,255,255,.62);margin:10px 0 0;text-wrap:pretty">GDPR-compliant, EU-hosted storage. We collect only what the app needs — nothing more.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px">
+          <div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;color:#fff;background:rgba(255,255,255,.1);border-radius:999px;padding:10px 14px">GDPR Compliant</div>
+          <div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;color:#fff;background:rgba(255,255,255,.1);border-radius:999px;padding:10px 14px">EU-Hosted Data</div>
+          <div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;color:#fff;background:rgba(255,255,255,.1);border-radius:999px;padding:10px 14px">Minimal Collection</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- see it in action -->
+  <div style="margin-top:88px;background:#2a1420;position:relative;overflow:hidden">
+    <div style="position:absolute;top:-160px;left:-120px;width:660px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(224,22,95,.3),rgba(224,22,95,0) 64%)"></div>
+    <div style="position:absolute;bottom:-220px;right:-140px;width:700px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(14,143,160,.26),rgba(14,143,160,0) 66%)"></div>
+    <div style="position:relative;max-width:1140px;margin:0 auto;padding:80px 22px">
+      <div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#ff8fb4">The app</div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px 26px;align-items:flex-end;margin-top:14px">
+        <h2 style="flex:1 1 300px;font:700 clamp(32px,4.2vw,50px)/1.05 -apple-system,system-ui,sans-serif;letter-spacing:-.032em;margin:0;color:#fff;text-wrap:balance">See it in action</h2>
+        <p style="flex:1 1 300px;font:400 clamp(15px,1.5vw,17.5px)/1.55 -apple-system,system-ui,sans-serif;color:rgba(255,255,255,.6);margin:0;text-wrap:pretty">A clean, focused interface built for horse owners who want clarity — not complexity.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:26px">
+        <div style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.08);border-radius:999px;padding:10px 16px"><svg width="14" height="14" viewBox="0 0 24 24" style="fill:none;stroke:#7ce0aa;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;flex:none"><path d="M5 12.5l4.5 4.5L19 7"/></svg><div style="font:500 13.5px/1 -apple-system,system-ui,sans-serif;color:rgba(255,255,255,.82)">Donut chart spending breakdown by category</div></div>
+        <div style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.08);border-radius:999px;padding:10px 16px"><svg width="14" height="14" viewBox="0 0 24 24" style="fill:none;stroke:#7ce0aa;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;flex:none"><path d="M5 12.5l4.5 4.5L19 7"/></svg><div style="font:500 13.5px/1 -apple-system,system-ui,sans-serif;color:rgba(255,255,255,.82)">Searchable, sortable expense history</div></div>
+        <div style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.08);border-radius:999px;padding:10px 16px"><svg width="14" height="14" viewBox="0 0 24 24" style="fill:none;stroke:#7ce0aa;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;flex:none"><path d="M5 12.5l4.5 4.5L19 7"/></svg><div style="font:500 13.5px/1 -apple-system,system-ui,sans-serif;color:rgba(255,255,255,.82)">AI scans receipts and fills in details automatically</div></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin-top:52px;align-items:start">
+
+        <!-- expenses -->
+        <div style="min-width:0;border-radius:38px;background:#120810;padding:8px;box-shadow:0 40px 80px -40px rgba(0,0,0,.7)">
+          <div style="border-radius:31px;background:#fbf7f6;overflow:hidden;aspect-ratio:280/580;position:relative">
+            <div style="padding:14px 16px 0;display:flex;justify-content:space-between"><div style="font:590 11.5px/1 -apple-system,system-ui,sans-serif">9:41</div><div style="width:14px;height:7.5px;border:1.4px solid rgba(42,20,32,.5);border-radius:2.5px"></div></div>
+            <div style="padding:14px 16px 0"><div style="font:700 25px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.028em">Expenses</div></div>
+            <div style="margin:13px 16px 0;display:flex;align-items:center;gap:8px;background:rgba(42,20,32,.055);border-radius:12px;padding:9px 12px">
+              <svg width="14" height="14" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.4);stroke-width:2.2;stroke-linecap:round"><path d="M11 18a7 7 0 100-14 7 7 0 000 14zM16.5 16.5L20 20"/></svg>
+              <div style="font:400 13px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.38)">Search</div>
+            </div>
+            <div style="display:flex;gap:6px;padding:12px 16px 0;overflow:hidden">
+              <div style="font:590 11.5px/1 -apple-system,system-ui,sans-serif;color:#fff;background:#2a1420;border-radius:999px;padding:8px 12px;flex:none">All</div>
+              <div style="font:590 11.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55);background:rgba(42,20,32,.055);border-radius:999px;padding:8px 12px;flex:none">Feed</div>
+              <div style="font:590 11.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55);background:rgba(42,20,32,.055);border-radius:999px;padding:8px 12px;flex:none">Farrier</div>
+            </div>
+            <div style="margin:14px 12px 0;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:18px;padding:4px 13px">
+              <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(42,20,32,.06)"><div style="width:28px;height:28px;border-radius:9px;background:rgba(217,130,0,.11);display:flex;align-items:center;justify-content:center;flex:none"><svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:#d98200;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M4 19V9l8-5 8 5v10zM9 19v-6h6v6"/></svg></div><div style="flex:1;min-width:0"><div style="font:590 12.5px/1.25 -apple-system,system-ui,sans-serif">Feed</div><div style="font:400 10.5px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.45)">Bella · 4 Sep</div></div><div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums">280 €</div></div>
+              <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(42,20,32,.06)"><div style="width:28px;height:28px;border-radius:9px;background:rgba(14,143,160,.11);display:flex;align-items:center;justify-content:center;flex:none"><svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:#0e8fa0;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M7 4h10v4a5 5 0 01-10 0zM12 13v4M9 20h6"/></svg></div><div style="flex:1;min-width:0"><div style="font:590 12.5px/1.25 -apple-system,system-ui,sans-serif">Farrier</div><div style="font:400 10.5px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.45)">Shadow · 2 Sep</div></div><div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums">175 €</div></div>
+              <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(42,20,32,.06)"><div style="width:28px;height:28px;border-radius:9px;background:rgba(23,160,95,.13);display:flex;align-items:center;justify-content:center;flex:none"><svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:#17a05f;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M4 12h4l2-4 3 8 2-4h5"/></svg></div><div style="flex:1;min-width:0"><div style="font:590 12.5px/1.25 -apple-system,system-ui,sans-serif">Vet</div><div style="font:400 10.5px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.45)">Misty · 1 Sep</div></div><div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums">140 €</div></div>
+              <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(42,20,32,.06)"><div style="width:28px;height:28px;border-radius:9px;background:rgba(23,160,95,.13);display:flex;align-items:center;justify-content:center;flex:none"><svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:#17a05f;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></div><div style="flex:1;min-width:0"><div style="font:590 12.5px/1.25 -apple-system,system-ui,sans-serif">Box rented out</div><div style="font:400 10.5px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.45)">Income · 1 Sep</div></div><div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums;color:#17a05f">+240 €</div></div>
+              <div style="display:flex;align-items:center;gap:10px;padding:10px 0"><div style="width:28px;height:28px;border-radius:9px;background:rgba(193,52,154,.11);display:flex;align-items:center;justify-content:center;flex:none"><svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:#c1349a;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M4 20l8-14 8 14zM8.5 20v-4h7v4"/></svg></div><div style="flex:1;min-width:0"><div style="font:590 12.5px/1.25 -apple-system,system-ui,sans-serif">Supplies</div><div style="font:400 10.5px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.45)">Bella · 28 Aug</div></div><div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;font-variant-numeric:tabular-nums">64 €</div></div>
+            </div>
+            <div style="position:absolute;left:12px;right:12px;bottom:12px;display:flex;align-items:center;justify-content:space-around;background:rgba(255,255,255,.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(42,20,32,.06);border-radius:20px;padding:10px 8px">
+              <svg width="17" height="17" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.3);stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round"><path d="M4 19V9l8-5 8 5v10zM9 19v-6h6v6"/></svg>
+              <svg width="17" height="17" viewBox="0 0 24 24" style="fill:none;stroke:#e0165f;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round"><path d="M5 5h14v15H5zM8.5 9.5h7M8.5 14h4"/></svg>
+              <svg width="17" height="17" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.3);stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round"><path d="M5 19V11M12 19V5M19 19v-6"/></svg>
+              <svg width="17" height="17" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.3);stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM5 20a7 7 0 0114 0"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- home / donut -->
+        <div style="min-width:0;border-radius:38px;background:#120810;padding:8px;box-shadow:0 50px 90px -40px rgba(0,0,0,.75);transform:translateY(-18px)">
+          <div style="border-radius:31px;background:#fbf7f6;overflow:hidden;aspect-ratio:280/580;position:relative">
+            <div style="position:absolute;top:-70px;left:50%;transform:translateX(-50%);width:300px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(224,22,95,.22),rgba(224,22,95,0) 66%)"></div>
+            <div style="position:relative;padding:14px 16px 0;display:flex;justify-content:space-between"><div style="font:590 11.5px/1 -apple-system,system-ui,sans-serif">9:41</div><div style="width:14px;height:7.5px;border:1.4px solid rgba(42,20,32,.5);border-radius:2.5px"></div></div>
+            <div style="position:relative;text-align:center;padding:18px 16px 0">
+              <div style="font:590 11px/1 -apple-system,system-ui,sans-serif;letter-spacing:.06em;color:rgba(42,20,32,.45)">THIS MONTH</div>
+              <div style="position:relative;width:150px;height:150px;margin:16px auto 0;border-radius:50%;background:conic-gradient(#d98200 0 40%,#0e8fa0 40% 65%,#17a05f 65% 85%,#8a8f9c 85% 100%)">
+                <div style="position:absolute;inset:19px;border-radius:50%;background:#fbf7f6;display:flex;flex-direction:column;align-items:center;justify-content:center">
+                  <div style="font:700 27px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.028em;font-variant-numeric:tabular-nums">€700</div>
+                  <div style="font:400 10.5px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.45);margin-top:5px">4 categories</div>
+                </div>
+              </div>
+            </div>
+            <div style="position:relative;margin:18px 12px 0;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:18px;padding:13px">
+              <div style="display:flex;align-items:center;gap:8px;padding:5px 0"><div style="width:7px;height:7px;border-radius:4px;background:#d98200"></div><div style="flex:1;font:500 12px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.62)">Feed</div><div style="font:590 12px/1 -apple-system,system-ui,sans-serif">€280</div></div>
+              <div style="display:flex;align-items:center;gap:8px;padding:5px 0"><div style="width:7px;height:7px;border-radius:4px;background:#0e8fa0"></div><div style="flex:1;font:500 12px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.62)">Farrier</div><div style="font:590 12px/1 -apple-system,system-ui,sans-serif">€175</div></div>
+              <div style="display:flex;align-items:center;gap:8px;padding:5px 0"><div style="width:7px;height:7px;border-radius:4px;background:#17a05f"></div><div style="flex:1;font:500 12px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.62)">Vet</div><div style="font:590 12px/1 -apple-system,system-ui,sans-serif">€140</div></div>
+              <div style="display:flex;align-items:center;gap:8px;padding:5px 0"><div style="width:7px;height:7px;border-radius:4px;background:#8a8f9c"></div><div style="flex:1;font:500 12px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.62)">Other</div><div style="font:590 12px/1 -apple-system,system-ui,sans-serif">€105</div></div>
+            </div>
+            <div style="position:absolute;left:12px;right:12px;bottom:12px;display:flex;align-items:center;justify-content:space-around;background:rgba(255,255,255,.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(42,20,32,.06);border-radius:20px;padding:10px 8px">
+              <svg width="17" height="17" viewBox="0 0 24 24" style="fill:none;stroke:#e0165f;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round"><path d="M4 19V9l8-5 8 5v10zM9 19v-6h6v6"/></svg>
+              <svg width="17" height="17" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.3);stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round"><path d="M5 5h14v15H5zM8.5 9.5h7M8.5 14h4"/></svg>
+              <svg width="17" height="17" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.3);stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round"><path d="M5 19V11M12 19V5M19 19v-6"/></svg>
+              <svg width="17" height="17" viewBox="0 0 24 24" style="fill:none;stroke:rgba(42,20,32,.3);stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM5 20a7 7 0 0114 0"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- scan -->
+        <div style="min-width:0;border-radius:38px;background:#120810;padding:8px;box-shadow:0 40px 80px -40px rgba(0,0,0,.7)">
+          <div style="border-radius:31px;background:#1a0f16;overflow:hidden;aspect-ratio:280/580;position:relative;display:flex;flex-direction:column">
+            <div style="padding:14px 16px 0;display:flex;justify-content:space-between"><div style="font:590 11.5px/1 -apple-system,system-ui,sans-serif;color:#fff">9:41</div><div style="width:14px;height:7.5px;border:1.4px solid rgba(255,255,255,.5);border-radius:2.5px"></div></div>
+            <div style="padding:16px 16px 0"><div style="font:700 22px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.026em;color:#fff">Scan receipt</div></div>
+            <div style="position:relative;margin:18px 20px 0;border-radius:16px;background:#efe7e3;overflow:hidden;flex:1;min-height:0">
+              <div style="padding:16px">
+                <div style="font:590 10.5px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.8)">Equine Supply Co.</div>
+                <div style="font:400 9px/1.3 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.5);margin-top:2px">8 Mar 2026</div>
+                <div style="height:1px;background:rgba(42,20,32,.14);margin:9px 0"></div>
+                <div style="display:flex;justify-content:space-between;font:400 9.5px/1.7 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.6)"><div>Horseshoes × 4</div><div>€32.00</div></div>
+                <div style="display:flex;justify-content:space-between;font:400 9.5px/1.7 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.6)"><div>Hoof oil</div><div>€13.00</div></div>
+                <div style="height:1px;background:rgba(42,20,32,.14);margin:8px 0"></div>
+                <div style="display:flex;justify-content:space-between;font:590 10.5px/1.5 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.85)"><div>Total</div><div>€45.00</div></div>
+              </div>
+              <div style="position:absolute;left:8px;top:8px;width:22px;height:22px;border-left:2.5px solid #ff5c92;border-top:2.5px solid #ff5c92;border-radius:6px 0 0 0"></div>
+              <div style="position:absolute;right:8px;top:8px;width:22px;height:22px;border-right:2.5px solid #ff5c92;border-top:2.5px solid #ff5c92;border-radius:0 6px 0 0"></div>
+              <div style="position:absolute;left:8px;bottom:8px;width:22px;height:22px;border-left:2.5px solid #ff5c92;border-bottom:2.5px solid #ff5c92;border-radius:0 0 0 6px"></div>
+              <div style="position:absolute;right:8px;bottom:8px;width:22px;height:22px;border-right:2.5px solid #ff5c92;border-bottom:2.5px solid #ff5c92;border-radius:0 0 6px 0"></div>
+            </div>
+            <div style="margin:16px 16px 0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px;flex:none">
+              <div style="font:700 9.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.08em;color:#ff8fb4">AI EXTRACTED</div>
+              <div style="display:flex;justify-content:space-between;font:400 11px/1.7 -apple-system,system-ui,sans-serif;color:rgba(255,255,255,.5);margin-top:8px"><div>Amount</div><div style="font-weight:590;color:#fff">€45.00</div></div>
+              <div style="display:flex;justify-content:space-between;font:400 11px/1.7 -apple-system,system-ui,sans-serif;color:rgba(255,255,255,.5)"><div>Category</div><div style="font-weight:590;color:#fff">Farrier</div></div>
+              <div style="display:flex;justify-content:space-between;font:400 11px/1.7 -apple-system,system-ui,sans-serif;color:rgba(255,255,255,.5)"><div>Horse</div><div style="font-weight:590;color:#fff">Bella</div></div>
+            </div>
+            <div style="margin:12px 16px 14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,#f0407a,#cf0a4f);border-radius:16px;padding:14px;font:590 14px/1 -apple-system,system-ui,sans-serif;color:#fff;flex:none">Save expense</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- AI-powered -->
+  <div style="max-width:1140px;margin:0 auto;padding:88px 22px 0;display:flex;flex-wrap:wrap;gap:36px 52px;align-items:center">
+    <div style="flex:1 1 340px;min-width:0">
+      <div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#cf0a4f">AI-powered</div>
+      <h2 style="font:700 clamp(32px,4.2vw,50px)/1.05 -apple-system,system-ui,sans-serif;letter-spacing:-.032em;margin:14px 0 0;text-wrap:balance">Track what you spend.<br><span style="color:rgba(42,20,32,.42)">Stay in the saddle.</span></h2>
+      <p style="font:400 clamp(15px,1.5vw,18px)/1.55 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55);margin:18px 0 0;max-width:460px;text-wrap:pretty">Equinomy's AI engine handles the tedious parts — reading receipts, assigning categories, spotting patterns in your spending.</p>
+    </div>
+    <div style="flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:9px">
+      <div style="display:flex;align-items:center;gap:13px;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:18px;padding:16px 18px"><div style="width:28px;height:28px;border-radius:14px;background:rgba(224,22,95,.1);display:flex;align-items:center;justify-content:center;flex:none"><svg width="14" height="14" viewBox="0 0 24 24" style="fill:none;stroke:#cf0a4f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div><div style="font:590 15.5px/1.3 -apple-system,system-ui,sans-serif;letter-spacing:-.014em">Automatic receipt extraction</div></div>
+      <div style="display:flex;align-items:center;gap:13px;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:18px;padding:16px 18px"><div style="width:28px;height:28px;border-radius:14px;background:rgba(224,22,95,.1);display:flex;align-items:center;justify-content:center;flex:none"><svg width="14" height="14" viewBox="0 0 24 24" style="fill:none;stroke:#cf0a4f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div><div style="font:590 15.5px/1.3 -apple-system,system-ui,sans-serif;letter-spacing:-.014em">Smart expense categorisation</div></div>
+      <div style="display:flex;align-items:center;gap:13px;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:18px;padding:16px 18px"><div style="width:28px;height:28px;border-radius:14px;background:rgba(224,22,95,.1);display:flex;align-items:center;justify-content:center;flex:none"><svg width="14" height="14" viewBox="0 0 24 24" style="fill:none;stroke:#cf0a4f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div><div style="font:590 15.5px/1.3 -apple-system,system-ui,sans-serif;letter-spacing:-.014em">Monthly spending trends</div></div>
+      <div style="display:flex;align-items:center;gap:13px;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:18px;padding:16px 18px"><div style="width:28px;height:28px;border-radius:14px;background:rgba(224,22,95,.1);display:flex;align-items:center;justify-content:center;flex:none"><svg width="14" height="14" viewBox="0 0 24 24" style="fill:none;stroke:#cf0a4f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div><div style="font:590 15.5px/1.3 -apple-system,system-ui,sans-serif;letter-spacing:-.014em">Per-horse cost breakdowns</div></div>
+      <div style="display:flex;align-items:center;gap:13px;background:#fff;border:1px solid rgba(42,20,32,.06);border-radius:18px;padding:16px 18px"><div style="width:28px;height:28px;border-radius:14px;background:rgba(224,22,95,.1);display:flex;align-items:center;justify-content:center;flex:none"><svg width="14" height="14" viewBox="0 0 24 24" style="fill:none;stroke:#cf0a4f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div><div style="font:590 15.5px/1.3 -apple-system,system-ui,sans-serif;letter-spacing:-.014em">Budget alerts before you overspend</div></div>
+    </div>
+  </div>
+
+  <!-- download -->
+  <div id="download" style="max-width:1140px;margin:88px auto 0;padding:0 22px">
+    <div style="position:relative;overflow:hidden;border-radius:36px;background:linear-gradient(150deg,#f0407a,#cf0a4f);padding:clamp(44px,6vw,76px) clamp(26px,5vw,64px);text-align:center;box-shadow:0 50px 90px -50px rgba(224,22,95,.9)">
+      <div style="position:absolute;top:-160px;right:-100px;width:520px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.22),rgba(255,255,255,0) 66%)"></div>
+      <div style="position:relative">
+        <div style="font:590 12.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72)">Download</div>
+        <h2 style="font:700 clamp(32px,4.4vw,52px)/1.05 -apple-system,system-ui,sans-serif;letter-spacing:-.032em;color:#fff;margin:14px 0 0;text-wrap:balance">Start tracking for free</h2>
+        <p style="font:400 clamp(15px,1.6vw,18px)/1.55 -apple-system,system-ui,sans-serif;color:#fff;margin:14px auto 0;max-width:440px;text-wrap:pretty">Available on iOS and Android. Core features are always free.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px">
+          <a href="#" style="display:block;line-height:0"><img src="https://equinomyapp.com/assets/badge-appstore.svg" alt="Download on the App Store" style="height:54px;width:auto;display:block"></a>
+          <a href="#" style="display:block;line-height:0"><img src="https://equinomyapp.com/assets/badge-googleplay.svg" alt="Get it on Google Play" style="height:54px;width:auto;display:block"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div style="max-width:1140px;margin:0 auto;padding:56px 22px 48px">
+    <div style="display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:flex-start">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="https://equinomyapp.com/assets/logo-icon.png" alt="Equinomy logo" style="width:28px;height:28px;border-radius:8px;object-fit:contain;display:block">
+        <div style="font:700 16px/1 -apple-system,system-ui,sans-serif;letter-spacing:-.026em">Equinomy</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,max-content));gap:8px 34px">
+        <a href="https://equinomyapp.com/privacy-policy-en.html" style="font:400 13.5px/1.6 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)" style-hover="color:#e0165f">Privacy Policy (EN)</a>
+        <a href="https://equinomyapp.com/privacy-policy-de.html" style="font:400 13.5px/1.6 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)" style-hover="color:#e0165f">Datenschutz (DE)</a>
+        <a href="https://equinomyapp.com/privacy-policy-fr.html" style="font:400 13.5px/1.6 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)" style-hover="color:#e0165f">Confidentialité (FR)</a>
+        <a href="https://equinomyapp.com/privacy-policy-se.html" style="font:400 13.5px/1.6 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)" style-hover="color:#e0165f">Integritetspolicy (SE)</a>
+        <a href="https://equinomyapp.com/terms-en.html" style="font:400 13.5px/1.6 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)" style-hover="color:#e0165f">Terms of Service (EN)</a>
+        <a href="https://equinomyapp.com/terms-de.html" style="font:400 13.5px/1.6 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)" style-hover="color:#e0165f">Nutzungsbedingungen (DE)</a>
+        <a href="https://equinomyapp.com/terms-fr.html" style="font:400 13.5px/1.6 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)" style-hover="color:#e0165f">CGU (FR)</a>
+        <a href="https://equinomyapp.com/terms-se.html" style="font:400 13.5px/1.6 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)" style-hover="color:#e0165f">Användarvillkor (SE)</a>
+        <a href="mailto:info@equinomyapp.com" style="font:400 13.5px/1.6 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.55)" style-hover="color:#e0165f">Contact</a>
+      </div>
+    </div>
+    <div style="height:1px;background:rgba(42,20,32,.07);margin:30px 0 18px"></div>
+    <div style="font:400 13px/1 -apple-system,system-ui,sans-serif;color:rgba(42,20,32,.42)">© 2026 Equinomy. All rights reserved.</div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showIncome&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  renderVals(){
+    return { showIncome: this.props.showIncome ?? true };
+  }
+}
+</script>
+</body>
+</html>

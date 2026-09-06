@@ -6,429 +6,500 @@
   <title>Equinomy – AI-Powered Horse Expense Tracker</title>
   <meta name="description" content="Track every horse expense effortlessly. AI receipt scanning, budget overviews, and multi-horse support — all in one app." />
   <link rel="icon" href="assets/logo-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">
-    <img src="assets/logo-icon.png" alt="Equinomy logo" />
-    Equinomy
-  </a>
-  <ul class="nav-links">
-    <li><a href="#features">Features</a></li>
-    <li><a href="#download">Download</a></li>
-    <li><a href="privacy-policy-en.html">Privacy</a></li>
-  </ul>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="assets/logo-icon.png" alt="Equinomy logo" />
+      Equinomy
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#download">Download</a></li>
+      <li><a href="privacy-policy-en.html">Privacy</a></li>
+      <li><a class="nav-cta" href="#download">Get the app</a></li>
+    </ul>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
   <div class="hero-inner">
-    <div class="hero-badge">
-      <span></span> AI-powered expense tracking
+    <div class="hero-copy">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l2.3 5.3 5.5.5-4.2 3.7 1.3 5.4-4.9-3-4.9 3 1.3-5.4L4.2 9l5.5-.5z"/></svg>
+        <span>AI-powered expense tracking</span>
+      </div>
+      <h1>Track what you spend.<br><span class="muted">Stay in the saddle.</span></h1>
+      <p>Equinomy uses AI to scan receipts, categorise expenses, and give you a clear picture of what your horses actually cost.</p>
+      <div class="hero-actions">
+        <a href="#download" class="btn-primary">Get the app</a>
+        <a href="#features" class="btn-secondary">See features</a>
+      </div>
+      <div class="trust-pills">
+        <div class="trust-pill"><span class="dot dot-green"></span>Free core features</div>
+        <div class="trust-pill"><span class="dot dot-teal"></span>iOS &amp; Android</div>
+        <div class="trust-pill"><span class="dot dot-violet"></span>EU-hosted data</div>
+      </div>
     </div>
-    <h1>Track what you spend.<br><span class="grad-text">Stay in the saddle.</span></h1>
-    <p>Equinomy uses AI to scan receipts, categorise expenses, and give you a clear picture of what your horses actually cost.</p>
-    <div class="btn-group">
-      <a href="#download" class="btn-primary">Get the app</a>
-      <a href="#features" class="btn-ghost">See features</a>
+
+    <!-- hero phone -->
+    <div class="hero-phone-col">
+      <div class="phone-shell">
+        <div class="phone-screen">
+          <div class="hero-phone-glow"></div>
+          <div class="status-row">
+            <div class="status-time">9:41</div>
+            <div class="status-battery"></div>
+          </div>
+          <div class="hero-period-pill"><span>SEPTEMBER 2026</span></div>
+          <div class="hero-figure">
+            <div class="hero-figure-num">700</div>
+            <div class="hero-figure-unit">€</div>
+          </div>
+          <div class="hero-caption">Feed is your biggest cost this month</div>
+          <div class="hero-bars">
+            <div class="hero-bar" style="height:38%"></div>
+            <div class="hero-bar" style="height:56%"></div>
+            <div class="hero-bar" style="height:44%"></div>
+            <div class="hero-bar" style="height:72%"></div>
+            <div class="hero-bar" style="height:60%"></div>
+            <div class="hero-bar active" style="height:88%"></div>
+          </div>
+          <div class="hero-bar-labels">
+            <span>APR</span><span>MAY</span><span>JUN</span><span>JUL</span><span>AUG</span><span class="active">SEP</span>
+          </div>
+          <div class="entry-card">
+            <div class="entry-row">
+              <div class="entry-icon" style="background:rgba(217,130,0,.11)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d98200" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9l8-5 8 5v10zM9 19v-6h6v6"/></svg></div>
+              <div class="entry-meta"><div class="entry-title">Feed</div><div class="entry-sub">Bella · 4 Sep</div></div>
+              <div class="entry-amt">280 €</div>
+            </div>
+            <div class="entry-row">
+              <div class="entry-icon" style="background:rgba(14,143,160,.11)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0e8fa0" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v4a5 5 0 01-10 0zM12 13v4M9 20h6"/></svg></div>
+              <div class="entry-meta"><div class="entry-title">Farrier</div><div class="entry-sub">Shadow · 2 Sep</div></div>
+              <div class="entry-amt">175 €</div>
+            </div>
+            <div class="entry-row">
+              <div class="entry-icon" style="background:rgba(23,160,95,.13)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#17a05f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"><path d="M12 19V5M6 11l6-6 6 6"/></svg></div>
+              <div class="entry-meta"><div class="entry-title">Box rented out</div><div class="entry-sub">Income · 1 Sep</div></div>
+              <div class="entry-amt positive">+240 €</div>
+            </div>
+          </div>
+          <div class="tab-bar-row">
+            <div class="tab-bar">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" class="active" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9l8-5 8 5v10zM9 19v-6h6v6"/></svg>
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14v15H5zM8.5 9.5h7M8.5 14h4"/></svg>
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19V11M12 19V5M19 19v-6"/></svg>
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM5 20a7 7 0 0114 0"/></svg>
+            </div>
+            <div class="fab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FEATURES -->
-<div class="features-outer" id="features">
-  <div class="features-inner">
-    <div class="section-label">Features</div>
-    <h2 class="section-title">Everything a horse owner needs</h2>
-    <p class="section-sub">Purpose-built for the real costs of horse ownership — from farrier visits to feed bills.</p>
+<section class="features" id="features">
+  <div class="eyebrow">Features</div>
+  <h2 class="section-h2">Everything a horse owner needs</h2>
+  <p class="section-sub">Purpose-built for the real costs of horse ownership — from farrier visits to feed bills.</p>
 
-    <div class="features-bento">
+  <div class="features-grid">
 
-      <!-- AI Receipt Scanning (wide) -->
-      <div class="feature-bento-card feat-wide">
-        <div class="feat-visual feat-visual-ai">
-          <div class="receipt-mock">
-            <div class="receipt-scan-beam"></div>
-            <div class="receipt-row-top">
-              <span class="receipt-store">Equine Supply Co.</span>
-              <span class="receipt-date">8 Mar 2026</span>
-            </div>
-            <div class="receipt-lines">
-              <div class="receipt-line"><span>Horseshoes × 4</span><span>€32.00</span></div>
-              <div class="receipt-line"><span>Hoof oil</span><span>€13.00</span></div>
-            </div>
-            <div class="receipt-total-row">
-              <span>Total</span><span>€45.00</span>
-            </div>
-          </div>
-          <div class="ai-arrow">
-            <div class="ai-arrow-label">AI</div>
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="ai-result">
-            <div class="ai-result-label"><span class="ai-active-dot"></span> AI extracted</div>
-            <div class="ai-result-row"><span class="ai-rk">Amount</span><span class="ai-rv">€45.00</span></div>
-            <div class="ai-result-row"><span class="ai-rk">Category</span><span class="ai-rv">Farrier</span></div>
-            <div class="ai-result-row"><span class="ai-rk">Date</span><span class="ai-rv">Mar 8, 2026</span></div>
-            <div class="ai-result-row"><span class="ai-rk">Horse</span><span class="ai-rv">Bella</span></div>
-          </div>
+    <!-- AI Receipt Scanning (wide) -->
+    <div class="card card-wide">
+      <div class="card-copy">
+        <h3>AI Receipt Scanning</h3>
+        <p>Point your camera at any receipt. Equinomy's AI reads the amount, date, and category automatically.</p>
+      </div>
+      <div class="card-visual ai-visual">
+        <div class="receipt-panel">
+          <div class="receipt-store">Equine Supply Co.</div>
+          <div class="receipt-date">8 Mar 2026</div>
+          <div class="receipt-rule"></div>
+          <div class="receipt-line"><span>Horseshoes × 4</span><span>€32.00</span></div>
+          <div class="receipt-line"><span>Hoof oil</span><span>€13.00</span></div>
+          <div class="receipt-rule tight"></div>
+          <div class="receipt-total"><span>Total</span><span>€45.00</span></div>
         </div>
-        <div class="feat-body">
-          <div class="feat-icon">📷</div>
-          <div class="feat-text">
-            <h3>AI Receipt Scanning</h3>
-            <p>Point your camera at any receipt. Equinomy's AI reads the amount, date, and category automatically.</p>
-          </div>
+        <div class="ai-extracted-panel">
+          <div class="ai-extracted-label">AI EXTRACTED</div>
+          <div class="ai-extracted-row"><span>Amount</span><b>€45.00</b></div>
+          <div class="ai-extracted-row"><span>Category</span><b>Farrier</b></div>
+          <div class="ai-extracted-row"><span>Date</span><b>Mar 8, 2026</b></div>
+          <div class="ai-extracted-row"><span>Horse</span><b>Bella</b></div>
         </div>
       </div>
+    </div>
 
-      <!-- Multi-Horse Support -->
-      <div class="feature-bento-card">
-        <div class="feat-visual">
-          <div class="horse-list">
-            <div class="horse-row">
-              <div class="horse-av" style="--hc:#8B5CF6">B</div>
-              <div class="horse-data">
-                <span class="horse-name">Bella</span>
-                <div class="horse-track"><div class="horse-fill" style="width:72%;background:#8B5CF6"></div></div>
-              </div>
-              <span class="horse-amt">€384</span>
-            </div>
-            <div class="horse-row">
-              <div class="horse-av" style="--hc:#F472B6">S</div>
-              <div class="horse-data">
-                <span class="horse-name">Shadow</span>
-                <div class="horse-track"><div class="horse-fill" style="width:48%;background:#F472B6"></div></div>
-              </div>
-              <span class="horse-amt">€255</span>
-            </div>
-            <div class="horse-row">
-              <div class="horse-av" style="--hc:#34d399">M</div>
-              <div class="horse-data">
-                <span class="horse-name">Misty</span>
-                <div class="horse-track"><div class="horse-fill" style="width:28%;background:#34d399"></div></div>
-              </div>
-              <span class="horse-amt">€149</span>
-            </div>
-          </div>
+    <!-- Multi-Horse Support -->
+    <div class="card">
+      <h3>Multi-Horse Support</h3>
+      <p>Each horse gets its own profile and cost breakdown — manage an entire stable in one place.</p>
+      <div class="horse-rows">
+        <div class="horse-row">
+          <div class="horse-avatar" style="background:linear-gradient(150deg,#8f72ff,#5a3ed0)">B</div>
+          <div class="horse-row-name">Bella</div>
+          <div class="horse-row-amt">€384</div>
         </div>
-        <div class="feat-body">
-          <div class="feat-icon">🐎</div>
-          <div class="feat-text">
-            <h3>Multi-Horse Support</h3>
-            <p>Each horse gets its own profile and cost breakdown — manage an entire stable in one place.</p>
-          </div>
+        <div class="horse-row">
+          <div class="horse-avatar" style="background:linear-gradient(150deg,#37b4c4,#0a7f8e)">S</div>
+          <div class="horse-row-name">Shadow</div>
+          <div class="horse-row-amt">€255</div>
+        </div>
+        <div class="horse-row">
+          <div class="horse-avatar" style="background:linear-gradient(150deg,#f0407a,#cf0a4f)">M</div>
+          <div class="horse-row-name">Misty</div>
+          <div class="horse-row-amt">€149</div>
         </div>
       </div>
+    </div>
 
-      <!-- Expense Overviews -->
-      <div class="feature-bento-card">
-        <div class="feat-visual">
-          <div class="donut-chart-wrap">
-            <div class="donut-chart">
-              <div class="donut-hole">
-                <span class="donut-total">€700</span>
-                <span class="donut-sub">this month</span>
-              </div>
-            </div>
-          </div>
-          <div class="chart-legend">
-            <div class="legend-row"><span class="legend-dot" style="--dc:#8B5CF6"></span><span class="legend-cat">Feed</span><span class="legend-val">€280</span></div>
-            <div class="legend-row"><span class="legend-dot" style="--dc:#AE2E8A"></span><span class="legend-cat">Farrier</span><span class="legend-val">€175</span></div>
-            <div class="legend-row"><span class="legend-dot" style="--dc:#F472B6"></span><span class="legend-cat">Vet</span><span class="legend-val">€140</span></div>
-            <div class="legend-row"><span class="legend-dot" style="--dc:#60a5fa"></span><span class="legend-cat">Other</span><span class="legend-val">€105</span></div>
-          </div>
+    <!-- Smart Expense Overviews -->
+    <div class="card">
+      <h3>Smart Expense Overviews</h3>
+      <p>Interactive charts break down your spending by category, time period, or horse — instantly.</p>
+      <div class="overview-panel">
+        <div class="overview-total">€700 this month</div>
+        <div class="overview-bar">
+          <div style="flex:280;background:#d98200"></div>
+          <div style="flex:175;background:#0e8fa0"></div>
+          <div style="flex:140;background:#17a05f"></div>
+          <div style="flex:105;background:#8a8f9c"></div>
         </div>
-        <div class="feat-body">
-          <div class="feat-icon">📊</div>
-          <div class="feat-text">
-            <h3>Smart Expense Overviews</h3>
-            <p>Interactive charts break down your spending by category, time period, or horse — instantly.</p>
-          </div>
+        <div class="overview-legend">
+          <div class="legend-row"><span class="legend-dot" style="background:#d98200"></span><span class="legend-label">Feed</span><span class="legend-val">€280</span></div>
+          <div class="legend-row"><span class="legend-dot" style="background:#0e8fa0"></span><span class="legend-label">Farrier</span><span class="legend-val">€175</span></div>
+          <div class="legend-row"><span class="legend-dot" style="background:#17a05f"></span><span class="legend-label">Vet</span><span class="legend-val">€140</span></div>
+          <div class="legend-row"><span class="legend-dot" style="background:#8a8f9c"></span><span class="legend-label">Other</span><span class="legend-val">€105</span></div>
         </div>
       </div>
+    </div>
 
-      <!-- Budget Planning -->
-      <div class="feature-bento-card">
-        <div class="feat-visual">
-          <div class="budget-rows">
-            <div class="budget-item">
-              <div class="budget-meta"><span class="budget-cat">Feed</span><span class="budget-pct">68%</span></div>
-              <div class="budget-track"><div class="budget-fill" style="width:68%"></div></div>
-            </div>
-            <div class="budget-item">
-              <div class="budget-meta"><span class="budget-cat">Farrier</span><span class="budget-pct budget-warn">92%</span></div>
-              <div class="budget-track"><div class="budget-fill budget-fill-warn" style="width:92%"></div></div>
-            </div>
-            <div class="budget-item">
-              <div class="budget-meta"><span class="budget-cat">Vet</span><span class="budget-pct">35%</span></div>
-              <div class="budget-track"><div class="budget-fill" style="width:35%"></div></div>
-            </div>
-            <div class="budget-item">
-              <div class="budget-meta"><span class="budget-cat">Supplies</span><span class="budget-pct">54%</span></div>
-              <div class="budget-track"><div class="budget-fill" style="width:54%"></div></div>
-            </div>
-          </div>
-          <div class="budget-alert">
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 6v3.5M8 11v.5" stroke="#f59e0b" stroke-width="1.6" stroke-linecap="round"/><path d="M6.8 2.6 1.3 12A1.6 1.6 0 0 0 2.7 14.4h10.6a1.6 1.6 0 0 0 1.4-2.4L9.2 2.6a1.6 1.6 0 0 0-2.4 0Z" stroke="#f59e0b" stroke-width="1.2"/></svg>
-            Farrier budget nearly reached
-          </div>
+    <!-- Budget Planning -->
+    <div class="card">
+      <h3>Budget Planning</h3>
+      <p>Set monthly budgets per category and get notified before you overspend.</p>
+      <div class="budget-rows">
+        <div>
+          <div class="budget-row-meta"><span>Feed</span><b>68%</b></div>
+          <div class="budget-track"><div class="budget-fill" style="width:68%;background:#d98200"></div></div>
         </div>
-        <div class="feat-body">
-          <div class="feat-icon">📋</div>
-          <div class="feat-text">
-            <h3>Budget Planning</h3>
-            <p>Set monthly budgets per category and get notified before you overspend.</p>
-          </div>
+        <div>
+          <div class="budget-row-meta"><span>Farrier</span><b style="color:#c8104c">92%</b></div>
+          <div class="budget-track"><div class="budget-fill" style="width:92%;background:#c8104c"></div></div>
+        </div>
+        <div>
+          <div class="budget-row-meta"><span>Vet</span><b>35%</b></div>
+          <div class="budget-track"><div class="budget-fill" style="width:35%;background:#17a05f"></div></div>
+        </div>
+        <div>
+          <div class="budget-row-meta"><span>Supplies</span><b>54%</b></div>
+          <div class="budget-track"><div class="budget-fill" style="width:54%;background:#c1349a"></div></div>
+        </div>
+        <div class="budget-warning">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 8v5M12 16.5h.01M12 3.5l9 16H3z"/></svg>
+          <span>Farrier budget nearly reached</span>
         </div>
       </div>
+    </div>
 
-      <!-- Synced Across Devices -->
-      <div class="feature-bento-card">
-        <div class="feat-visual feat-visual-sync">
-          <div class="sync-devices">
-            <div class="sync-device-mock sync-phone-mock">
-              <div class="sdm-bar sdm-full"></div>
-              <div class="sdm-bar sdm-three-q"></div>
-              <div class="sdm-bar sdm-half"></div>
-              <div class="sdm-bar sdm-three-q"></div>
-            </div>
-            <div class="sync-arrows-col">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path d="M1 4v6h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M23 20v-6h-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="sync-device-mock sync-tablet-mock">
-              <div class="sdm-bar sdm-full"></div>
-              <div class="sdm-bar sdm-half"></div>
-              <div class="sdm-bar sdm-three-q"></div>
-            </div>
-          </div>
-          <div class="sync-status-badge">
-            <span class="sync-dot"></span>
-            Always up to date
-          </div>
-        </div>
-        <div class="feat-body">
-          <div class="feat-icon">☁️</div>
-          <div class="feat-text">
-            <h3>Synced Across Devices</h3>
-            <p>Your data lives securely in the cloud and stays in sync across all your devices, always.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Health Log & Reminders (wide) -->
-      <div class="feature-bento-card feat-wide">
-        <div class="feat-visual feat-visual-health">
-          <div class="health-schedule-list">
-            <div class="health-row">
-              <div class="health-icon-dot health-dot-overdue"></div>
-              <div class="health-data">
-                <span class="health-name">Deworming</span>
-                <span class="health-due">Bella · 3 days overdue</span>
-              </div>
-              <span class="health-badge health-overdue">Overdue</span>
-            </div>
-            <div class="health-row">
-              <div class="health-icon-dot health-dot-soon"></div>
-              <div class="health-data">
-                <span class="health-name">Farrier visit</span>
-                <span class="health-due">Bella · Due in 5 days</span>
-              </div>
-              <span class="health-badge health-soon">Due soon</span>
-            </div>
-            <div class="health-row">
-              <div class="health-icon-dot health-dot-ok"></div>
-              <div class="health-data">
-                <span class="health-name">Vaccination</span>
-                <span class="health-due">Shadow · Due in 22 days</span>
-              </div>
-              <span class="health-badge health-ok">On track</span>
-            </div>
-            <div class="health-row">
-              <div class="health-icon-dot health-dot-ok"></div>
-              <div class="health-data">
-                <span class="health-name">Dental checkup</span>
-                <span class="health-due">Misty · Due in 41 days</span>
-              </div>
-              <span class="health-badge health-ok">On track</span>
-            </div>
-          </div>
-          <div class="health-notif-card">
-            <div class="health-notif-header">
-              <img src="assets/logo-icon.png" alt="" class="health-notif-icon" />
-              <span class="health-notif-app">Equinomy</span>
-              <span class="health-notif-time">now</span>
-            </div>
+    <!-- Health Log & Reminders (wide) -->
+    <div class="card card-wide health">
+      <div class="card-copy">
+        <h3>Health Log &amp; Reminders</h3>
+        <p>Set recurring care schedules for farrier visits, vaccinations, deworming, and more. Get push notifications before anything is due.</p>
+        <div class="health-notif">
+          <div class="health-notif-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v4a5 5 0 01-10 0zM12 13v4M9 20h6"/></svg></div>
+          <div>
+            <div class="health-notif-head"><span class="health-notif-app">Equinomy</span><span class="health-notif-time">now</span></div>
             <div class="health-notif-title">Farrier visit due in 5 days</div>
             <div class="health-notif-body">Bella · Schedule your appointment soon.</div>
           </div>
         </div>
-        <div class="feat-body">
-          <div class="feat-icon">🩺</div>
-          <div class="feat-text">
-            <h3>Health Log &amp; Reminders</h3>
-            <p>Set recurring care schedules for farrier visits, vaccinations, deworming, and more. Get push notifications before anything is due.</p>
+      </div>
+      <div class="card-visual health-list">
+        <div class="health-item health-overdue">
+          <div style="min-width:0;flex:1"><div class="health-item-name">Deworming</div><div class="health-item-due">Bella · 3 days overdue</div></div>
+          <div class="health-badge">Overdue</div>
+        </div>
+        <div class="health-item health-soon">
+          <div style="min-width:0;flex:1"><div class="health-item-name">Farrier visit</div><div class="health-item-due">Bella · Due in 5 days</div></div>
+          <div class="health-badge">Due soon</div>
+        </div>
+        <div class="health-item health-ok">
+          <div style="min-width:0;flex:1"><div class="health-item-name">Vaccination</div><div class="health-item-due">Shadow · Due in 22 days</div></div>
+          <div class="health-badge">On track</div>
+        </div>
+        <div class="health-item health-ok">
+          <div style="min-width:0;flex:1"><div class="health-item-name">Dental checkup</div><div class="health-item-due">Misty · Due in 41 days</div></div>
+          <div class="health-badge">On track</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spending Analytics -->
+    <div class="card">
+      <h3>Spending Analytics</h3>
+      <p>Compare periods, spot seasonal patterns with a 12-month heatmap, and forecast your annual costs from real data.</p>
+      <div class="analytics-kpis">
+        <div class="analytics-kpi"><span class="analytics-kpi-label">vs last month</span><span class="analytics-kpi-val negative">+12%</span></div>
+        <div class="analytics-kpi"><span class="analytics-kpi-label">Annual forecast</span><span class="analytics-kpi-val">€9,840</span></div>
+      </div>
+      <div class="heatmap">
+        <div class="heatmap-cell" style="opacity:.14"></div>
+        <div class="heatmap-cell" style="opacity:.26"></div>
+        <div class="heatmap-cell" style="opacity:.18"></div>
+        <div class="heatmap-cell" style="opacity:.40"></div>
+        <div class="heatmap-cell" style="opacity:.55"></div>
+        <div class="heatmap-cell" style="opacity:.30"></div>
+        <div class="heatmap-cell" style="opacity:.22"></div>
+        <div class="heatmap-cell" style="opacity:.34"></div>
+        <div class="heatmap-cell" style="opacity:.72"></div>
+        <div class="heatmap-cell" style="opacity:.46"></div>
+        <div class="heatmap-cell" style="opacity:.20"></div>
+        <div class="heatmap-cell" style="opacity:.12"></div>
+      </div>
+      <div class="heatmap-labels">
+        <span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span>
+      </div>
+    </div>
+
+    <!-- Income Too, Not Just Costs (content flag: showIncome, default true) -->
+    <div class="card">
+      <h3>Income Too, Not Just Costs</h3>
+      <p>Log box rentals, sales, prize money, and insurance payouts the same way you log an expense. Equinomy nets it out for you.</p>
+      <div class="income-rows">
+        <div class="income-row">
+          <div class="income-icon" style="background:rgba(23,160,95,.13)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#17a05f" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5L12 4l8.5 6.5M6 9.5V20h12V9.5"/></svg></div>
+          <div class="income-label">Box rented out</div>
+          <div class="income-amt">+€240</div>
+        </div>
+        <div class="income-row">
+          <div class="income-icon" style="background:rgba(217,130,0,.12)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#d98200" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v4a5 5 0 01-10 0zM12 13v4M9 20h6"/></svg></div>
+          <div class="income-label">Prize money</div>
+          <div class="income-amt">+€150</div>
+        </div>
+        <div class="income-net">
+          <div class="income-net-label">Net this month</div>
+          <div class="income-net-val">€310</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Synced Across Devices -->
+    <div class="card">
+      <h3>Synced Across Devices</h3>
+      <p>Your data lives securely in the cloud and stays in sync across all your devices, always.</p>
+      <div class="sync-devices">
+        <div class="sync-device"><span class="sync-device-name">iPhone</span><span class="sync-device-status">Synced now</span></div>
+        <div class="sync-device"><span class="sync-device-name">iPad</span><span class="sync-device-status">Synced now</span></div>
+        <div class="sync-device"><span class="sync-device-name">Web</span><span class="sync-device-status">Synced now</span></div>
+      </div>
+      <div class="sync-status-pill"><span class="dot"></span><span>Always up to date</span></div>
+    </div>
+
+    <!-- Private by Design -->
+    <div class="card card-dark">
+      <h3>Private by Design</h3>
+      <p>GDPR-compliant, EU-hosted storage. We collect only what the app needs — nothing more.</p>
+      <div class="privacy-badges">
+        <span>GDPR Compliant</span>
+        <span>EU-Hosted Data</span>
+        <span>Minimal Collection</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SEE IT IN ACTION -->
+<section class="action-section">
+  <div class="action-glow action-glow-1"></div>
+  <div class="action-glow action-glow-2"></div>
+  <div class="action-inner">
+    <div class="eyebrow on-dark">The app</div>
+    <div class="action-head">
+      <h2 class="section-h2 on-dark">See it in action</h2>
+      <p class="section-sub on-dark">A clean, focused interface built for horse owners who want clarity — not complexity.</p>
+    </div>
+    <div class="action-pills">
+      <div class="action-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span>Donut chart spending breakdown by category</span></div>
+      <div class="action-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span>Searchable, sortable expense history</span></div>
+      <div class="action-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span>AI scans receipts and fills in details automatically</span></div>
+    </div>
+
+    <div class="action-phones">
+
+      <!-- expenses -->
+      <div class="phone-shell-sm">
+        <div class="phone-screen-sm">
+          <div class="status-row sm"><div class="status-time">9:41</div><div class="status-battery"></div></div>
+          <div class="px-title"><div class="px-title-text">Expenses</div></div>
+          <div class="px-search">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M11 18a7 7 0 100-14 7 7 0 000 14zM16.5 16.5L20 20"/></svg>
+            <span>Search</span>
+          </div>
+          <div class="px-chips">
+            <div class="px-chip active">All</div>
+            <div class="px-chip">Feed</div>
+            <div class="px-chip">Farrier</div>
+          </div>
+          <div class="px-list">
+            <div class="px-row">
+              <div class="px-row-icon" style="background:rgba(217,130,0,.11)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#d98200" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9l8-5 8 5v10zM9 19v-6h6v6"/></svg></div>
+              <div class="px-row-meta"><div class="px-row-title">Feed</div><div class="px-row-sub">Bella · 4 Sep</div></div>
+              <div class="px-row-amt">280 €</div>
+            </div>
+            <div class="px-row">
+              <div class="px-row-icon" style="background:rgba(14,143,160,.11)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0e8fa0" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v4a5 5 0 01-10 0zM12 13v4M9 20h6"/></svg></div>
+              <div class="px-row-meta"><div class="px-row-title">Farrier</div><div class="px-row-sub">Shadow · 2 Sep</div></div>
+              <div class="px-row-amt">175 €</div>
+            </div>
+            <div class="px-row">
+              <div class="px-row-icon" style="background:rgba(23,160,95,.13)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#17a05f" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4l2-4 3 8 2-4h5"/></svg></div>
+              <div class="px-row-meta"><div class="px-row-title">Vet</div><div class="px-row-sub">Misty · 1 Sep</div></div>
+              <div class="px-row-amt">140 €</div>
+            </div>
+            <div class="px-row">
+              <div class="px-row-icon" style="background:rgba(23,160,95,.13)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#17a05f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"><path d="M12 19V5M6 11l6-6 6 6"/></svg></div>
+              <div class="px-row-meta"><div class="px-row-title">Box rented out</div><div class="px-row-sub">Income · 1 Sep</div></div>
+              <div class="px-row-amt positive">+240 €</div>
+            </div>
+            <div class="px-row">
+              <div class="px-row-icon" style="background:rgba(193,52,154,.11)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#c1349a" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l8-14 8 14zM8.5 20v-4h7v4"/></svg></div>
+              <div class="px-row-meta"><div class="px-row-title">Supplies</div><div class="px-row-sub">Bella · 28 Aug</div></div>
+              <div class="px-row-amt">64 €</div>
+            </div>
+          </div>
+          <div class="tab-bar-row-sm">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9l8-5 8 5v10zM9 19v-6h6v6"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" class="active" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14v15H5zM8.5 9.5h7M8.5 14h4"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19V11M12 19V5M19 19v-6"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM5 20a7 7 0 0114 0"/></svg>
           </div>
         </div>
       </div>
 
-      <!-- Spending Analytics -->
-      <div class="feature-bento-card">
-        <div class="feat-visual">
-          <div class="analytics-wrap">
-            <div class="analytics-kpis">
-              <div class="analytics-kpi">
-                <span class="analytics-kpi-label">vs last month</span>
-                <span class="analytics-kpi-val analytics-up">+12%</span>
-              </div>
-              <div class="analytics-kpi">
-                <span class="analytics-kpi-label">Annual forecast</span>
-                <span class="analytics-kpi-val">€9,840</span>
-              </div>
-            </div>
-            <div class="heatmap-grid">
-              <div class="hm-cell hm-low"></div>
-              <div class="hm-cell hm-mid"></div>
-              <div class="hm-cell hm-high"></div>
-              <div class="hm-cell hm-mid"></div>
-              <div class="hm-cell hm-low"></div>
-              <div class="hm-cell hm-mid"></div>
-              <div class="hm-cell hm-low"></div>
-              <div class="hm-cell hm-low"></div>
-              <div class="hm-cell hm-high"></div>
-              <div class="hm-cell hm-mid"></div>
-              <div class="hm-cell hm-high"></div>
-              <div class="hm-cell hm-mid"></div>
-            </div>
-            <div class="heatmap-labels">
-              <span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span>
+      <!-- home / donut -->
+      <div class="phone-shell-sm raised">
+        <div class="phone-screen-sm">
+          <div class="px-donut-glow"></div>
+          <div class="status-row sm"><div class="status-time">9:41</div><div class="status-battery"></div></div>
+          <div class="px-donut-label">THIS MONTH</div>
+          <div class="px-donut">
+            <div class="px-donut-hole">
+              <div class="px-donut-total">€700</div>
+              <div class="px-donut-sub">4 categories</div>
             </div>
           </div>
-        </div>
-        <div class="feat-body">
-          <div class="feat-icon">📈</div>
-          <div class="feat-text">
-            <h3>Spending Analytics</h3>
-            <p>Compare periods, spot seasonal patterns with a 12-month heatmap, and forecast your annual costs from real data.</p>
+          <div class="px-legend">
+            <div class="px-legend-row"><span class="px-legend-dot" style="background:#d98200"></span><span class="px-legend-label">Feed</span><span class="px-legend-val">€280</span></div>
+            <div class="px-legend-row"><span class="px-legend-dot" style="background:#0e8fa0"></span><span class="px-legend-label">Farrier</span><span class="px-legend-val">€175</span></div>
+            <div class="px-legend-row"><span class="px-legend-dot" style="background:#17a05f"></span><span class="px-legend-label">Vet</span><span class="px-legend-val">€140</span></div>
+            <div class="px-legend-row"><span class="px-legend-dot" style="background:#8a8f9c"></span><span class="px-legend-label">Other</span><span class="px-legend-val">€105</span></div>
+          </div>
+          <div class="tab-bar-row-sm">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" class="active" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9l8-5 8 5v10zM9 19v-6h6v6"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14v15H5zM8.5 9.5h7M8.5 14h4"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19V11M12 19V5M19 19v-6"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM5 20a7 7 0 0114 0"/></svg>
           </div>
         </div>
       </div>
 
-      <!-- Private by Design (full width) -->
-      <div class="feature-bento-card feat-full feat-privacy-card">
-        <div class="feat-privacy-layout">
-          <div class="feat-privacy-left">
-            <div class="feat-icon feat-icon-lg">🔒</div>
-            <div class="feat-text">
-              <h3>Private by Design</h3>
-              <p>GDPR-compliant, EU-hosted storage. We collect only what the app needs — nothing more.</p>
-            </div>
+      <!-- scan -->
+      <div class="phone-shell-sm">
+        <div class="phone-screen-sm px-scan-screen">
+          <div class="status-row sm"><div class="status-time" style="color:#fff">9:41</div><div class="status-battery" style="border-color:rgba(255,255,255,.5)"></div></div>
+          <div class="px-title"><div class="px-title-text dark">Scan receipt</div></div>
+          <div class="px-scan-body">
+            <div class="receipt-store">Equine Supply Co.</div>
+            <div class="receipt-date">8 Mar 2026</div>
+            <div class="receipt-rule"></div>
+            <div class="receipt-line"><span>Horseshoes × 4</span><span>€32.00</span></div>
+            <div class="receipt-line"><span>Hoof oil</span><span>€13.00</span></div>
+            <div class="receipt-rule"></div>
+            <div class="receipt-total"><span>Total</span><span>€45.00</span></div>
+            <div class="scan-corner tl"></div>
+            <div class="scan-corner tr"></div>
+            <div class="scan-corner bl"></div>
+            <div class="scan-corner br"></div>
           </div>
-          <div class="feat-trust-badges">
-            <div class="trust-badge">
-              <svg class="trust-check" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              GDPR Compliant
-            </div>
-            <div class="trust-badge">
-              <svg class="trust-check" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              EU-Hosted Data
-            </div>
-            <div class="trust-badge">
-              <svg class="trust-check" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Minimal Collection
-            </div>
+          <div class="px-scan-extracted">
+            <div class="ai-extracted-label">AI EXTRACTED</div>
+            <div class="px-scan-extracted-row"><span>Amount</span><b>€45.00</b></div>
+            <div class="px-scan-extracted-row"><span>Category</span><b>Farrier</b></div>
+            <div class="px-scan-extracted-row"><span>Horse</span><b>Bella</b></div>
           </div>
+          <div class="px-scan-save">Save expense</div>
         </div>
       </div>
 
     </div>
   </div>
-</div>
+</section>
 
-<!-- SCREENSHOTS -->
-<div class="screenshots-section">
-  <div class="screenshots-inner">
-    <div class="screenshots-text">
-      <div class="section-label">The app</div>
-      <h2 class="section-title">See it in action</h2>
-      <p class="section-sub">A clean, focused interface built for horse owners who want clarity — not complexity.</p>
-      <ul class="screenshots-features">
-        <li><span class="sf-dot"></span>Donut chart spending breakdown by category</li>
-        <li><span class="sf-dot"></span>Searchable, sortable expense history</li>
-        <li><span class="sf-dot"></span>AI scans receipts and fills in details automatically</li>
-      </ul>
-    </div>
-    <div class="phones-row">
-      <div class="phone-wrap phone-back">
-        <img src="assets/app-expenses.jpeg" alt="Expenses screen" />
-      </div>
-      <div class="phone-wrap phone-front">
-        <img src="assets/app-mainpage.jpeg" alt="Home overview screen" />
-      </div>
-      <div class="phone-wrap phone-back phone-right">
-        <img src="assets/app-scanreceipt.jpeg" alt="AI receipt scan screen" />
-      </div>
-    </div>
+<!-- AI-POWERED -->
+<section class="ai-section">
+  <div class="ai-section-copy">
+    <div class="eyebrow">AI-powered</div>
+    <h2 class="section-h2">Track what you spend.<br><span class="muted" style="color:rgba(42,20,32,.42)">Stay in the saddle.</span></h2>
+    <p class="section-sub">Equinomy's AI engine handles the tedious parts — reading receipts, assigning categories, spotting patterns in your spending.</p>
   </div>
-</div>
-
-<!-- AI STRIP -->
-<div class="ai-strip">
-  <div class="ai-strip-inner">
-    <div>
-      <div class="section-label">AI-powered</div>
-      <h2 class="section-title">Track what you spend.<br>Stay in the saddle.</h2>
-      <p class="section-sub">Equinomy's AI engine handles the tedious parts — reading receipts, assigning categories, spotting patterns in your spending.</p>
-    </div>
-    <div class="ai-pill-list">
-      <div class="ai-pill"><span class="ai-pill-dot"></span> Automatic receipt extraction</div>
-      <div class="ai-pill"><span class="ai-pill-dot"></span> Smart expense categorisation</div>
-      <div class="ai-pill"><span class="ai-pill-dot"></span> Monthly spending trends</div>
-      <div class="ai-pill"><span class="ai-pill-dot"></span> Per-horse cost breakdowns</div>
-      <div class="ai-pill"><span class="ai-pill-dot"></span> Budget alerts before you overspend</div>
-    </div>
+  <div class="ai-section-list">
+    <div class="ai-check-row"><div class="ai-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div><span>Automatic receipt extraction</span></div>
+    <div class="ai-check-row"><div class="ai-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div><span>Smart expense categorisation</span></div>
+    <div class="ai-check-row"><div class="ai-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div><span>Monthly spending trends</span></div>
+    <div class="ai-check-row"><div class="ai-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div><span>Per-horse cost breakdowns</span></div>
+    <div class="ai-check-row"><div class="ai-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div><span>Budget alerts before you overspend</span></div>
   </div>
-</div>
+</section>
 
 <!-- DOWNLOAD -->
-<div class="download-section" id="download">
-  <div class="section-label">Download</div>
-  <h2 class="section-title">Start tracking for free</h2>
-  <p class="section-sub" style="margin: 0.6rem auto 0; text-align: center;">Available on iOS and Android. Core features are always free.</p>
-  <div class="store-buttons">
-    <a href="#" class="store-badge-link">
-      <img src="assets/badge-appstore.svg" alt="Download on the App Store" width="160" height="54" />
-    </a>
-    <a href="#" class="store-badge-link">
-      <img src="assets/badge-googleplay.svg" alt="Get it on Google Play" width="160" height="54" />
-    </a>
+<section class="download" id="download">
+  <div class="download-panel">
+    <div class="download-glow"></div>
+    <div class="download-content">
+      <div class="eyebrow">Download</div>
+      <h2>Start tracking for free</h2>
+      <p>Available on iOS and Android. Core features are always free.</p>
+      <div class="store-buttons">
+        <a href="#" class="store-badge-link"><img src="assets/badge-appstore.svg" alt="Download on the App Store" /></a>
+        <a href="#" class="store-badge-link"><img src="assets/badge-googleplay.svg" alt="Get it on Google Play" /></a>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 <footer>
-  <div class="footer-links">
-    <a href="privacy-policy-en.html">Privacy Policy (EN)</a>
-    <a href="privacy-policy-de.html">Datenschutz (DE)</a>
-    <a href="privacy-policy-fr.html">Confidentialité (FR)</a>
-    <a href="privacy-policy-se.html">Integritetspolicy (SE)</a>
-    <a href="terms-en.html">Terms of Service (EN)</a>
-    <a href="terms-de.html">Nutzungsbedingungen (DE)</a>
-    <a href="terms-fr.html">CGU (FR)</a>
-    <a href="terms-se.html">Användarvillkor (SE)</a>
-    <a href="mailto:info@equinomyapp.com">Contact</a>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="assets/logo-icon.png" alt="Equinomy logo" />
+      <span>Equinomy</span>
+    </div>
+    <div class="footer-links">
+      <a href="privacy-policy-en.html">Privacy Policy (EN)</a>
+      <a href="privacy-policy-de.html">Datenschutz (DE)</a>
+      <a href="privacy-policy-fr.html">Confidentialité (FR)</a>
+      <a href="privacy-policy-se.html">Integritetspolicy (SE)</a>
+      <a href="terms-en.html">Terms of Service (EN)</a>
+      <a href="terms-de.html">Nutzungsbedingungen (DE)</a>
+      <a href="terms-fr.html">CGU (FR)</a>
+      <a href="terms-se.html">Användarvillkor (SE)</a>
+      <a href="mailto:info@equinomyapp.com">Contact</a>
+    </div>
   </div>
-  <p>&copy; 2026 Equinomy. All rights reserved.</p>
+  <div class="footer-rule"></div>
+  <div class="copyright">© 2026 Equinomy. All rights reserved.</div>
 </footer>
 
 </body>
