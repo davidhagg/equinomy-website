@@ -43,11 +43,16 @@ All styling is in `assets/style.css`. Key points:
 - **Font**: pure system stack (`-apple-system, ... system-ui, sans-serif`) everywhere —
   no webfont, no icon font, no emoji icons. Every feature card's own mini-visual (built
   from HTML/CSS/inline SVG) does the illustration work; don't add a leading icon tile.
-- **Phone mockups**: drawn entirely in HTML/CSS (bezel + screen classes `.phone-shell`/
-  `.phone-screen` for the hero phone, `.phone-shell-sm`/`.phone-screen-sm` for the
-  "see it in action" trio) — no screenshots. They depict the redesigned app; if the app
-  ships different screens, update these drawings to match rather than swapping in real
-  screenshots.
+- **Phone mockups**: the dark bezel is CSS (`.phone-shell`/`.phone-screen` for the hero
+  phone, `.phone-shell-sm`/`.phone-screen-sm` for the "see it in action" trio) — the
+  screen content itself is a real app screenshot (`assets/screenshots/`, a `.phone-
+  screenshot` `<img>`), not hand-drawn. Source screenshots come from the mobile repo's
+  `app-screenshots/` (fresh simulator captures); when swapping in new ones, resize with
+  `sips -Z 640` first (see git history for the exact command) rather than committing
+  full-resolution captures. The features grid's own small in-card visuals (bar/donut/
+  budget-row previews inside `Multi-Horse Support`, `Smart Expense Overviews`, etc.) are
+  a separate thing and stay hand-drawn HTML/CSS/inline SVG — only the two full-phone
+  mockup areas use screenshots.
 - **Responsive**: everything wraps via `flex-wrap`/`auto-fit` grids, no fixed
   two-column tracks — the page collapses to one column below ~620–760px depending on
   section. Breakpoints used: 920px, 860px, 680px, 560px.
@@ -58,12 +63,21 @@ Legal pages exist in English, German (`de`), French (`fr`), and Swedish (`se`). 
 
 ## Content Structure (index.html)
 
-The landing page has these sections in order, per `design/README.md`:
+The landing page has these sections in order, per `design/README.md` (note: the card
+count/badges below have drifted from that doc — Health Log & Reminders and Synced
+Across Devices were removed since those features don't exist/apply, and the Google
+Play badge is off until Android ships; update `design/README.md` if it's revised):
 1. Sticky nav (blurred cream bar, "Get the app" pink CTA)
-2. Hero (two-tone headline, CTA buttons, trust pills, CSS-drawn hero phone)
-3. Features grid (9 cards — 2 wide, 7 single; the "Income Too, Not Just Costs" card
-   is behind a content flag, on by default — see `design/README.md`'s Content Flags)
-4. "See it in action" — full-bleed dark plum band with 3 CSS-drawn phone mockups
-5. "AI-powered" — repeated headline + a 5-row checklist
-6. Download panel (pink gradient block, App Store + Google Play badges)
+2. Hero — no badge above the headline (removed; was "AI-powered expense tracking").
+   Two-tone headline, CTA buttons, trust pills (iOS only, not "iOS & Android"), real
+   screenshot in the CSS-drawn phone bezel.
+3. Features grid (7 cards — 1 wide, 6 single; the "Income Too, Not Just Costs" card
+   is behind a content flag, on by default — see `design/README.md`'s Content Flags).
+   The AI/receipt-scanning card is deliberately soft-pedaled — "Add Expenses in
+   Seconds", framed as manual entry OR camera scan, not an AI pitch.
+4. "See it in action" — full-bleed dark plum band, 3 real screenshots in CSS-drawn
+   phone bezels (Log, horse profile w/ shared costs, Budget)
+5. "Effortless" (was "AI-powered") — repeated headline + a 5-row checklist, reworded
+   to lead with manual-or-camera entry rather than "AI"
+6. Download panel (pink gradient block, App Store badge only — no Google Play)
 7. Footer (logo + link grid to all 4 languages × privacy/terms + contact)

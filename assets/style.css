@@ -199,18 +199,6 @@ nav {
 
 .hero-copy { flex: 1 1 380px; min-width: 0; animation: bloom 620ms cubic-bezier(.2, .8, .2, 1) both; }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(224, 22, 95, .09);
-  border: 1px solid rgba(224, 22, 95, .18);
-  border-radius: 999px;
-  padding: 8px 14px 8px 11px;
-}
-.hero-badge svg { stroke: var(--pink-deep); }
-.hero-badge span { font: 590 12.5px/1 -apple-system, system-ui, sans-serif; letter-spacing: .01em; color: var(--pink-deep); }
-
 .hero-copy h1 {
   font: 700 clamp(42px, 6.2vw, 72px)/1.02 -apple-system, system-ui, sans-serif;
   letter-spacing: -.038em;
@@ -248,7 +236,9 @@ nav {
   animation: bloom 760ms 90ms cubic-bezier(.2, .8, .2, 1) both;
 }
 
-/* ── PHONE MOCKUPS (drawn in HTML/CSS, no screenshots) ───────── */
+/* ── PHONE MOCKUPS (dark bezel drawn in CSS; screen content is a real
+   app screenshot — see assets/screenshots/, sourced from the mobile repo's
+   app-screenshots/) ───────── */
 .phone-shell {
   width: 100%; max-width: 314px;
   border-radius: 44px;
@@ -277,85 +267,10 @@ nav {
   aspect-ratio: 280 / 580;
   position: relative;
 }
-
-.status-row {
-  position: relative;
-  padding: 14px 18px 0;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.status-row.sm { padding: 14px 16px 0; }
-.status-time { font: 590 12px/1 -apple-system, system-ui, sans-serif; }
-.status-row.sm .status-time { font-size: 11.5px; }
-.status-battery { width: 15px; height: 8px; border: 1.4px solid rgba(42, 20, 32, .5); border-radius: 2.5px; }
-.status-row.sm .status-battery { width: 14px; height: 7.5px; }
-.status-time.on-dark { color: #fff; }
-.status-battery.on-dark { border-color: rgba(255, 255, 255, .5); }
-
-.hero-phone-glow {
-  position: absolute; top: -90px; left: 50%; transform: translateX(-50%);
-  width: 340px; height: 280px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(217, 130, 0, .3), rgba(217, 130, 0, 0) 66%);
-}
-
-.hero-period-pill {
-  position: relative; padding: 16px 18px 0; text-align: center;
-}
-.hero-period-pill span {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: rgba(255, 255, 255, .8); border: 1px solid rgba(42, 20, 32, .07);
-  border-radius: 999px; padding: 6px 12px;
-  font: 590 11.5px/1 -apple-system, system-ui, sans-serif; letter-spacing: .02em; color: rgba(42, 20, 32, .6);
-}
-
-.hero-figure { display: flex; align-items: flex-start; justify-content: center; gap: 4px; margin-top: 16px; }
-.hero-figure-num { font: 700 46px/1 -apple-system, system-ui, sans-serif; letter-spacing: -.034em; font-variant-numeric: tabular-nums; }
-.hero-figure-unit { font: 590 17px/1 -apple-system, system-ui, sans-serif; color: rgba(42, 20, 32, .4); margin-top: 7px; }
-.hero-caption { font: 400 12.5px/1 -apple-system, system-ui, sans-serif; color: rgba(42, 20, 32, .5); margin-top: 9px; text-align: center; }
-
-.hero-bars { position: relative; display: flex; align-items: flex-end; justify-content: space-between; gap: 6px; padding: 22px 20px 0; height: 96px; }
-.hero-bar { flex: 1; border-radius: 6px 6px 3px 3px; background: rgba(42, 20, 32, .09); }
-.hero-bar.active { background: linear-gradient(180deg, #e8a13a, var(--amber)); }
-.hero-bar-labels {
-  position: relative; display: flex; justify-content: space-between; gap: 6px; padding: 8px 20px 0;
-  font: 500 10px/1 -apple-system, system-ui, sans-serif; color: rgba(42, 20, 32, .35); text-align: center;
-}
-.hero-bar-labels span { flex: 1; }
-.hero-bar-labels span.active { color: var(--amber); font-weight: 700; }
-
-.entry-card {
-  position: relative; margin: 16px 14px 0; background: #fff;
-  border: 1px solid rgba(42, 20, 32, .06); border-radius: 20px; padding: 6px 14px;
-  box-shadow: 0 12px 26px -20px rgba(60, 15, 35, .5);
-}
-.entry-row { display: flex; align-items: center; gap: 11px; padding: 11px 0; border-bottom: 1px solid rgba(42, 20, 32, .06); }
-.entry-row:last-child { border-bottom: none; }
-.entry-icon { width: 31px; height: 31px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex: none; }
-.entry-icon svg { stroke-width: 2; }
-.entry-meta { min-width: 0; flex: 1; }
-.entry-title { font: 590 13.5px/1.25 -apple-system, system-ui, sans-serif; }
-.entry-sub { font: 400 11.5px/1.3 -apple-system, system-ui, sans-serif; color: rgba(42, 20, 32, .45); }
-.entry-amt { font: 590 13.5px/1 -apple-system, system-ui, sans-serif; font-variant-numeric: tabular-nums; }
-.entry-amt.positive { color: var(--green); }
-
-.tab-bar-row { position: absolute; left: 14px; right: 14px; bottom: 14px; display: flex; align-items: center; gap: 8px; }
-.tab-bar {
-  flex: 1; display: flex; align-items: center; justify-content: space-around;
-  background: rgba(255, 255, 255, .82); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(42, 20, 32, .06); border-radius: 22px; padding: 11px 8px;
-  box-shadow: 0 14px 30px -18px rgba(60, 15, 35, .5);
-}
-.tab-bar svg { stroke: rgba(42, 20, 32, .3); stroke-width: 2.1; }
-.tab-bar svg.active { stroke: var(--pink); }
-.fab {
-  width: 46px; height: 46px; border-radius: 16px; background: var(--cta-gradient);
-  display: flex; align-items: center; justify-content: center; flex: none;
-  box-shadow: 0 12px 26px -12px rgba(224, 22, 95, .95);
-}
-
-/* Small trio phones — tab bar */
-.tab-bar-row-sm { position: absolute; left: 12px; right: 12px; bottom: 12px; display: flex; align-items: center; justify-content: space-around; background: rgba(255, 255, 255, .85); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(42, 20, 32, .06); border-radius: 20px; padding: 10px 8px; }
-.tab-bar-row-sm svg { stroke: rgba(42, 20, 32, .3); stroke-width: 2.1; }
-.tab-bar-row-sm svg.active { stroke: var(--pink); }
+/* Screenshots are ~1206×2622 (iPhone simulator captures), aspect-ratio
+   ≈ 0.46 — a close match for both screen boxes above, so `cover` never
+   crops meaningfully; it's there as a safety net, not doing real work. */
+.phone-screenshot { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ── FEATURES ───────────────────────────────────────────────── */
 .features { max-width: 1140px; margin: 0 auto; padding: 76px 22px 0; }
@@ -378,7 +293,6 @@ nav {
 
 .card-wide { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 26px; align-items: center; }
 .card-wide > .card-copy { flex: 1 1 280px; min-width: 0; }
-.card-wide.health .card-copy { flex-basis: 300px; }
 .card-wide > .card-visual { flex: 1 1 280px; min-width: 0; }
 
 .card h3 {
@@ -443,28 +357,6 @@ nav {
 .budget-warning svg { stroke: var(--pink-hover); flex: none; }
 .budget-warning span { font: 590 12.5px/1.3 -apple-system, system-ui, sans-serif; color: var(--pink-hover); }
 
-/* Health log visual */
-.health-notif { display: flex; align-items: center; gap: 11px; background: rgba(42, 20, 32, .045); border-radius: 16px; padding: 12px 14px; margin-top: 20px; }
-.health-notif-icon { width: 30px; height: 30px; border-radius: 9px; background: var(--cta-gradient); display: flex; align-items: center; justify-content: center; flex: none; }
-.health-notif-icon svg { stroke: #fff; }
-.health-notif-head { display: flex; gap: 7px; align-items: baseline; }
-.health-notif-app { font: 590 12.5px/1.3 -apple-system, system-ui, sans-serif; }
-.health-notif-time { font: 400 11px/1.3 -apple-system, system-ui, sans-serif; color: rgba(42, 20, 32, .4); }
-.health-notif-title { font: 590 13px/1.35 -apple-system, system-ui, sans-serif; margin-top: 2px; }
-.health-notif-body { font: 400 12px/1.35 -apple-system, system-ui, sans-serif; color: rgba(42, 20, 32, .5); }
-
-.health-list { display: flex; flex-direction: column; gap: 8px; }
-.health-item { display: flex; align-items: center; gap: 12px; background: var(--cream); border-left: 3px solid; border-radius: 6px 14px 14px 6px; padding: 12px 14px; }
-.health-item-name { font: 590 14px/1.25 -apple-system, system-ui, sans-serif; }
-.health-item-due { font: 400 12px/1.3 -apple-system, system-ui, sans-serif; color: rgba(42, 20, 32, .5); }
-.health-badge { font: 590 11px/1 -apple-system, system-ui, sans-serif; padding: 6px 10px; border-radius: 999px; flex: none; }
-.health-overdue { border-color: var(--pink-hover); }
-.health-overdue .health-badge { color: var(--pink-hover); background: rgba(200, 16, 76, .1); }
-.health-soon { border-color: var(--amber); }
-.health-soon .health-badge { color: #a36200; background: rgba(217, 130, 0, .13); }
-.health-ok { border-color: var(--green); }
-.health-ok .health-badge { color: var(--green-deep); background: rgba(23, 160, 95, .12); }
-
 /* Analytics visual */
 .analytics-kpis { display: flex; gap: 9px; margin-top: 20px; }
 .analytics-kpi { flex: 1; background: var(--cream); border-radius: 14px; padding: 13px; }
@@ -485,15 +377,6 @@ nav {
 .income-net { display: flex; align-items: center; justify-content: space-between; gap: 11px; border-top: 1px solid rgba(42, 20, 32, .07); padding: 12px 13px 0; }
 .income-net-label { font: 400 13px/1 -apple-system, system-ui, sans-serif; color: rgba(42, 20, 32, .5); }
 .income-net-val { font: 700 15px/1 -apple-system, system-ui, sans-serif; font-variant-numeric: tabular-nums; }
-
-/* Sync visual */
-.sync-devices { display: flex; align-items: center; gap: 10px; margin-top: 20px; }
-.sync-device { flex: 1; background: var(--cream); border-radius: 14px; padding: 14px 13px; text-align: center; }
-.sync-device-name { font: 590 12.5px/1 -apple-system, system-ui, sans-serif; }
-.sync-device-status { font: 400 11px/1 -apple-system, system-ui, sans-serif; color: rgba(42, 20, 32, .45); margin-top: 6px; display: block; }
-.sync-status-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(23, 160, 95, .09); border-radius: 999px; padding: 9px 14px; margin-top: 12px; }
-.sync-status-pill .dot { width: 7px; height: 7px; border-radius: 4px; background: var(--green); }
-.sync-status-pill span { font: 590 12.5px/1 -apple-system, system-ui, sans-serif; color: var(--green-deep); }
 
 /* Privacy card */
 .privacy-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
@@ -516,65 +399,6 @@ nav {
 .action-pill span { font: 500 13.5px/1 -apple-system, system-ui, sans-serif; color: rgba(255, 255, 255, .82); }
 
 .action-phones { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; margin-top: 52px; align-items: start; }
-
-/* Trio phone screens */
-.px-title { padding: 14px 16px 0; }
-.px-title-text { font: 700 25px/1 -apple-system, system-ui, sans-serif; letter-spacing: -.028em; }
-.px-title-text.dark { color: #fff; font-size: 22px; letter-spacing: -.026em; }
-
-.px-search { margin: 13px 16px 0; display: flex; align-items: center; gap: 8px; background: rgba(42, 20, 32, .055); border-radius: 12px; padding: 9px 12px; }
-.px-search svg { stroke: rgba(42, 20, 32, .4); stroke-width: 2.2; }
-.px-search span { font: 400 13px/1 -apple-system, system-ui, sans-serif; color: rgba(42, 20, 32, .38); }
-
-.px-chips { display: flex; gap: 6px; padding: 12px 16px 0; overflow: hidden; }
-.px-chip { font: 590 11.5px/1 -apple-system, system-ui, sans-serif; border-radius: 999px; padding: 8px 12px; flex: none; }
-.px-chip.active { color: #fff; background: var(--ink); }
-.px-chip:not(.active) { color: rgba(42, 20, 32, .55); background: rgba(42, 20, 32, .055); }
-
-.px-list { margin: 14px 12px 0; background: #fff; border: 1px solid rgba(42, 20, 32, .06); border-radius: 18px; padding: 4px 13px; }
-.px-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(42, 20, 32, .06); }
-.px-row:last-child { border-bottom: none; }
-.px-row-icon { width: 28px; height: 28px; border-radius: 9px; display: flex; align-items: center; justify-content: center; flex: none; }
-.px-row-icon svg { stroke-width: 2; }
-.px-row-meta { flex: 1; min-width: 0; }
-.px-row-title { font: 590 12.5px/1.25 -apple-system, system-ui, sans-serif; }
-.px-row-sub { font: 400 10.5px/1.3 -apple-system, system-ui, sans-serif; color: rgba(42, 20, 32, .45); }
-.px-row-amt { font: 590 12.5px/1 -apple-system, system-ui, sans-serif; font-variant-numeric: tabular-nums; }
-.px-row-amt.positive { color: var(--green); }
-
-.px-donut-glow { position: absolute; top: -70px; left: 50%; transform: translateX(-50%); width: 300px; height: 240px; border-radius: 50%; background: radial-gradient(circle, rgba(224, 22, 95, .22), rgba(224, 22, 95, 0) 66%); }
-.px-donut-label { position: relative; text-align: center; padding: 18px 16px 0; font: 590 11px/1 -apple-system, system-ui, sans-serif; letter-spacing: .06em; color: rgba(42, 20, 32, .45); }
-.px-donut {
-  position: relative; width: 150px; height: 150px; margin: 16px auto 0; border-radius: 50%;
-  background: conic-gradient(var(--amber) 0 40%, var(--teal) 40% 65%, var(--green) 65% 85%, var(--grey) 85% 100%);
-}
-.px-donut-hole { position: absolute; inset: 19px; border-radius: 50%; background: var(--cream); display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.px-donut-total { font: 700 27px/1 -apple-system, system-ui, sans-serif; letter-spacing: -.028em; font-variant-numeric: tabular-nums; }
-.px-donut-sub { font: 400 10.5px/1 -apple-system, system-ui, sans-serif; color: rgba(42, 20, 32, .45); margin-top: 5px; }
-.px-legend { position: relative; margin: 18px 12px 0; background: #fff; border: 1px solid rgba(42, 20, 32, .06); border-radius: 18px; padding: 13px; }
-.px-legend-row { display: flex; align-items: center; gap: 8px; padding: 5px 0; }
-.px-legend-dot { width: 7px; height: 7px; border-radius: 4px; flex: none; }
-.px-legend-label { flex: 1; font: 500 12px/1 -apple-system, system-ui, sans-serif; color: rgba(42, 20, 32, .62); }
-.px-legend-val { font: 590 12px/1 -apple-system, system-ui, sans-serif; }
-
-.px-scan-screen { background: #1a0f16; display: flex; flex-direction: column; }
-.px-scan-body { position: relative; margin: 18px 20px 0; border-radius: 16px; background: #efe7e3; overflow: hidden; flex: 1; min-height: 0; padding: 16px; }
-.px-scan-body .receipt-store { color: rgba(42, 20, 32, .8); font-size: 10.5px; }
-.px-scan-body .receipt-date { font-size: 9px; }
-.px-scan-body .receipt-rule { background: rgba(42, 20, 32, .14); margin: 9px 0; }
-.px-scan-body .receipt-line { font-size: 9.5px; line-height: 1.7; }
-.px-scan-body .receipt-total { font-size: 10.5px; color: rgba(42, 20, 32, .85); }
-.scan-corner { position: absolute; width: 22px; height: 22px; border-color: var(--pink-pale2); border-style: solid; border-width: 0; }
-.scan-corner.tl { left: 8px; top: 8px; border-left-width: 2.5px; border-top-width: 2.5px; border-radius: 6px 0 0 0; }
-.scan-corner.tr { right: 8px; top: 8px; border-right-width: 2.5px; border-top-width: 2.5px; border-radius: 0 6px 0 0; }
-.scan-corner.bl { left: 8px; bottom: 8px; border-left-width: 2.5px; border-bottom-width: 2.5px; border-radius: 0 0 0 6px; }
-.scan-corner.br { right: 8px; bottom: 8px; border-right-width: 2.5px; border-bottom-width: 2.5px; border-radius: 0 0 6px 0; }
-.px-scan-extracted { margin: 16px 16px 0; background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .1); border-radius: 16px; padding: 14px; flex: none; }
-.px-scan-extracted .ai-extracted-label { color: var(--pink-pale); font-size: 9.5px; letter-spacing: .08em; }
-.px-scan-extracted-row { display: flex; justify-content: space-between; font: 400 11px/1.7 -apple-system, system-ui, sans-serif; color: rgba(255, 255, 255, .5); margin-top: 8px; }
-.px-scan-extracted-row + .px-scan-extracted-row { margin-top: 0; }
-.px-scan-extracted-row b { font-weight: 590; color: #fff; }
-.px-scan-save { margin: 12px 16px 14px; display: flex; align-items: center; justify-content: center; background: var(--cta-gradient); border-radius: 16px; padding: 14px; font: 590 14px/1 -apple-system, system-ui, sans-serif; color: #fff; flex: none; }
 
 /* ── AI-POWERED ─────────────────────────────────────────────── */
 .ai-section { max-width: 1140px; margin: 0 auto; padding: 88px 22px 0; display: flex; flex-wrap: wrap; gap: 36px 52px; align-items: center; }
@@ -649,10 +473,6 @@ footer .copyright { font: 400 13px/1 -apple-system, system-ui, sans-serif; color
 .policy-body hr { border: none; border-top: 1px solid rgba(42, 20, 32, .07); margin: 32px 0; }
 
 /* ── RESPONSIVE ─────────────────────────────────────────────── */
-@media (max-width: 920px) {
-  .card-wide.health { flex-wrap: wrap; }
-}
-
 @media (max-width: 860px) {
   .action-phones { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 }
